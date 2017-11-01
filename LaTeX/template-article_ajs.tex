@@ -1,0 +1,295 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{article}
+% \RequirePackage[l2tabu, orthodox]{nag}
+\usepackage[a4paper,text={16.5cm,25.2cm},centering,margin=2.6cm]{geometry}
+% \usepackage[left=1.0in,top=1.0in,right=1.0in,bottom=1.0in]{geometry}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\usepackage{hyperref,amsmath,amssymb,bm,url,enumitem,dcolumn,upquote,framed,alltt,textgreek,xfrac,fixltx2e}
+\usepackage[australian]{babel}
+\usepackage[compact,small]{titlesec}
+\setlength{\parskip}{1.2ex}
+\setlength{\parindent}{0em}
+
+\def\tightlist{}
+
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX} % To support LaTeX quoting style
+ \defaultfontfeatures{Ligatures=TeX,Numbers={OldStyle}}
+ \setmainfont{Minion Pro}
+ \setsansfont[Scale=MatchLowercase]{Myriad Pro}
+ \setmonofont[Scale=MatchLowercase]{Ubuntu Mono}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+  % \usepackage[full]{textcomp} % directly use the degree (and some other) symbol
+\fi
+
+% place after fonts; even better typesetting for improved readability:
+\graphicspath{ {figure/} }
+\usepackage{tabularx} % for 'tabularx' environment and 'X' column type
+\usepackage{ragged2e}  % for '\RaggedRight' macro (allows hyphenation)
+\usepackage{siunitx}
+    \sisetup{%
+        detect-mode,
+        group-digits            = false,
+        input-symbols           = ( ) [ ] - + < > *,
+        table-align-text-post   = false,
+        round-mode              = places,
+        round-precision         = 3
+        }
+% \usepackage[font={small, sf}, labelfont=bf]{caption} % tweaking the captions
+\usepackage[font={small}, labelfont=bf]{caption} % tweaking the captions
+\usepackage[color=yellow, textsize=tiny]{todonotes}
+\frenchspacing%
+% \usepackage[kerning=false,protrusion=true,expansion=true]{microtype}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{} % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\renewenvironment{abstract}
+{{%
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{\leftmargin}%
+}%
+\relax}
+{\endlist}
+
+\makeatletter
+\def\@maketitle{%
+\newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+\let \footnote \thanks
+ {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
+
+$if(appendix)$
+\renewcommand*\thetable{$appendixletter$.\arabic{table}}
+\renewcommand*\thefigure{$appendixletter$.\arabic{figure}}
+$endif$
+
+\setcounter{secnumdepth}{0}
+
+$if(listings)$
+\usepackage{listings}
+$endif$
+
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+$endif$
+
+$if(tables)$
+\usepackage{longtable,booktabs}
+\setlength\heavyrulewidth{0.1em}
+\setlength\lightrulewidth{0.0625em}
+$endif$
+
+$if(graphics)$
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+$endif$
+
+$if(title)$
+\title{$title$$if(subtitle)$: $subtitle$$endif$ $if(anonymous)$$else$$if(thanks)$\thanks{$thanks$} $endif$$endif$ }
+$endif$
+
+\author{$for(author)$\Large $author.name$\vspace{0.05in} \newline\normalsize\emph{$author.affiliation$}  $sep$ \and $endfor$}
+
+\date{}
+
+% PENALTIES
+\widowpenalty=1000
+\clubpenalty=1000
+\doublehyphendemerits=9999 % Almost no consecutive line hyphens
+\brokenpenalty=10000 % No broken words across columns/pages
+\interfootnotelinepenalty=9999 % Almost never break footnotes
+
+% SECTION, SUBSECETC.TITLES
+\usepackage[compact]{titlesec}
+\titleformat{\chapter}
+  {\normalfont\LARGE\sffamily\bfseries}
+  {\thechapter}
+  {1em}
+  {}
+\titleformat{\section}
+  {\normalfont\LARGE\sffamily\bfseries}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\Large\sffamily\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+\titleformat{\subsubsection}
+  {\normalfont\large\sffamily\bfseries\slshape}
+  {\thesubsubsection}
+  {1em}
+  {}
+% \titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}
+\titlespacing*{\chapter}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\section}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\subsection}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\subsubsection}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+
+$if(biblatex)$
+\usepackage{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+
+\newtheorem{hypothesis}{Hypothesis}
+\usepackage{setspace}
+
+\makeatletter
+
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[colorlinks=true, citecolor=blue, linkcolor=cyan, pdfborder={0 0 0 }, unicode=true]{hyperref} % place after other packages, but before cleveref
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+
+\usepackage{cleveref} % cleverly cross referencing figures and tables; last package to include
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% To use for resetting the numbering of Appendix Tables and Figures:
+%\setcounter{table}{0}
+%\renewcommand{\thetable}{A\arabic{table}}
+%\setcounter{figure}{0}
+%\renewcommand{\thefigure}{A\arabic{figure}}
+
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$if(anonymous)$$else$$for(author)$$author.name$ ($author.affiliation$)$sep$ and $endfor$$endif$},
+             pdfkeywords = {$if(keywords)$$keywords$$endif$},
+            pdftitle={$title$$if(subtitle)$: $subtitle$$endif$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+\begin{document}
+
+$if(title)$
+% \maketitle
+
+{% \usefont{T1}{pnc}{m}{n}
+\setlength{\parindent}{0pt}
+\thispagestyle{plain}
+{\fontsize{18}{20}\selectfont\raggedright
+\maketitle  % title \par
+}
+{
+   \vskip 13.5pt\relax \normalsize\fontsize{11}{12}
+$if(anonymous)$\hfill $else$$for(author)$\textbf{\authorfont $author.name$} \hskip 15pt \emph{\small $author.affiliation$}  $sep$ \par $endfor$ $endif$
+}
+}
+$endif$
+
+$if(toc)$
+{
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+
+$if(abstract)$
+\begin{abstract}
+    \hbox{\vrule height .2pt width 39.14pc}
+    \vskip 8.5pt % \small
+\noindent $abstract$
+$if(keywords)$
+\vskip 8.5pt \noindent \emph{Keywords}: $keywords$ \par
+    \hbox{\vrule height .2pt width 39.14pc}
+$else$
+    \hbox{\vrule height .2pt width 39.14pc}
+$endif$
+\end{abstract}
+$endif$
+
+\vskip 6.5pt
+
+\noindent $if(anonymous)$\doublespacing$else$$if(spacing)$\$spacing$spacing$endif$$endif$
+
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliographystyle{frontiersinSCNS_ENG_HUMS}
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

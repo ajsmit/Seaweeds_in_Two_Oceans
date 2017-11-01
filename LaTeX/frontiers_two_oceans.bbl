@@ -1,0 +1,596 @@
+\begin{thebibliography}{76}
+\providecommand{\natexlab}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Anderson et~al.(2013)Anderson, Tolimieri, and Millar}]{Anderson2013}
+Anderson, M.~J., Tolimieri, N., and Millar, R.~B. (2013).
+\newblock {Beta diversity of demersal fish assemblages in the North-Eastern
+  Pacific: interactions of latitude and depth}.
+\newblock \emph{PLOS ONE} 8, e57918
+\bibAnnoteFile{Anderson2013}
+
+\bibitem[{Barton et~al.(2013)Barton, Cunningham, Manning, Gibb, Lindenmayer,
+  and Didham}]{Barton2013}
+Barton, P.~S., Cunningham, S.~A., Manning, A.~D., Gibb, H., Lindenmayer, D.~B.,
+  and Didham, R.~K. (2013).
+\newblock {The spatial scaling of beta diversity}.
+\newblock \emph{Global Ecology and Biogeography} 22, 639--647
+\bibAnnoteFile{Barton2013}
+
+\bibitem[{Baselga(2010)}]{Baselga2010}
+Baselga, A. (2010).
+\newblock {Partitioning the turnover and nestedness components of beta
+  diversity}.
+\newblock \emph{Global Ecology and Biogeography} 19, 134--143
+\bibAnnoteFile{Baselga2010}
+
+\bibitem[{Baselga(2012)}]{Baselga2012}
+Baselga, A. (2012).
+\newblock The relationship between species replacement, dissimilarity derived
+  from nestedness, and nestedness.
+\newblock \emph{Global Ecology and Biogeography} 21, 1223--1232
+\bibAnnoteFile{Baselga2012}
+
+\bibitem[{Baselga et~al.(2012)Baselga, G~o~mez Rodr~'{\i}guez, and
+  Lobo}]{Baselga2012d}
+Baselga, A., G~o~mez Rodr~'{\i}guez, C., and Lobo, J.~M. (2012).
+\newblock {Historical legacies in world amphibian diversity revealed by the
+  turnover and nestedness components of beta diversity}.
+\newblock \emph{PLOS ONE} 7, e32341
+\bibAnnoteFile{Baselga2012d}
+
+\bibitem[{Baselga et~al.(2013)Baselga, Orme, Villeger, Bortoli, and
+  Leprieur}]{Baselga2013}
+Baselga, A., Orme, D., Villeger, S., Bortoli, J.~D., and Leprieur, F. (2013).
+\newblock \emph{{betapart: Partitioning beta diversity into turnover and
+  nestedness components}}.
+\newblock R package version 1.3
+\bibAnnoteFile{Baselga2013}
+
+\bibitem[{Blanchet et~al.(2008)Blanchet, Legendre, and Borcard}]{Blanchet2008}
+Blanchet, F.~G., Legendre, P., and Borcard, D. (2008).
+\newblock {Forward selection of explanatory variables}.
+\newblock \emph{Ecology} 89, 2623--2632
+\bibAnnoteFile{Blanchet2008}
+
+\bibitem[{Bolton(1994)}]{Bolton1994}
+Bolton, J. (1994).
+\newblock Global seaweed diversity: patterns and anomalies.
+\newblock \emph{Botanica Marina} 37, 241--246
+\bibAnnoteFile{Bolton1994}
+
+\bibitem[{Bolton(1986)}]{Bolton1986}
+Bolton, J.~J. (1986).
+\newblock {Marine phytogeography of the Benguela upwelling region on the west
+  coast of southern Africa: A temperature dependent approach}.
+\newblock \emph{Botanica Marina} 29, 251--256
+\bibAnnoteFile{Bolton1986}
+
+\bibitem[{Bolton(1996)}]{Bolton1996}
+Bolton, J.~J. (1996).
+\newblock {Patterns of species diversity and endemism in comparable temperate
+  brown algal floras}.
+\newblock \emph{Hydrobiologia} 326-327, 173--178
+\bibAnnoteFile{Bolton1996}
+
+\bibitem[{Bolton and Anderson(2004)}]{Bolton2004}
+Bolton, J.~J. and Anderson, R.~J. (2004).
+\newblock {Marine Vegetation}.
+\newblock In \emph{Vegetation of Southern Africa}, eds. R.~M. Cowling, D.~M.
+  Richardson, and S.~M. Pierce (Cambridge University Press). 348--370
+\bibAnnoteFile{Bolton2004}
+
+\bibitem[{Bolton et~al.(2004)Bolton, Leliaert, {De Clerck}, Anderson, Stegenga,
+  Engledow et~al.}]{BoltonAnderson2004}
+Bolton, J.~J., Leliaert, F., {De Clerck}, O., Anderson, R.~J., Stegenga, H.,
+  Engledow, H.~E., et~al. (2004).
+\newblock {Where is the western limit of the tropical Indian Ocean seaweed
+  flora? An analysis of intertidal seaweed biogeography on the east coast of
+  South Africa}.
+\newblock \emph{Marine Biology} 144, 51--59
+\bibAnnoteFile{BoltonAnderson2004}
+
+\bibitem[{Bolton and Stegenga(2002)}]{Bolton2002}
+Bolton, J.~J. and Stegenga, H. (2002).
+\newblock {Seaweed species diversity in South Africa}.
+\newblock \emph{South African Journal of Marine Science} 24, 9--18
+\bibAnnoteFile{Bolton2002}
+
+\bibitem[{Breeman(1988)}]{Breeman1988}
+Breeman, A.~M. (1988).
+\newblock {Relative importance of temperature and other factors in determining
+  geographic boundaries of seaweeds: experimental and phenological evidence}.
+\newblock \emph{Helgol\"{a}nder Meeresuntersuchungen} 42, 199--241
+\bibAnnoteFile{Breeman1988}
+
+\bibitem[{Broitman et~al.(2008)Broitman, Blanchette, Menge, Lubchenco, Krenz,
+  Foley et~al.}]{Broitman2008}
+Broitman, B.~R., Blanchette, C.~A., Menge, B.~A., Lubchenco, J., Krenz, C.,
+  Foley, M., et~al. (2008).
+\newblock {Spatial and temporal patterns of invertebrate recruitment along the
+  west coast of the United States}.
+\newblock \emph{Ecological Monographs} 78, 403--421
+\bibAnnoteFile{Broitman2008}
+
+\bibitem[{Byrne et~al.(2009)Byrne, Ho, Selvakumaraswamy, Nguyen, Dworjanyn, and
+  Davis}]{Byrne2009}
+Byrne, M., Ho, M., Selvakumaraswamy, P., Nguyen, H.~D., Dworjanyn, S.~A., and
+  Davis, A.~R. (2009).
+\newblock {Temperature, but not pH, compromises sea urchin fertilization and
+  early development under near-future climate change scenarios}.
+\newblock \emph{Proceedings of the Royal Society B: Biological Sciences} 276,
+  1883--1888
+\bibAnnoteFile{Byrne2009}
+
+\bibitem[{Chave(2013)}]{Chave2013}
+Chave, J. (2013).
+\newblock {The problem of pattern and scale in ecology: what have we learned in
+  20 years?}
+\newblock \emph{Ecology Letters} 16 Suppl 1, 4--16
+\bibAnnoteFile{Chave2013}
+
+\bibitem[{Church et~al.(2013)Church, Clark, Cazenave, Gregory, Jevrejeva,
+  Levermann et~al.}]{AR5}
+Church, J.~A., Clark, P.~U., Cazenave, A., Gregory, J.~M., Jevrejeva, S.,
+  Levermann, A., et~al. (2013).
+\newblock Climate change 2013: the physical science basis. contribution of
+  working group i to the fifth assessment report of the intergovernmental panel
+  on climate change.
+\newblock \emph{Sea level change} , 1137--1216
+\bibAnnoteFile{AR5}
+
+\bibitem[{Couce et~al.(2012)Couce, Ridgwell, and Hendy}]{Couce2012}
+Couce, E., Ridgwell, A., and Hendy, E.~J. (2012).
+\newblock {Environmental controls on the global distribution of shallow-water
+  coral reefs}.
+\newblock \emph{Journal of Biogeography} 39, 1508--1523
+\bibAnnoteFile{Couce2012}
+
+\bibitem[{Davidar et~al.(2007)Davidar, Rajagopal, Mohandass, Puyravaud, Condit,
+  Wright et~al.}]{Davidar2007}
+Davidar, P., Rajagopal, B., Mohandass, D., Puyravaud, J.-P., Condit, R.,
+  Wright, S., et~al. (2007).
+\newblock The effect of climatic gradients, topographic variation and species
+  traits on the beta diversity of rain forest trees.
+\newblock \emph{Global Ecology and Biogeography} 16, 510--518
+\bibAnnoteFile{Davidar2007}
+
+\bibitem[{De~Clerck et~al.(2005)De~Clerck, Bolton, Anderson, and
+  Coppejans}]{DeClerck2005}
+De~Clerck, O., Bolton, J.~J., Anderson, R.~J., and Coppejans, E. (2005).
+\newblock {Guide to the seaweeds of KwaZulu-Natal}.
+\newblock \emph{Scripta Botanica Belgica} 33, 294 pp.
+\bibAnnoteFile{DeClerck2005}
+
+\bibitem[{De~Wit and Bouvier(2006)}]{deWit2006}
+De~Wit, R. and Bouvier, T. (2006).
+\newblock {'Everything is everywhere, but, the environment selects'; what did
+  Baas Becking and Beijerinck really say?}
+\newblock \emph{Environmental Microbiology} 8, 755--758
+\bibAnnoteFile{deWit2006}
+
+\bibitem[{Dormann et~al.(2013)Dormann, Elith, Bacher, Buchmann, Carl, Carr\'{e}
+  et~al.}]{Dormann2013}
+Dormann, C.~F., Elith, J., Bacher, S., Buchmann, C., Carl, G., Carr\'{e}, G.,
+  et~al. (2013).
+\newblock {Collinearity: a review of methods to deal with it and a simulation
+  study evaluating their performance}.
+\newblock \emph{Ecography} 36, 027--046
+\bibAnnoteFile{Dormann2013}
+
+\bibitem[{Dray et~al.(2006)Dray, Legendre, and Peres-Neto}]{Dray2006}
+Dray, S., Legendre, P., and Peres-Neto, P.~R. (2006).
+\newblock {Spatial modelling: a comprehensive framework for principal
+  coordinate analysis of neighbour matrices (PCNM)}.
+\newblock \emph{Ecological Modelling} 196, 483--493
+\bibAnnoteFile{Dray2006}
+
+\bibitem[{Dray et~al.(2012)Dray, P{\'e}lissier, Couteron, Fortin, Legendre,
+  Peres-Neto et~al.}]{Dray2012a}
+Dray, S., P{\'e}lissier, R., Couteron, P., Fortin, M.~J., Legendre, P.,
+  Peres-Neto, P.~R., et~al. (2012).
+\newblock {Community ecology in the age of multivariate multiscale spatial
+  analysis}.
+\newblock \emph{Ecological Monographs} 82, 257--275
+\bibAnnoteFile{Dray2012a}
+
+\bibitem[{Fitzpatrick et~al.(2013)Fitzpatrick, Sanders, Normand, Svenning,
+  Ferrier, Gove et~al.}]{Fitzpatrick2013}
+Fitzpatrick, M.~C., Sanders, N.~J., Normand, S., Svenning, J.-C., Ferrier, S.,
+  Gove, A.~D., et~al. (2013).
+\newblock {Environmental and historical imprints on beta diversity: insights
+  from variation in rates of species turnover along gradients.}
+\newblock \emph{Proceedings of the Royal Society B: Biological Sciences} 280,
+  20131201
+\bibAnnoteFile{Fitzpatrick2013}
+
+\bibitem[{Graham(2003)}]{Graham2003}
+Graham, M.~H. (2003).
+\newblock {Confronting multicollinearity in ecological multiple regression}.
+\newblock \emph{Ecology} 84, 2809--2815
+\bibAnnoteFile{Graham2003}
+
+\bibitem[{Griffiths et~al.(2010)Griffiths, Robinson, Lange, and
+  Mead}]{Griffiths2010}
+Griffiths, C.~L., Robinson, T.~B., Lange, L., and Mead, A. (2010).
+\newblock {Marine biodiversity in South Africa: an evaluation of current states
+  of knowledge}.
+\newblock \emph{PLOS ONE} 5, e12008
+\bibAnnoteFile{Griffiths2010}
+
+\bibitem[{Hommersand(1986)}]{Hommersand1986}
+Hommersand, M. (1986).
+\newblock {The biogeography of the South African marine red algae: A model}.
+\newblock \emph{Botanica Marina} 29, 257--270
+\bibAnnoteFile{Hommersand1986}
+
+\bibitem[{Hommersand and Fredericq(2003)}]{Hommersand2003}
+Hommersand, M.~H. and Fredericq, S. (2003).
+\newblock {Biogeography of the marine red algae of the South African West
+  Coast: a molecular approach}.
+\newblock \emph{Proceedings of the International Seaweed Symposium} 17,
+  325--336
+\bibAnnoteFile{Hommersand2003}
+
+\bibitem[{Hubbell(2001)}]{Hubbell2001}
+Hubbell, S.~P. (2001).
+\newblock {The unified neutral theory of biodiversity and biogeography}.
+\newblock \emph{Monographs in Population Biology}
+\bibAnnoteFile{Hubbell2001}
+
+\bibitem[{Issa et~al.(2016)Issa, Hifney, Abdel-Gawad, and Gomaa}]{Issa2014}
+Issa, A.~A., Hifney, A.~F., Abdel-Gawad, K.~M., and Gomaa, M. (2016).
+\newblock {Spatio temporal and environmental factors influencing macroalgal
+  $\beta$ diversity in the Red Sea, Egypt}.
+\newblock \emph{Botanica Marina} 57, 1--13
+\bibAnnoteFile{Issa2014}
+
+\bibitem[{Largier et~al.(1992)Largier, Chapman, Peterson, and
+  Swart}]{Largier1992}
+Largier, J.~L., Chapman, P., Peterson, W.~T., and Swart, V.~P. (1992).
+\newblock {The western Agulhas Bank: circulation, stratification and ecology}.
+\newblock \emph{South African Journal of Marine Science} 12, 319--339
+\bibAnnoteFile{Largier1992}
+
+\bibitem[{Lawton(1999)}]{Lawton1999}
+Lawton, J.~H. (1999).
+\newblock {Are there general laws in ecology?}
+\newblock \emph{Oikos} 84, 177
+\bibAnnoteFile{Lawton1999}
+
+\bibitem[{Leaper et~al.(2011)Leaper, Hill, Edgar, Ellis, Lawrence, Pitcher
+  et~al.}]{Leaper2011}
+Leaper, R., Hill, N.~A., Edgar, G.~J., Ellis, N., Lawrence, E., Pitcher, C.~R.,
+  et~al. (2011).
+\newblock {Predictions of beta diversity for reef macroalgae across
+  southeastern Australia}.
+\newblock \emph{Ecosphere} 2, 1--18
+\bibAnnoteFile{Leaper2011}
+
+\bibitem[{Lombard et~al.(2004)Lombard, Strauss, Harris, Sink, Attwood, and
+  Hutchings}]{Lombard2004}
+Lombard, A.~T., Strauss, T., Harris, J., Sink, K., Attwood, C., and Hutchings,
+  L. (2004).
+\newblock \emph{{South African National Spatial Biodiversity Assessment 2004}}.
+\newblock Tech. rep., South African National Biodiversity Institute
+\bibAnnoteFile{Lombard2004}
+
+\bibitem[{L{\"u}ning et~al.(1990)L{\"u}ning, Yarish, and
+  Kirkman}]{luning1990seaweeds}
+L{\"u}ning, K., Yarish, C., and Kirkman, H. (1990).
+\newblock \emph{Seaweeds: their environment, biogeography, and ecophysiology}
+  (John Wiley \& Sons)
+\bibAnnoteFile{luning1990seaweeds}
+
+\bibitem[{Marlow et~al.(2000)Marlow, Lange, Wefer, and
+  Rosell-Mele}]{Marlow2000}
+Marlow, J.~R., Lange, C.~B., Wefer, G., and Rosell-Mele, A. (2000).
+\newblock {Upwelling intensification as part of the Pliocene-Pleistocene
+  climate transition.}
+\newblock \emph{Science} 290, 2288--2291
+\bibAnnoteFile{Marlow2000}
+
+\bibitem[{McClain et~al.(2011)McClain, Stegen, and Hurlbert}]{McClain2011}
+McClain, C.~R., Stegen, J.~C., and Hurlbert, A.~H. (2011).
+\newblock Dispersal, environmental niches and oceanic-scale turnover in
+  deep-sea bivalves.
+\newblock \emph{Proceedings of the Royal Society of London B: Biological
+  Sciences} , rspb20112166
+\bibAnnoteFile{McClain2011}
+
+\bibitem[{Mead et~al.(2013)Mead, Griffiths, Branch, McQuaid, Blamey, Bolton
+  et~al.}]{Mead2013}
+Mead, A., Griffiths, C.~L., Branch, G.~M., McQuaid, C.~D., Blamey, L.~K.,
+  Bolton, J.~J., et~al. (2013).
+\newblock {Human-mediated drivers of change -- impacts on coastal ecosystems
+  and marine biota of South Africa}.
+\newblock \emph{African Journal of Marine Science} 35, 403--425
+\bibAnnoteFile{Mead2013}
+
+\bibitem[{Melo et~al.(2009)Melo, Rangel, and Diniz-Filho}]{Melo2009}
+Melo, A.~S., Rangel, T. F. L. V.~B., and Diniz-Filho, J. A.~F. (2009).
+\newblock {Environmental drivers of beta-diversity patterns in New-World birds
+  and mammals}.
+\newblock \emph{Ecography} 32, 226--236
+\bibAnnoteFile{Melo2009}
+
+\bibitem[{Minchin(1987)}]{Minchin1987}
+Minchin, P.~R. (1987).
+\newblock {An evaluation of the relative robustness of techniques for
+  ecological ordination}.
+\newblock \emph{Vegetatio} 69, 89--107.
+\newblock \doi{10.1007/BF00038690}
+\bibAnnoteFile{Minchin1987}
+
+\bibitem[{Nekola et~al.(1999)Nekola, White, Carolina, Nekola, and
+  Curriculum}]{Nekola1999}
+Nekola, J.~C., White, P.~S., Carolina, N., Nekola, C., and Curriculum, P. S.~W.
+  (1999).
+\newblock {The distance decay of similarity in biogeography and ecology}.
+\newblock \emph{Journal of Biogeography} 26, 867--878
+\bibAnnoteFile{Nekola1999}
+
+\bibitem[{Oksanen et~al.(2016)Oksanen, Blanchet, Friendly, Kindt, Legendre,
+  McGlinn et~al.}]{oksanen2016vegan}
+Oksanen, J., Blanchet, F.~G., Friendly, M., Kindt, R., Legendre, P., McGlinn,
+  D., et~al. (2016).
+\newblock \emph{{vegan: Community Ecology Package}}.
+\newblock R package version 2.4-0
+\bibAnnoteFile{oksanen2016vegan}
+
+\bibitem[{Peres-Neto and Legendre(2010)}]{PeresNeto2010}
+Peres-Neto, P.~R. and Legendre, P. (2010).
+\newblock {Estimating and controlling for spatial structure in the study of
+  ecological communities}.
+\newblock \emph{Global Ecology and Biogeography} 19, 174--184
+\bibAnnoteFile{PeresNeto2010}
+
+\bibitem[{Peres-Neto et~al.(2006)Peres-Neto, Legendre, Dray, and
+  Borcard}]{Peres-Neto2006}
+Peres-Neto, P.~R., Legendre, P., Dray, S., and Borcard, D. (2006).
+\newblock {Variation partitioning of species data matrices: estimation and
+  comparison of fractions}.
+\newblock \emph{Ecology} 87, 2614--2625
+\bibAnnoteFile{Peres-Neto2006}
+
+\bibitem[{Potts et~al.(2014)Potts, Henriques, Santos, Munnik, Ansorge, Dufois
+  et~al.}]{Potts2014}
+Potts, W.~M., Henriques, R., Santos, C.~V., Munnik, K., Ansorge, I., Dufois,
+  F., et~al. (2014).
+\newblock {Ocean warming, a rapid distributional shift, and the hybridization
+  of a coastal fish species}.
+\newblock \emph{Global Change Biology} 20, 2765--2777
+\bibAnnoteFile{Potts2014}
+
+\bibitem[{Qian and Ricklefs(2007)}]{Qian2007}
+Qian, H. and Ricklefs, R.~E. (2007).
+\newblock {A latitudinal gradient in large-scale beta diversity for vascular
+  plants in North America}.
+\newblock \emph{Ecology Letters} 10, 737--744
+\bibAnnoteFile{Qian2007}
+
+\bibitem[{{R Core Team}(2017)}]{R2017}
+{R Core Team} (2017).
+\newblock \emph{{R: A Language and Environment for Statistical Computing}}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria
+\bibAnnoteFile{R2017}
+
+\bibitem[{Santelices et~al.(2009)Santelices, Bolton, and
+  Meneses}]{Santelices2009}
+Santelices, B., Bolton, J., and Meneses, I. (2009).
+\newblock Chapter 6. marine algal communities.
+\newblock \emph{Marine macroecology} , 153
+\bibAnnoteFile{Santelices2009}
+
+\bibitem[{Schils and Wilson(2006)}]{Schils2006}
+Schils, T. and Wilson, S.~C. (2006).
+\newblock {Temperature threshold as a biogeographic barrier in northern Indian
+  Ocean macroalgae}.
+\newblock \emph{Journal of Phycology} 42, 749--756
+\bibAnnoteFile{Schils2006}
+
+\bibitem[{Schlegel et~al.(2017)Schlegel, Oliver, Wernberg, and
+  Smit}]{Schlegel2017}
+Schlegel, R.~W., Oliver, E. C.~J., Wernberg, T., and Smit, A.~J. (2017).
+\newblock Nearshore and offshore co-occurrence of marine heatwaves and
+  cold-spells.
+\newblock \emph{Progress in Oceanography} 151, 189–205
+\bibAnnoteFile{Schlegel2017}
+
+\bibitem[{Sink et~al.(2005)Sink, Branch, and Harris}]{Sink2005}
+Sink, K.~J., Branch, G.~M., and Harris, J.~M. (2005).
+\newblock {Biogeographic patterns in rocky intertidal communities in
+  KwaZulu-Natal, South Africa}.
+\newblock \emph{African Journal of Marine Science} 27, 81--96
+\bibAnnoteFile{Sink2005}
+
+\bibitem[{Smale et~al.(2011)Smale, Kendrick, and Wernberg}]{Smale2011}
+Smale, D., Kendrick, G., and Wernberg, T. (2011).
+\newblock {Subtidal macroalgal richness, diversity and turnover, at multiple
+  spatial scales, along the southwestern Australian coastline}.
+\newblock \emph{Estuarine, Coastal and Shelf Science} 91, 224--231
+\bibAnnoteFile{Smale2011}
+
+\bibitem[{Smale et~al.(2010)Smale, Kendrick, and Wernberg}]{Smale2010}
+Smale, D.~A., Kendrick, G.~A., and Wernberg, T. (2010).
+\newblock Assemblage turnover and taxonomic sufficiency of subtidal macroalgae
+  at multiple spatial scales.
+\newblock \emph{Journal of Experimental Marine Biology and Ecology} 384, 76--86
+\bibAnnoteFile{Smale2010}
+
+\bibitem[{Smit et~al.(2013)Smit, Roberts, Anderson, Dufois, Dudley, Bornman
+  et~al.}]{Smit2013}
+Smit, A.~J., Roberts, M., Anderson, R.~J., Dufois, F., Dudley, S. F.~J.,
+  Bornman, T.~G., et~al. (2013).
+\newblock {A coastal seawater temperature dataset for biogeographical studies:
+  large biases between \emph{in situ} and remotely-sensed data sets around the
+  coast of South Africa}.
+\newblock \emph{PLOS ONE} 8, e81944
+\bibAnnoteFile{Smit2013}
+
+\bibitem[{Soininen et~al.(2007)Soininen, McDonald, and
+  Hillebrand}]{Soininen2007a}
+Soininen, J., McDonald, R., and Hillebrand, H. (2007).
+\newblock The distance decay of similarity in ecological communities.
+\newblock \emph{Ecography} 30, 3--12
+\bibAnnoteFile{Soininen2007a}
+
+\bibitem[{Spalding et~al.(2012)Spalding, Agostini, Rice, and
+  Grant}]{Spalding2012}
+Spalding, M.~D., Agostini, V.~N., Rice, J., and Grant, S.~M. (2012).
+\newblock {Pelagic provinces of the world: a biogeographic classification of
+  the world's surface pelagic waters}.
+\newblock \emph{Ocean and Coastal Management} 60, 19--30
+\bibAnnoteFile{Spalding2012}
+
+\bibitem[{Spalding et~al.(2007)Spalding, Fox, Allen, Davidson, Ferda\~{n}a,
+  Finlayson et~al.}]{Spalding2007}
+Spalding, M.~D., Fox, H.~E., Allen, G.~R., Davidson, N., Ferda\~{n}a, Z.~A.,
+  Finlayson, M. A.~X., et~al. (2007).
+\newblock {Marine ecoregions of the world: a bioregionalization of coastal and
+  shelf areas}.
+\newblock \emph{BioScience} 57, 573--583
+\bibAnnoteFile{Spalding2007}
+
+\bibitem[{Stegenga et~al.(1997)Stegenga, Bolton, and Anderson}]{Stegenga1997}
+Stegenga, H., Bolton, J.~J., and Anderson, R.~J. (1997).
+\newblock {Seaweeds of the South African west coast}.
+\newblock \emph{Contributions of the Bolus Herbarium} 18, 3--637
+\bibAnnoteFile{Stegenga1997}
+
+\bibitem[{Stephenson(1948)}]{Stephenson1948}
+Stephenson, T.~A. (1948).
+\newblock {The constitution of the intertidal fauna and flora of South Africa,
+  Part 3}.
+\newblock \emph{Annals of the Natal Museum} 11, 207--324
+\bibAnnoteFile{Stephenson1948}
+
+\bibitem[{Stuart-Smith et~al.(2017)Stuart-Smith, Edgar, and
+  Bates}]{StuartSmith2017b}
+Stuart-Smith, R.~D., Edgar, G.~J., and Bates, A.~E. (2017).
+\newblock {Thermal limits to the geographic distributions of shallow-water
+  marine species}.
+\newblock \emph{Nature Ecology {\&} Evolution} , 1--9
+\bibAnnoteFile{StuartSmith2017b}
+
+\bibitem[{Tittensor et~al.(2010)Tittensor, Mora, Jetz, Lotze, Ricard, Berghe
+  et~al.}]{Tittensor2010}
+Tittensor, D.~P., Mora, C., Jetz, W., Lotze, H.~K., Ricard, D., Berghe, E.~V.,
+  et~al. (2010).
+\newblock {Global patterns and predictors of marine biodiversity across taxa}.
+\newblock \emph{Nature} 466, 1098--1101
+\bibAnnoteFile{Tittensor2010}
+
+\bibitem[{Tonial et~al.(2012)Tonial, Silva, Tonial, Costa, {Silva J\'{u}nior},
+  and Diniz-Filho}]{Tonial2012}
+Tonial, M., Silva, H., Tonial, I., Costa, M., {Silva J\'{u}nior}, N.~J., and
+  Diniz-Filho, J. (2012).
+\newblock {Geographical patterns and partition of turnover and richness
+  components of beta-diversity in faunas from Tocantins river valley}.
+\newblock \emph{Brazilian Journal of Biology} 72, 497--504
+\bibAnnoteFile{Tonial2012}
+
+\bibitem[{Tuya et~al.(2012)Tuya, Cacabelos, Duarte, Jacinto, Castro, Silva
+  et~al.}]{Tuya2012}
+Tuya, F., Cacabelos, E., Duarte, P., Jacinto, D., Castro, J., Silva, T., et~al.
+  (2012).
+\newblock {Patterns of landscape and assemblage structure along a latitudinal
+  gradient in ocean climate}.
+\newblock \emph{Marine Ecology Progress Series} 466, 9--19
+\bibAnnoteFile{Tuya2012}
+
+\bibitem[{Tyberghein et~al.(2012)Tyberghein, Verbruggen, Pauly, Troupin,
+  Mineur, and {De Clerck}}]{Tyberghein2012}
+Tyberghein, L., Verbruggen, H., Pauly, K., Troupin, C., Mineur, F., and {De
+  Clerck}, O. (2012).
+\newblock {Bio-ORACLE: a global environmental dataset for marine species
+  distribution modelling}.
+\newblock \emph{Global Ecology and Biogeography} 21, 272--281
+\bibAnnoteFile{Tyberghein2012}
+
+\bibitem[{van~den Hoek(1982{\natexlab{a}})}]{VandenHoek1982a}
+van~den Hoek, C. (1982{\natexlab{a}}).
+\newblock {Phytogeographic distribution groups of benthic marine algae in the
+  North Atlantic Ocean. A review of experimental evidence from life history
+  studies}.
+\newblock \emph{Helgol\"{a}nder Meeresuntersuchungen} 35, 153--214
+\bibAnnoteFile{VandenHoek1982a}
+
+\bibitem[{van~den Hoek(1982{\natexlab{b}})}]{VandenHoek1982}
+van~den Hoek, C. (1982{\natexlab{b}}).
+\newblock {The distribution of benthic marine algae in relation to the
+  temperature regulation of their life histories}.
+\newblock \emph{Biological Journal of the Linnean Society} 18, 81--144
+\bibAnnoteFile{VandenHoek1982}
+
+\bibitem[{Verbruggen et~al.(2009)Verbruggen, Tyberghein, Pauly, Vlaeminck,
+  Nieuwenhuyze, Kooistra et~al.}]{Verbruggen2009}
+Verbruggen, H., Tyberghein, L., Pauly, K., Vlaeminck, C., Nieuwenhuyze, K.~V.,
+  Kooistra, W. H. C.~F., et~al. (2009).
+\newblock {Macroecology meets macroevolution: evolutionary niche dynamics in
+  the seaweed Halimeda}.
+\newblock \emph{Global Ecology and Biogeography} 18, 393--405
+\bibAnnoteFile{Verbruggen2009}
+
+\bibitem[{Waldron and Probyn(1992)}]{Waldron1992}
+Waldron, H.~N. and Probyn, T.~A. (1992).
+\newblock {Nitrate supply and potential new production in the Benguela
+  upwelling system}.
+\newblock \emph{South African Journal of Marine Science} 12, 29--39
+\bibAnnoteFile{Waldron1992}
+
+\bibitem[{Waters et~al.(2010)Waters, Wernberg, Connell, Thomsen, Zuccarello,
+  Kraft et~al.}]{Waters2010}
+Waters, J.~M., Wernberg, T., Connell, S.~D., Thomsen, M.~S., Zuccarello, G.~C.,
+  Kraft, G.~T., et~al. (2010).
+\newblock {Australia's marine biogeography revisited: back to the future?}
+\newblock \emph{Austral Ecology} 35, 988--992
+\bibAnnoteFile{Waters2010}
+
+\bibitem[{Wernberg et~al.(2013)Wernberg, Thomsen, Connell, Russell, Waters,
+  Zuccarello et~al.}]{Wernberg2013}
+Wernberg, T., Thomsen, M.~S., Connell, S.~D., Russell, B.~D., Waters, J.~M.,
+  Zuccarello, G.~C., et~al. (2013).
+\newblock {The footprint of continental-scale ocean currents on the
+  biogeography of seaweeds.}
+\newblock \emph{PLOS ONE} 8, e80168
+\bibAnnoteFile{Wernberg2013}
+
+\bibitem[{Whittaker(1960)}]{Whittaker1960}
+Whittaker, R.~H. (1960).
+\newblock {Vegetation of the Siskiyou mountains, Oregon and California}.
+\newblock \emph{Ecological Monographs} 30, 279--338
+\bibAnnoteFile{Whittaker1960}
+
+\bibitem[{Whittaker(1972)}]{Whittaker1972}
+Whittaker, R.~H. (1972).
+\newblock Evolution and measurement of species diversity.
+\newblock \emph{Taxon} , 213--251
+\bibAnnoteFile{Whittaker1972}
+
+\bibitem[{Wieters et~al.(2009)Wieters, Broitman, and Branch}]{Wieters2009}
+Wieters, E.~A., Broitman, B.~R., and Branch, G.~M. (2009).
+\newblock {Benthic community structure and spatiotemporal thermal regimes in
+  two upwelling ecosystems: comparisons between South Africa and Chile}.
+\newblock \emph{Limnology and Oceanography} 54, 1060--1072
+\bibAnnoteFile{Wieters2009}
+
+\bibitem[{Zintzen et~al.(2011)Zintzen, Anderson, Roberts, and
+  Diebel}]{Zintzen2010}
+Zintzen, V., Anderson, M.~J., Roberts, C.~D., and Diebel, C.~E. (2011).
+\newblock Increasing variation in taxonomic distinctness reveals clusters of
+  specialists in the deep sea.
+\newblock \emph{Ecography} 34, 306--317
+\bibAnnoteFile{Zintzen2010}
+
+\end{thebibliography}

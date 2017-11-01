@@ -1,0 +1,1575 @@
+\documentclass[10pt,A4,]{article}
+% \RequirePackage[l2tabu, orthodox]{nag}
+\usepackage[a4paper,text={16.5cm,25.2cm},centering,margin=2.6cm]{geometry}
+% \usepackage[left=1.0in,top=1.0in,right=1.0in,bottom=1.0in]{geometry}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\usepackage{hyperref,amsmath,amssymb,bm,url,enumitem,dcolumn,upquote,framed,alltt,textgreek,xfrac,fixltx2e}
+\usepackage[australian]{babel}
+\usepackage[compact,small]{titlesec}
+\setlength{\parskip}{1.2ex}
+\setlength{\parindent}{0em}
+
+\def\tightlist{}
+
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX} % To support LaTeX quoting style
+ \defaultfontfeatures{Ligatures=TeX,Numbers={OldStyle}}
+ \setmainfont{Minion Pro}
+ \setsansfont[Scale=MatchLowercase]{Myriad Pro}
+ \setmonofont[Scale=MatchLowercase]{Ubuntu Mono}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+  % \usepackage[full]{textcomp} % directly use the degree (and some other) symbol
+\fi
+
+% place after fonts; even better typesetting for improved readability:
+\graphicspath{ {figure/} }
+\usepackage{tabularx} % for 'tabularx' environment and 'X' column type
+\usepackage{ragged2e}  % for '\RaggedRight' macro (allows hyphenation)
+\usepackage{siunitx}
+    \sisetup{%
+        detect-mode,
+        group-digits            = false,
+        input-symbols           = ( ) [ ] - + < > *,
+        table-align-text-post   = false,
+        round-mode              = places,
+        round-precision         = 3
+        }
+% \usepackage[font={small, sf}, labelfont=bf]{caption} % tweaking the captions
+\usepackage[font={small}, labelfont=bf]{caption} % tweaking the captions
+\usepackage[color=yellow, textsize=tiny]{todonotes}
+\frenchspacing%
+% \usepackage[kerning=false,protrusion=true,expansion=true]{microtype}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{} % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\renewenvironment{abstract}
+{{%
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{\leftmargin}%
+}%
+\relax}
+{\endlist}
+
+\makeatletter
+\def\@maketitle{%
+\newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+\let \footnote \thanks
+ {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
+
+
+\setcounter{secnumdepth}{0}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+
+
+\usepackage{longtable,booktabs}
+\setlength\heavyrulewidth{0.1em}
+\setlength\lightrulewidth{0.0625em}
+
+
+\title{Seaweeds in Two Oceans: Beta-diversity (Appendices)  }
+
+\author{\Large AJ Smit\vspace{0.05in} \newline\normalsize\emph{University of the Western Cape}   \and \Large JJ Bolton\vspace{0.05in} \newline\normalsize\emph{University of Cape Town}   \and \Large RJ Anderson\vspace{0.05in} \newline\normalsize\emph{Department of Agriculture, Forestry and Fisheries and University of Cape
+Town}  }
+
+\date{}
+
+% PENALTIES
+\widowpenalty=1000
+\clubpenalty=1000
+\doublehyphendemerits=9999 % Almost no consecutive line hyphens
+\brokenpenalty=10000 % No broken words across columns/pages
+\interfootnotelinepenalty=9999 % Almost never break footnotes
+
+% SECTION, SUBSECETC.TITLES
+\usepackage[compact]{titlesec}
+\titleformat{\chapter}
+  {\normalfont\LARGE\sffamily\bfseries}
+  {\thechapter}
+  {1em}
+  {}
+\titleformat{\section}
+  {\normalfont\LARGE\sffamily\bfseries}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\Large\sffamily\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+\titleformat{\subsubsection}
+  {\normalfont\large\sffamily\bfseries\slshape}
+  {\thesubsubsection}
+  {1em}
+  {}
+% \titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}
+\titlespacing*{\chapter}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\section}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\subsection}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+\titlespacing*{\subsubsection}
+  {0pt}
+  {1.2ex plus 1ex minus .2ex}
+  {0.5ex plus .1ex minus .1ex}
+
+
+
+\newtheorem{hypothesis}{Hypothesis}
+\usepackage{setspace}
+
+\makeatletter
+
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[colorlinks=true, citecolor=blue, linkcolor=cyan, pdfborder={0 0 0 }, unicode=true]{hyperref} % place after other packages, but before cleveref
+\fi
+}
+
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+
+\usepackage{cleveref} % cleverly cross referencing figures and tables; last package to include
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% To use for resetting the numbering of Appendix Tables and Figures:
+%\setcounter{table}{0}
+%\renewcommand{\thetable}{A\arabic{table}}
+%\setcounter{figure}{0}
+%\renewcommand{\thefigure}{A\arabic{figure}}
+
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={AJ Smit (University of the Western Cape) and JJ Bolton (University of Cape Town) and RJ Anderson (Department of Agriculture, Forestry and Fisheries and University of Cape
+Town)},
+             pdfkeywords = {},
+            pdftitle={Seaweeds in Two Oceans: Beta-diversity (Appendices)},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+\begin{document}
+
+% \maketitle
+
+{% \usefont{T1}{pnc}{m}{n}
+\setlength{\parindent}{0pt}
+\thispagestyle{plain}
+{\fontsize{18}{20}\selectfont\raggedright
+\maketitle  % title \par
+}
+{
+   \vskip 13.5pt\relax \normalsize\fontsize{11}{12}
+\textbf{\authorfont AJ Smit} \hskip 15pt \emph{\small University of the Western Cape}   \par \textbf{\authorfont JJ Bolton} \hskip 15pt \emph{\small University of Cape Town}   \par \textbf{\authorfont RJ Anderson} \hskip 15pt \emph{\small Department of Agriculture, Forestry and Fisheries and University of Cape
+Town}   
+}
+}
+
+
+
+\vskip 6.5pt
+
+\noindent 
+
+This file was generated in R using Rmarkdown, with a bit of
+\LaTeX~thrown in:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 3.4.1 (2017-06-30)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.4.1  backports_1.1.1 magrittr_1.5    rprojroot_1.2  
+##  [5] tools_3.4.1     htmltools_0.3.6 yaml_2.1.14     Rcpp_0.12.13   
+##  [9] stringi_1.1.5   rmarkdown_1.6   knitr_1.17      stringr_1.2.0  
+## [13] digest_0.6.12   evaluate_0.10.1
+\end{verbatim}
+
+\newpage
+
+\section*{\large{Appendix A}}
+
+\begin{tiny}
+\begin{center}
+\setlength\tabcolsep{4pt}
+\begin{longtable}{|r|r|r|l|p{6cm}|}
+\caption{The 58 \texttimes{} 50 km sections of the South African coastline, with approximate GPS coordinates, delineation of sections, and some well-known sites in each section. Taken with permission from Bolton and Stegenga (2002).} \\
+
+% This is the header for the first page of the table...
+\toprule
+Site & Lon & Lat & Limits & Including \\
+\midrule
+\endfirsthead
+
+% This is the header for the second page of the table...
+\toprule
+Site & Lon & Lat & Limits & Including \\
+\midrule
+\endhead
+
+% This is the footer for all pages except the last page of the table...
+\midrule
+\multicolumn{5}{l}{{Continued on Next Page\ldots}} \\
+\endfoot
+
+% This is the footer for the last page of the table...
+\bottomrule
+\endlastfoot
+
+% Now the data...
+1 & 16.72 & -28.98 & Orange River to just south of Holgats River  &  \\
+2 & 16.94 & -29.38 & To just south of Wedge Point & Port Nolloth \\
+3 & 17.08 & -29.83 & To just south of Melkbos Point & Kleinzee \\
+4 & 17.26 & -30.26 & To Swartlintjies River & Skulpfontein Point, Swartlintjies \\
+5 & 17.48 & -30.68 & To 10 km north of Groen River  & River Hondeklip Bay, Spoeg River \\
+6 & 17.72 & -31.09 & To just north of Brak River & Groen River, Island Point, Blougat \\
+7 & 18.00 & -31.46 & To just north of Duiwegat & Voëlklip, Sout River, Blinkwater Bay \\
+8 & 18.25 & -31.85 & To just south of Doring Bay & Olifants River, Strandfontein, Doring Bay \\
+9 & 18.34 & -32.30 & To just north of Elands Bay & Lambert’s Bay, Lang River \\
+10 & 18.20 & -32.72 & To just north of Laaiplek & Elands Bay, Die Vlei, Dwarskersbos \\
+11 & 17.85 & -32.83 & To just south of Cape Columbine & Laaiplek, St Helena Bay, Paternoster \\
+12 & 18.03 & -33.03 & To just east of Saldahna &  \\
+13 & 18.01 & -33.15 & To Postberg & Langebaan Lagoon \\
+14 & 18.32 & -33.50 & To just south of Modder River & Yzerfontein, Dassen Is., Grotto Bay \\
+15 & 18.47 & -33.91 & To Sea Point & Melkbosstrand, Table Bay, Green Point \\
+16 & 18.37 & -34.21 & To just north of Scarborough & Camps Bay, Hout Bay, Kommetjie \\
+17 & 18.47 & -34.11 & To just east of Kalk Bay & Scarborough, Cape Point, Fishoek \\
+18 & 18.82 & -34.19 & To just south of Gordons Bay & Muizenburg, Strandfontein, Strand \\
+19 & 19.07 & -34.35 & To just east of Kleinmond & Rooi Els, Hangklip, Betty’s Bay \\
+20 & 19.34 & -34.59 & To just south of Danger Point & Bot River, Sand Bay, Hermanus, Die Kelders \\
+21 & 19.66 & -34.79 & To just east of Quoin Point & Danger Point, Pearly Beach, Dyer Island \\
+22 & 20.07 & -34.75 & To just east of Struis Bay & Die Mond, Cape Agulhas \\
+23 & 20.48 & -34.49 & To just east of Skipskop & Struis Bay, Arniston \\
+24 & 20.87 & -34.39 & To just east of Cape Infanta & Koppie Alleen, Cape Infanta, Bree River, Witsand \\
+25 & 21.36 & -34.42 & To just east of Grootjongensfontein & Puntjie, Skurwe Bay \\
+26 & 21.83 & -34.38 & To just west of Gouritzmond & Stil Bay, Bloukrans, Bull Point \\
+27 & 22.12 & -34.16 & To just north of Mossel Bay & Gouritzmond, Vlees Bay, Pinnacle Rock \\
+28 & 22.54 & -34.01 & To just west of Victoria Bay & Hartenbos, Klein and Groot Brak rivers, Herolds Bay, Skuinsbank \\
+29 & 23.02 & -34.08 & To just west of The Heads, Knysna & Victoria Bay, Wilderness, Platbank, Oesterbank, Walker Bay \\
+30 & 23.36 & -34.10 & To Jack’s Point, south of Plettenberg Bay  & The Heads, Neusgate \\
+31 & 23.78 & -34.01 & To Elandbos River & Plettenberg Bay, Arch Rock, Die Punt, Blousloep \\
+32 & 24.27 & -34.08 & To Skuinsklip & Storms River, Voëlkrans, Skietgate \\
+33 & 24.74 & -34.19 & To Thys Point & Aasvoëlklip, Tsitsikamma River, Klipdrif River \\
+34 & 25.04 & -33.97 & To just west of Gamtoos River & Cape St Francis, Krom River, Seekoei River, Jeffreys Bay \\
+35 & 25.52 & -34.04 & To just east of Sardinia Bay & Van Stadens River, Claasen Point \\
+36 & 25.70 & -33.79 & To just east of St George’s Beach & Chelsea Point, Port Elizabeth, Bluewater Bay \\
+37 & 26.18 & -33.72 & To just west of Woody Cape & St Croix Is., Sundays River \\
+38 & 26.65 & -33.70 & To just west of Kenton-on-Sea & Seal Is., Bird Is., Cape Padrone, Cannon Rocks, Boknes \\
+39 & 27.10 & -33.52 & To just east of Kleinemonde & Kasouga, Port Alfred \\
+40 & 27.52 & -33.27 & To just east of Keiskamma River & Great Fish River, Madagascar Reef \\
+41 & 27.93 & -33.01 & To just east of East London & Kayser’s Beach, Kidd’s Beach, Cove Rock \\
+42 & 28.30 & -32.73 & To Haga-Haga & Gonubie, Cintsa River \\
+43 & 28.68 & -32.44 & To Qora River & Morgans Bay, Kei Mouth, Nxaxo River, Mazeppa Bay \\
+44 & 29.05 & -32.11 & To just east of Xora River & Dwesa, The Haven \\
+45 & 29.37 & -31.76 & To Sharks Point & Mncwasa River, Coffee Bay, Hluleka \\
+46 & 29.74 & -31.46 & To Mkozi River & Boulder Bay, Port St Johns, Montshe, Ntsubane \\
+47 & 30.12 & -31.18 & To Mnyameni River & Cathedral Rock, Lambasi Bay, Wild Coast \\
+48 & 30.41 & -30.81 & To just north of St Michaels-on-Sea & Mzamba, Port Edward, Southbroom, Margate \\
+49 & 30.68 & -30.41 & To just south of Pennington & Port Shepstone, Mzumbe, Sezela \\
+50 & 30.93 & -30.01 & To just south of Isipingo Beach & Scottburgh, Park Rynie, Umkomaas, Illovo, Amanzimtoti \\
+51 & 31.15 & -29.62 & To Desainagar & Durban, Umhlanga Rocks, Umdloti Beach \\
+52 & 31.46 & -29.26 & To just north of Zinkwazi Beach & Westbrook, Ballito, Blythdale Beach \\
+53 & 31.82 & -28.94 & To just east of Mtunzini & Tugela River, Dunn’s Reserve \\
+54 & 32.21 & -28.70 & To Mbonambi Beach & Richards Bay \\
+55 & 32.46 & -28.32 & To just north of First Rocks & Dawson’s Rocks, Cape St Lucia, St Lucia \\
+56 & 32.59 & -27.87 & To Bhukwini & Mission Rocks, Cape Vidal, Leven Point \\
+57 & 32.72 & -27.42 & To just north of Gobey’s Point & Liefeldts Rocks, Sodwana Bay \\
+58 & 32.87 & -26.97 & To Kosimeer & Hulley Point, Black Rock \\
+
+\end{longtable}
+\end{center}
+\end{tiny}
+
+\newpage
+
+\section*{\large{Appendix B}}
+
+\subsection*{Spatial analysis background and code}
+
+The intention of this section is to show the approach and \textbf{R}
+scripts used to pull apart the spatial scales at which seaweed
+assemblages are structured around the coast of South Africa.
+Specifically, I wish to determine if these scales match those expressed
+by the coastal thermal provinces and the ocean regime underpinned by the
+Agulhas and Benguela Currents.
+
+\subsubsection*{The data}
+
+I use two data sets. The first, \(Y\), comprises distribution records of
+846 macroalgal species within each of 58 × 50 km-long sections (Appendix
+A) of the South African coast (updated from Bolton and Stegenga, 2002).
+This represents \emph{ca}. 90\% of the known seaweed flora of South
+Africa, but excludes some very small and/or very rare species for which
+data are insufficient. The data are from verifiable literature sources
+and John Bolton and Rob Anderson's own collections, assembled from
+information collected by teams of phycologists over three decades
+(Bolton, 1986; Bolton and Stegenga, 2002; De Clerck et al., 2005;
+Stegenga et al., 1997). The second, \(E\), is a dataset of \emph{in
+situ} coastal seawater temperatures (Smit et al., 2013) derived from
+daily measurements over up to 40 years.
+
+A third data set of explanatory variables --- the spatial variables
+(\(S\)) --- is constructed as per the instructions in section
+\emph{Preparation of spatial variables}, later on.
+
+\subsubsection*{Setting up the analysis environment}
+
+This is \textbf{R}, so first I need to find, install and load various
+packages. Some of the packages will be available on CRAN and can be
+accessed and installed in the usual way, but others will have to be
+downloaded from \href{https://r-forge.r-project.org/R/?group_id=195}{R
+Forge}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(betapart)}
+\KeywordTok{library}\NormalTok{(vegan)}
+\KeywordTok{library}\NormalTok{(gridExtra)}
+\KeywordTok{library}\NormalTok{(packfor)}
+\KeywordTok{library}\NormalTok{(grid)}
+\KeywordTok{library}\NormalTok{(gridBase)}
+\KeywordTok{library}\NormalTok{(tidyr)}
+\KeywordTok{library}\NormalTok{(spdep) }\CommentTok{# for dnearneigh() in PCNM.R}
+\KeywordTok{library}\NormalTok{(AEM) }\CommentTok{# for moran.I.multi() in PCNM.R}
+\CommentTok{# install.packages("devtools")}
+\CommentTok{# install.packages("AEM", repos = "http://R-Forge.R-project.org")}
+\CommentTok{# install.packages("packfor", repos = "http://R-Forge.R-project.org")}
+\KeywordTok{source}\NormalTok{(}\StringTok{"functions/pcoa_all.R"}\NormalTok{)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"functions/PCNM.R"}\NormalTok{)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"functions/spatial_MEM.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now I get to the data. The first step involves the species table
+(\(Y\)). First I compute the Sørensen dissimilarity and then I decompose
+the dissimilarity into the `turnover' (β\textsubscript{sim}) and
+`nestedness-resultant' (β\textsubscript{sne}) components (Baselga, 2010;
+Baselga et al., 2013) using the \texttt{betapart.core()} and
+\texttt{betapart.pair()} functions of the \textbf{betapart} package
+(Baselga et al., 2013). These are placed into the matrices \(Y1\) and
+\(Y2\). Optionally, I can apply a prinipal components analysis (PCA) on
+\(Y\) to find the major patterns in the community data. In
+\textbf{vegan} this is done using the \texttt{rda()} function and not
+supplying the constraints (\emph{i.e.} the environment table, \(E\), or
+the spatial table, \(S\)). The formal analysis will use the species data
+in distance-based redundancy analyses (db-RDA as per \textbf{vegan}'s
+\texttt{capscale()} function) by coupling them with \(E\) and \(S\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Read in the species data (note: on GitHub only the distance}
+\CommentTok{# matrices obtained via 'beta.part' and 'beta.pair' (below) }
+\CommentTok{# will be provided -- they are read in as 'Y1.Rdata' and 'Y2.Rdata';}
+\CommentTok{# the raw data cannot be shared at this stage, but the distance matrix is provided):}
+\CommentTok{# spp <- read.csv('../stats/seaweeds.csv')}
+\CommentTok{# spp <- dplyr::select(spp, -1)}
+
+\CommentTok{# Decompose total Sørensen dissimilarity into turnover and }
+\CommentTok{# nestedness-resultant components:}
+\CommentTok{# Y.core <- betapart.core(spp) }
+\CommentTok{# Y.pair <- beta.pair(Y.core, index.family = "sor")}
+
+\CommentTok{# Let Y1 be the turnover component (beta-sim):}
+\CommentTok{# Y1 <- as.matrix(Y.pair$beta.sim)}
+\CommentTok{# save(Y1, file = "data/Y1.Rdata")}
+\KeywordTok{load}\NormalTok{(}\StringTok{"data/Y1.Rdata"}\NormalTok{)}
+
+\CommentTok{# Let Y2 be the nestedness-resultant component (beta-sne):}
+\CommentTok{# Y2 <- as.matrix(Y.pair$beta.sne)}
+\CommentTok{# save(Y2, file = "data/Y2.Rdata")}
+\KeywordTok{load}\NormalTok{(}\StringTok{"data/Y2.Rdata"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+It is now necessary to load the environmental data and some setup files
+that partition the 58 coastal sections (and the species and
+environmental data that fall within these sections) into bioregions.
+
+The thermal (environmental) data contain various variables, but in the
+analysis I use only some of them. These data were obtained from many
+sites along the South African coast, but using interpolation (not
+included here) I calculated the thermal properties for each of the
+coastal sections for which seaweed data are available. Consequently we
+have a data frame with 58 rows and a column for each of the thermal
+metrics. Before use, I apply \textbf{vegan}'s \texttt{decostand()}
+function to scale the data to zero mean and unit variance.
+
+Four bioregions are recognised for South Africa (Bolton and Anderson,
+2004), namely the Benguela Marine Province (BMP; coastal sections
+\textbf{1}--\textbf{17}), the Benguela-Agulhas Transition Zone (B-ATZ;
+\textbf{18}--\textbf{22}), the Agulhas Marine Province (AMP;
+\textbf{19}--\textbf{43}/\textbf{44}) and the East Coast Transition Zone
+(ECTZ; \textbf{44}/\textbf{45}--\textbf{58}). My plotting functions
+partition the data into the bioregions and colour code the figures
+accordingly so I can see regional patterns in \textbeta-diversity
+emerging.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Now comes in the in situ temperatures for the 58 coastal sections (interpolated temperaures as per version 2 of the South African Coastal Temperature Network):}
+\KeywordTok{load}\NormalTok{(}\StringTok{'data/E.RData'}\NormalTok{)}
+\NormalTok{env <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(interpOut)}
+
+\CommentTok{# I select only some of the thermal vars; the rest}
+\CommentTok{# are collinear with some of the ones I import:}
+\NormalTok{E1 <-}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(env, febMean, febRange, febSD, augMean,}
+\NormalTok{                    augRange, augSD, annMean, annRange, annSD)}
+
+\CommentTok{# Calculate z-scores:}
+\NormalTok{E1 <-}\StringTok{ }\KeywordTok{decostand}\NormalTok{(E1, }\DataTypeTok{method =} \StringTok{"standardize"}\NormalTok{)}
+
+\CommentTok{# Load the coordinates of the coastal sections:}
+\NormalTok{sites <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/sites.csv"}\NormalTok{)}
+\NormalTok{sites <-}\StringTok{ }\NormalTok{sites[, }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)]}
+
+\CommentTok{# Load the bioregion definition:}
+\NormalTok{bioreg <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{'data/bioregions.csv'}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{Preparation of spatial variables}
+
+I test the niche difference mechanism as the primary species
+compositional assembly process operating along South African shores. I
+suggest that the thermal gradient along the coast provides a suite of
+abiotic (thermal) conditions from which species can select based on
+their physiological tolerances, and hence this will structure
+\textbeta-diversity. For this mechanism to function one would assume
+that all species have equal access to all sections along this stretch of
+coast, thus following Beijerinck's `Law' that everything is everywhere
+but the environment selects (Sauer, 1988) (but see main text!).
+
+The basic approach to a spatial analysis structured around a biological
+response (\emph{e.g.} community structure and composition; \(Y\)),
+environmental variables (\(E\)) and their spatial representation (\(S\))
+involves an analysis of Moran's eigenvector maps (MEM), followed by
+db-RDA and variance partitioning. Various literature sources discuss
+principle behind Moran's eigenvector maps (Dray et al., 2006, 2012).
+Worked examples are also presented in the excellent book \emph{Numerical
+Ecology with R} (Borcard et al., 2011) in Section 7.4. The method
+followed here has been adapted from these and other sources.
+
+Obtaining the MEMs to use in the analysis is based on the procedure
+introduced by Borcard and Legendre (2002), which was later modified by
+Dray et al. (2006). The basic approach involves:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Set up a geographic or Euclidian distance matrix representing the
+  pairwise distances between the \(n\) sites (\(D=[d_{ij}]\)). I already
+  did this when I applied the \texttt{decostand} function earlier.
+\item
+  Construct a truncated distance matrix by calculating a Minimum
+  Spanning Tree (\(S^{\star}\)) and noting the following rules:
+  \[S^{\star} =\left\{ \begin{array}{rl} 0 & \mbox{if}~i = j \\ d_{ij} & \mbox{if}~d_{ij} \leq t \\ 4t & \mbox{if}~d_{ij} > t \end{array} \right.\]
+  Weighting may be applied if desired, resulting in \(S^{\star}_w\). It
+  is not done here.
+\item
+  Do a Principal Coordinates Analysis (PCoA) of the truncated distance
+  matrix \(S^{\star}\).
+\end{enumerate}
+
+The spatial properties imprinted on the species and their environment
+can be specified using a matrix of Euclidian or geographic distances.
+These coordinates are `truncated' into a square (section \(\times\)
+section) matrix containing non-negative values (\(S^{\star}\)). By
+convention the diagonal values are set to zero. A very basic spatial
+matrix is binary, where 1 codes for pairs of neigbouring sites while 0
+denotes non-connected sites according to the chosen network topology.
+Such matrices are called `binary connectivity matrices' and relate to
+graphs made using distance criteria derived from graph theory.
+
+Truncation produced by Minimum Spanning Trees (MST) focuses on the
+binary relationships between neighbouring sites, discarding any other
+connections (\emph{i.e.} some sites are considered to be neighbours,
+while for others the relationships are null). One could also choose a
+Gabriel graph or another kind of network topology. Such matrix
+representations show section-to-section connectivities. In the case of
+South Africa's coastline data, the MST causes sections to be connected
+only to other sections adjacent to two sides of it: for example, Section
+\textbf{4} is directly connected to \emph{only} Sections \textbf{3} and
+\textbf{5}; sections at the termini of the coastal `string' of sections
+are each connected to only one other section. The binary connectivity
+matrices, also called \emph{topology-based connectivity matrices}, can
+be produced from Euclidian or geographic coordinates using functions in
+at least two \textbf{R} packages (I start with geographic coordinates).
+One option is to use the \textbf{spdep} package's \texttt{mst.nb()}
+function to calculate a MST, but there are also options in the
+\textbf{vegan} package and elsewhere. The neighbours list arrived at
+from the MST represents the spatial component, \(S^{\star}\). The MST
+results in small connectivity artefacts in the Saldanha Bay region where
+the closest sections are not necessarily the ones adjacent one-another
+following along the path around the coast, because sections at opposite
+sides of the bay may in fact be closer together. This topological
+inconsistency does not affect the spatial analysis in any way.
+
+Once the truncated distance matrix has been prepared, it is subjected to
+a PCoA and I keep the eigenvectors that represent positive spatial
+correlation (positive Moran's \(I\)). For the MEM analysis I use the
+function \texttt{PCNM()} that resides in the \texttt{functions} folder
+in the file \texttt{PCNM.R} (see notes inside about authorship). PCNM
+stands for Principal Coordinates Analysis of Neighbourhood Matrices (the
+neighbourhood matrix in this instance being the MST). This method
+automatically constructs the spatial variables and calculates the
+Moran's I for each. The MEMs are completely orthogonal and represent the
+spatial structures over the full range of scales from 50 to 2,700 km.
+The large eigenvectors represent broad spatial scales while smaller ones
+cover finer features. The \emph{spatial data} will be used as a set of
+explanatory variables in the multiple regression type analyses applied
+to a species dissimilarity matrix (\emph{i.e.} the db-RDA; Dray et al.,
+2012)
+
+The code below reproduces the spatial analysis in the paper. Due to the
+length of the output I have prevented the script from returning any
+output here; rather, if the reader is for some odd reason interested in
+repeating this analysis, s/he may find the data and scripts in my
+\href{https://github.com/ajsmit/Seaweed-beta}{GitHub} repository, and
+the full code can be run in its entirety. Well, I hope this will work,
+but if it doesn't (probably very likely) then write to me at
+\href{mailto:ajsmit@uwc.ac.za}{\nolinkurl{ajsmit@uwc.ac.za}} and I shall
+assist --- this may depend on if your email has a catchy title that will
+make it stand out from among all the other emails which other people
+think are equally important.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## Auto PCNM:}
+\NormalTok{S.auto <-}\StringTok{ }\KeywordTok{PCNM}\NormalTok{(}\KeywordTok{dist}\NormalTok{(sites), }\DataTypeTok{silent =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# summary(S.auto)}
+
+\CommentTok{# The truncation distance:}
+\NormalTok{S.dmin <-}\StringTok{ }\NormalTok{S.auto}\OperatorTok{$}\NormalTok{thresh}
+
+\CommentTok{# The number of eigenvalues:}
+\NormalTok{S.len <-}\StringTok{ }\KeywordTok{length}\NormalTok{(S.auto}\OperatorTok{$}\NormalTok{values)}
+
+\CommentTok{# Expected value of I, no spatial correlation:}
+\NormalTok{S.auto}\OperatorTok{$}\NormalTok{expected_Moran}
+
+\CommentTok{# Select eigenfunction with positive spatial correlation:}
+\NormalTok{S.sel <-}\StringTok{ }\KeywordTok{which}\NormalTok{(S.auto}\OperatorTok{$}\NormalTok{Moran_I}\OperatorTok{$}\NormalTok{Positive }\OperatorTok{==}\StringTok{ }\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# length(S.sel)}
+\CommentTok{# there are 27 MEMs, i.e. 27 of the PCNM variables (eigenvalues) relate}
+\CommentTok{# significantly to Moran's I}
+
+\CommentTok{# Extract the eigenvectors associated with those MEMs:}
+\NormalTok{S.pos <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(S.auto}\OperatorTok{$}\NormalTok{vectors)[, S.sel]}
+\end{Highlighting}
+\end{Shaded}
+
+The code below lets us visualise the configuration of the 58 coastal
+sections as represented by the minimum spanning tree. Because the sites
+are constrained by the coast the MST network topology results in a
+string of coastal sections arranged along the shore between Section
+\textbf{1} and Section \textbf{58}. This spatial network therefore also
+captures the spatial connectivity in the seaweed's dispersal ability
+along the shore, although no directionality is associated with
+dispersal. In the paper I discuss the possible influence of ocean
+currents (\emph{e.g.} Wernberg et al., 2013) and I pointed out that it
+is tempting to assume that seaweeds would disperse in the direction the
+major ocean currents. These kinds of networks could conceivably be
+configured to model dispersal due to currents, but here it is simply
+used for representing the spatial scale of the study region.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The spatial netwwork topology of the coastal sections can be seen by:}
+\KeywordTok{plot}\NormalTok{(S.auto}\OperatorTok{$}\NormalTok{spanning, sites)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{db-RDA on the MEMs}
+
+The next step of the spatial analysis is to apply a db-RDA with the
+seaweed data (\(Y1\) and \(Y2\)) coupled with the MEMs. I now run a full
+(global) db-RDA on the significant, positive MEMs selected above, and I
+then perform a permutation test to see if the fit is significant.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Run the db-RDA on the Y1 data:}
+\NormalTok{S.Y1.cs <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., S.pos)}
+
+\CommentTok{# Permutation test to test for the significance of the global fit:}
+\KeywordTok{anova}\NormalTok{(S.Y1.cs, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes, significant!}
+
+\CommentTok{# The global adjusted R2 --- the variance explained by the constrained axes:}
+\NormalTok{S.Y1.cs.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(S.Y1.cs)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\CommentTok{# Variance explained by full model:}
+\KeywordTok{sum}\NormalTok{(S.Y1.cs}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{S.Y1.cs}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# And on the Y2 data (uncommented, but same as above):}
+\NormalTok{S.Y2.cs <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., S.pos)}
+\NormalTok{S.Y2.cs.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(S.Y2.cs)}\OperatorTok{$}\NormalTok{adj.r.squared}
+\KeywordTok{sum}\NormalTok{(S.Y2.cs}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{S.Y2.cs}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+Since the analysis is significant, I compute the adjusted
+\emph{R}\textsuperscript{2} and run forward selection of the MEMs. The
+forward selection procedure of Blanchet et al. (2008) is implemented in
+the \textbf{packfor} package for R, and I use it to reduce the number of
+MEM variables and retain only those that best fit the biotic data.
+Forward selection prevents the inflation of the overall type I error and
+reduces the number of explanatory variables used in the final model,
+which improves parsimony. I then run a new db-RDA analysis on the `best'
+(reduced) set of MEM variables that was selected.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Forward selection on Y1:}
+\NormalTok{S.Y1.fwd <-}\StringTok{ }\KeywordTok{forward.sel}\NormalTok{(Y1, }\KeywordTok{as.matrix}\NormalTok{(S.pos), }\DataTypeTok{adjR2thresh =}\NormalTok{ S.Y1.cs.R2)}
+
+\CommentTok{# Forward selection on Y2:}
+\NormalTok{S.Y2.fwd <-}\StringTok{ }\KeywordTok{forward.sel}\NormalTok{(Y2, }\KeywordTok{as.matrix}\NormalTok{(S.pos), }\DataTypeTok{adjR2thresh =}\NormalTok{ S.Y2.cs.R2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Write the significant MEMs to a new object:}
+\NormalTok{S.Y1.no.sig <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(S.Y1.fwd)}
+\NormalTok{S.Y1.sign <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(S.Y1.fwd[, }\DecValTok{2}\NormalTok{])}
+\NormalTok{S.Y1.red <-}\StringTok{ }\NormalTok{S.pos[, }\KeywordTok{c}\NormalTok{(S.Y1.sign)]}
+\KeywordTok{colnames}\NormalTok{(S.Y1.red) <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"MEM"}\NormalTok{, S.Y1.no.sig),}
+                            \KeywordTok{as.character}\NormalTok{(S.Y1.sign), }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+
+\CommentTok{# Identity of significant MEMs:}
+\KeywordTok{colnames}\NormalTok{(S.Y1.red)}
+
+\CommentTok{# Run a new db-RDA on the best MEM variables:}
+\NormalTok{S.Y1.s2 <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., }\DataTypeTok{data =}\NormalTok{ S.Y1.red)}
+\CommentTok{# no need to check these for collinearity as the }
+\CommentTok{# MEMs are completely orthogonal..}
+
+\CommentTok{# Permutation test to test for significance:}
+\KeywordTok{anova}\NormalTok{(S.Y1.s2, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+
+\CommentTok{# Test by axis:}
+\KeywordTok{anova}\NormalTok{(S.Y1.s2, }\DataTypeTok{by =} \StringTok{"axis"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+
+\CommentTok{# The significant axes:}
+\NormalTok{S.Y1.axis.test <-}\StringTok{ }\KeywordTok{anova}\NormalTok{(S.Y1.s2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+\NormalTok{S.Y1.ax <-}\StringTok{ }\KeywordTok{which}\NormalTok{(S.Y1.axis.test[, }\DecValTok{4}\NormalTok{] }\OperatorTok{<}\StringTok{ }\FloatTok{0.05}\NormalTok{)}
+\NormalTok{S.Y1.sign.ax <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(S.Y1.red[,S.Y1.ax])}
+
+\CommentTok{# Test by terms:}
+\KeywordTok{anova}\NormalTok{(S.Y1.s2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+
+\CommentTok{# The adjusted R2 --- the variance explained by the constrained axes:}
+\NormalTok{S.Y1.s2.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(S.Y1.s2)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\CommentTok{# Variance explained by reduced model:}
+\KeywordTok{sum}\NormalTok{(S.Y1.s2}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{S.Y1.s2}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+
+\CommentTok{# Show only the first 6 rows:}
+\KeywordTok{scores}\NormalTok{(S.Y1.s2, }\DataTypeTok{display =} \StringTok{"bp"}\NormalTok{, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{))[}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# As above, but now with Y2:}
+\NormalTok{S.Y2.no.sig <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(S.Y2.fwd)}
+\NormalTok{S.Y2.sign <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(S.Y2.fwd[, }\DecValTok{2}\NormalTok{])}
+\NormalTok{S.Y2.red <-}\StringTok{ }\NormalTok{S.pos[, }\KeywordTok{c}\NormalTok{(S.Y2.sign)]}
+\KeywordTok{colnames}\NormalTok{(S.Y2.red) <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\KeywordTok{rep}\NormalTok{(}\StringTok{"MEM"}\NormalTok{, S.Y2.no.sig),}
+                            \KeywordTok{as.character}\NormalTok{(S.Y2.sign), }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(S.Y2.red)}
+\NormalTok{S.Y2.s2 <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., }\DataTypeTok{data =}\NormalTok{ S.Y2.red)}
+
+\KeywordTok{anova}\NormalTok{(S.Y2.s2, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes, significant!}
+
+\KeywordTok{anova}\NormalTok{(S.Y2.s2, }\DataTypeTok{by =} \StringTok{"axis"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+
+\NormalTok{S.Y2.axis.test <-}\StringTok{ }\KeywordTok{anova}\NormalTok{(S.Y2.s2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+\NormalTok{S.Y2.ax <-}\StringTok{ }\KeywordTok{which}\NormalTok{(S.Y2.axis.test[, }\DecValTok{4}\NormalTok{] }\OperatorTok{<}\StringTok{ }\FloatTok{0.05}\NormalTok{)}
+\NormalTok{S.Y2.sign.ax <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(S.Y2.red[,S.Y2.ax])}
+
+\NormalTok{S.Y2.s2.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(S.Y2.s2)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\KeywordTok{sum}\NormalTok{(S.Y2.s2}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{S.Y2.s2}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+
+\KeywordTok{scores}\NormalTok{(S.Y2.s2, }\DataTypeTok{display =} \StringTok{"bp"}\NormalTok{, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{A few visualisations}
+
+Now I make a visualisation to reveal the spatial arrangement of the MEMs
+used in the final db-RDA involving the spatial variables (\emph{i.e.}
+\texttt{S.Y1.s2} and \texttt{S.Y2.s2}). The spatial configuration
+relates to broad scales as seen in Fig. 3 in the paper. Here are plots
+of the site scores for the MEMs and \(Y1\) and \(Y2\) (a few panels
+belonging with Fig. 3):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot the first canonical axis of the db-RDA with the significant MEMs for Y1;}
+\CommentTok{# (see Fig. 3):}
+\NormalTok{S.Y1.axes <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(S.Y1.s2, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{), }\DataTypeTok{display =} \StringTok{"lc"}\NormalTok{, }\DataTypeTok{scaling =} \DecValTok{1}\NormalTok{)}
+\NormalTok{S.Y1.plt.axis1 <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{y =}\NormalTok{ Latitude,}
+                               \DataTypeTok{size =} \KeywordTok{abs}\NormalTok{(S.Y1.axes[, }\DecValTok{1}\NormalTok{]),}
+                               \DataTypeTok{col =} \KeywordTok{ifelse}\NormalTok{(S.Y1.axes[, }\DecValTok{1}\NormalTok{] }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{)), }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_size_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_colour_manual}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{values =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"grey60"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"CAP1 of spatial variables, "}\NormalTok{, beta[sim])))}
+
+\CommentTok{# And the same for Y2 (see Fig. 3):}
+\NormalTok{S.Y2.axes <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(S.Y2.s2, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{), }\DataTypeTok{display =} \StringTok{"lc"}\NormalTok{, }\DataTypeTok{scaling =} \DecValTok{1}\NormalTok{)}
+\NormalTok{S.Y2.plt.axis1 <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{y =}\NormalTok{ Latitude,}
+                               \DataTypeTok{size =} \KeywordTok{abs}\NormalTok{(S.Y2.axes[, }\DecValTok{1}\NormalTok{]),}
+                               \DataTypeTok{col =} \KeywordTok{ifelse}\NormalTok{(S.Y2.axes[, }\DecValTok{1}\NormalTok{] }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{, }\StringTok{"a"}\NormalTok{, }\StringTok{"b"}\NormalTok{)), }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_size_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_colour_manual}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{values =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"grey60"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"CAP1 of spatial variables, "}\NormalTok{, beta[sne])))}
+\end{Highlighting}
+\end{Shaded}
+
+Now that I know that spatial structures are present in the seaweed data
+I check how these significant spatial patterns (two significant
+canonical axes, CAP1 and CAP2) are related to the environmental
+variables using linear regression. Checks for normality are also done
+but none of the output is printed here.
+
+Next I want to show the ordination biplots of the MEM variables with
+respect to the sites using scaling = 2 (species) and showing the LC
+scores. Now I can see the major directions of influence of the spatial
+variables with respect to the sites. The code below produces a few
+panels of Fig. 2:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# A few of the panels that go with Fig. 2;}
+\CommentTok{# first for Y1...:}
+\NormalTok{S.Y1.scrs <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(S.Y1.s2, }\DataTypeTok{display =} \KeywordTok{c}\NormalTok{(}\StringTok{"sp"}\NormalTok{,}\StringTok{"wa"}\NormalTok{,}\StringTok{"lc"}\NormalTok{,}\StringTok{"bp"}\NormalTok{,}\StringTok{"cn"}\NormalTok{))}
+\NormalTok{S.Y1.df_sites <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(S.Y1.scrs}\OperatorTok{$}\NormalTok{constraints)}
+\NormalTok{S.Y1.df_sites}\OperatorTok{$}\NormalTok{bioreg <-}\StringTok{ }\NormalTok{bioreg}\OperatorTok{$}\NormalTok{bolton}
+\NormalTok{S.Y1.df_sites}\OperatorTok{$}\NormalTok{section <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(S.Y1.df_sites) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"Bioregion"}\NormalTok{, }\StringTok{"Section"}\NormalTok{)}
+
+\NormalTok{multiplier <-}\StringTok{ }\KeywordTok{ordiArrowMul}\NormalTok{(S.Y1.scrs}\OperatorTok{$}\NormalTok{biplot)}
+\NormalTok{S.Y1.bp <-}\StringTok{ }\NormalTok{S.Y1.scrs}\OperatorTok{$}\NormalTok{biplot }\OperatorTok{*}\StringTok{ }\NormalTok{multiplier}
+\NormalTok{S.Y1.bp <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(S.Y1.bp)}
+\NormalTok{S.Y1.bp}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(S.Y1.bp)}
+\KeywordTok{colnames}\NormalTok{(S.Y1.bp) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{S.Y1.bp.sign <-}\StringTok{ }\NormalTok{S.Y1.bp[S.Y1.bp}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{S.Y1.sign.ax,]}
+
+\CommentTok{# A modification of the vegan ordiArrowTextXY() function to prevent the }
+\CommentTok{# "plot.new has not been called yet" from occuring}
+\KeywordTok{source}\NormalTok{(}\StringTok{"functions/text_mult.R"}\NormalTok{)}
+
+\NormalTok{S.Y1.text <-}\StringTok{ }\KeywordTok{text.mult}\NormalTok{(S.Y1.scrs}\OperatorTok{$}\NormalTok{biplot)}
+\NormalTok{S.Y1.text <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(S.Y1.text)}
+\NormalTok{S.Y1.text}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(S.Y1.text)}
+\KeywordTok{colnames}\NormalTok{(S.Y1.text) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{S.Y1.text.sign <-}\StringTok{ }\NormalTok{S.Y1.text[S.Y1.text}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{S.Y1.sign.ax,]}
+
+\NormalTok{S.Y1.p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ S.Y1.df_sites, }\KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{colour =}\NormalTok{ Bioregion)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \FloatTok{4.0}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ Section), }\DataTypeTok{size =} \FloatTok{3.0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ S.Y1.bp, }
+               \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\NormalTok{, }\DataTypeTok{y =} \DecValTok{0}\NormalTok{, }\DataTypeTok{xend =}\NormalTok{ x, }\DataTypeTok{yend =}\NormalTok{ y),}
+               \DataTypeTok{arrow =} \KeywordTok{arrow}\NormalTok{(}\DataTypeTok{length =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\StringTok{"cm"}\NormalTok{)), }
+               \DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{alpha =} \DecValTok{1}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{as.data.frame}\NormalTok{(S.Y1.text), }
+            \KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(S.Y1.text)),}
+            \DataTypeTok{color =} \StringTok{"black"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"CAP1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"CAP2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Spatial variables and "}\NormalTok{, beta[sim]))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_grey}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \DataTypeTok{aspect.ratio =} \FloatTok{0.8}\NormalTok{)}
+
+\CommentTok{# ...then for Y2:}
+\NormalTok{S.Y2.scrs <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(S.Y2.s2, }\DataTypeTok{display =} \KeywordTok{c}\NormalTok{(}\StringTok{"sp"}\NormalTok{,}\StringTok{"wa"}\NormalTok{,}\StringTok{"lc"}\NormalTok{,}\StringTok{"bp"}\NormalTok{,}\StringTok{"cn"}\NormalTok{))}
+\NormalTok{S.Y2.df_sites <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(S.Y2.scrs}\OperatorTok{$}\NormalTok{constraints)}
+\NormalTok{S.Y2.df_sites}\OperatorTok{$}\NormalTok{bioreg <-}\StringTok{ }\NormalTok{bioreg}\OperatorTok{$}\NormalTok{bolton}
+\NormalTok{S.Y2.df_sites}\OperatorTok{$}\NormalTok{section <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(S.Y2.df_sites) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"Bioregion"}\NormalTok{, }\StringTok{"Section"}\NormalTok{)}
+
+\NormalTok{multiplier <-}\StringTok{ }\KeywordTok{ordiArrowMul}\NormalTok{(S.Y2.scrs}\OperatorTok{$}\NormalTok{biplot, }\DataTypeTok{fill =} \FloatTok{0.25}\NormalTok{)}
+\NormalTok{S.Y2.bp <-}\StringTok{ }\NormalTok{S.Y2.scrs}\OperatorTok{$}\NormalTok{biplot }\OperatorTok{*}\StringTok{ }\NormalTok{multiplier}
+\NormalTok{S.Y2.bp <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(S.Y2.bp)}
+\NormalTok{S.Y2.bp}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(S.Y2.bp)}
+\KeywordTok{colnames}\NormalTok{(S.Y2.bp) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{S.Y2.bp.sign <-}\StringTok{ }\NormalTok{S.Y2.bp[S.Y2.bp}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{S.Y2.sign.ax,]}
+
+\NormalTok{S.Y2.text <-}\StringTok{ }\KeywordTok{text.mult}\NormalTok{(S.Y2.scrs}\OperatorTok{$}\NormalTok{biplot, }\DataTypeTok{fill =} \FloatTok{0.25}\NormalTok{)}
+\NormalTok{S.Y2.text <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(S.Y2.text)}
+\NormalTok{S.Y2.text}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(S.Y2.text)}
+\KeywordTok{colnames}\NormalTok{(S.Y2.text) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{S.Y2.text.sign <-}\StringTok{ }\NormalTok{S.Y2.text[S.Y2.text}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{S.Y2.sign.ax,]}
+
+\NormalTok{S.Y2.p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ S.Y2.df_sites, }\KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{colour =}\NormalTok{ Bioregion)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \FloatTok{4.0}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ Section), }\DataTypeTok{size =} \FloatTok{3.0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ S.Y2.bp.sign, }
+               \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\NormalTok{, }\DataTypeTok{y =} \DecValTok{0}\NormalTok{, }\DataTypeTok{xend =}\NormalTok{ x, }\DataTypeTok{yend =}\NormalTok{ y),}
+               \DataTypeTok{arrow =} \KeywordTok{arrow}\NormalTok{(}\DataTypeTok{length =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\StringTok{"cm"}\NormalTok{)), }
+               \DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{alpha =} \DecValTok{1}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{as.data.frame}\NormalTok{(S.Y2.text.sign), }
+            \KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(S.Y2.text.sign)),}
+            \DataTypeTok{color =} \StringTok{"black"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"CAP1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"CAP2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Spatial variables and "}\NormalTok{, beta[sne]))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_grey}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \DataTypeTok{aspect.ratio =} \FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{Analysis of the thermal variables}
+
+As before with the spatial variable, I now do a db-RDA involving all the
+thermal variables (\(E\)) followed by forward selection. There is less
+explanation provided here as the reader should now be familiar with
+db-RDA --- the procedure is the same as with the MEMs, just different
+explanatory variables are supplied. Another difference is that the
+thermal variables are not necessarily orthogonal, so I check for
+collinearity using variance inflation factors (VIF).
+
+I start with the full model and then run forward selection and repeat
+the db-RDA on the reduced set. Analyses shown for \(Y1\) and \(Y2\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# First Y1:}
+\NormalTok{E.Y1.cs <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., E1)}
+
+\CommentTok{# Is the fit significant?}
+\KeywordTok{anova}\NormalTok{(E.Y1.cs, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+
+\CommentTok{# The adjusted R2 --- the variance explained by the constrained axes:}
+\NormalTok{E.Y1.R2a <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(E.Y1.cs)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\CommentTok{# Variance explained by full model:}
+\KeywordTok{sum}\NormalTok{(E.Y1.cs}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{E.Y1.cs}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ...and now Y2:}
+\NormalTok{E.Y2.cs <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., E1)}
+\KeywordTok{anova}\NormalTok{(E.Y2.cs, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+\NormalTok{E.Y2.R2a <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(E.Y2.cs)}\OperatorTok{$}\NormalTok{adj.r.squared}
+\KeywordTok{sum}\NormalTok{(E.Y2.cs}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{E.Y2.cs}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Forward selection on Y1:}
+\NormalTok{E.Y1.fwd <-}\StringTok{ }\KeywordTok{forward.sel}\NormalTok{(Y1, E1, }\DataTypeTok{adjR2thresh =}\NormalTok{ E.Y1.R2a, }\DataTypeTok{nperm =} \DecValTok{999}\NormalTok{)}
+
+\CommentTok{# Forward selection on Y1:}
+\NormalTok{E.Y2.fwd <-}\StringTok{ }\KeywordTok{forward.sel}\NormalTok{(Y2, E1, }\DataTypeTok{adjR2thresh =}\NormalTok{ E.Y2.R2a, }\DataTypeTok{nperm =} \DecValTok{999}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Write the significant envs to a new object, and}
+\CommentTok{# identity of significant envs in increasing order;}
+\CommentTok{# first Y1:}
+\NormalTok{E.Y1.sign <-}\StringTok{ }\NormalTok{E.Y1.fwd }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(variables) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{as.vector}\NormalTok{()}
+
+\NormalTok{E.Y1.red <-}\StringTok{ }\NormalTok{E1[, E.Y1.sign[,}\DecValTok{1}\NormalTok{]]}
+
+\CommentTok{# Run a new env analysis on the best env variables:}
+\NormalTok{E.Y1.cs2 <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., E.Y1.red)}
+
+\CommentTok{# Check for collinearity:}
+\KeywordTok{vif.cca}\NormalTok{(E.Y1.cs2)}
+
+\CommentTok{# If there are significant collinearity the collinear variables can be removed:}
+\CommentTok{# E.red <- dplyr::select(E.red, -augMean)}
+\CommentTok{# E.cs2 <- capscale(Y1 ~ ., E.red)}
+\CommentTok{#}
+\CommentTok{# check for collinearity again:}
+\CommentTok{# vif.cca(E.cs2) # much better}
+
+\CommentTok{# Test for significance:}
+\KeywordTok{anova}\NormalTok{(E.Y1.cs2, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+
+\CommentTok{# Which axes are significant?}
+\KeywordTok{anova}\NormalTok{(E.Y1.cs2, }\DataTypeTok{by =} \StringTok{"axis"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+
+\CommentTok{# The significant axes:}
+\NormalTok{E.Y1.axis.test <-}\StringTok{ }\KeywordTok{anova}\NormalTok{(E.Y1.cs2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+\NormalTok{E.Y1.ax <-}\StringTok{ }\KeywordTok{which}\NormalTok{(E.Y1.axis.test[, }\DecValTok{4}\NormalTok{] }\OperatorTok{<}\StringTok{ }\FloatTok{0.05}\NormalTok{)}
+\NormalTok{E.Y1.sign.ax <-}\StringTok{ }\KeywordTok{colnames}\NormalTok{(E.Y1.red[,E.Y1.ax])}
+
+\CommentTok{# The adjusted R2 --- the variance explained by the constrained axes:}
+\NormalTok{E.Y1.cs2.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(E.Y1.cs2)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\CommentTok{# Variance explained by reduced (final) model:}
+\KeywordTok{sum}\NormalTok{(E.Y1.cs2}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{E.Y1.cs2}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+
+\CommentTok{# The biplot scores for constraining variables:}
+\KeywordTok{scores}\NormalTok{(E.Y1.cs2, }\DataTypeTok{display =} \StringTok{"bp"}\NormalTok{, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# ...then Y2}
+\NormalTok{E.Y2.sign <-}\StringTok{ }\NormalTok{E.Y2.fwd }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{select}\NormalTok{(variables) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{as.vector}\NormalTok{()}
+
+\NormalTok{E.Y2.red <-}\StringTok{ }\NormalTok{E1[, E.Y2.sign[,}\DecValTok{1}\NormalTok{]]}
+
+\NormalTok{E.Y2.sign <-}\StringTok{ }\KeywordTok{sort}\NormalTok{(E.Y2.fwd[, }\DecValTok{1}\NormalTok{])}
+\NormalTok{E.Y2.red <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(E1[, }\KeywordTok{c}\NormalTok{(E.Y2.sign)])}
+\KeywordTok{colnames}\NormalTok{(E.Y2.red) <-}\StringTok{ }\NormalTok{E.Y2.sign}
+
+\NormalTok{E.Y2.cs2 <-}\StringTok{ }\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., E.Y2.red)}
+
+\KeywordTok{vif.cca}\NormalTok{(E.Y2.cs2)}
+\CommentTok{# E.red <- dplyr::select(E.red, -augMean)}
+\CommentTok{# E.cs2 <- capscale(Y2 ~ ., E.red)}
+
+\CommentTok{# vif.cca(E.cs2) # much better}
+
+\KeywordTok{anova}\NormalTok{(E.Y2.cs2, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+
+\NormalTok{E.Y2.axis.test <-}\StringTok{ }\KeywordTok{anova}\NormalTok{(E.Y2.cs2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{)}
+\CommentTok{# E.Y2.ax <- which(E.Y2.axis.test[, 4] < 0.05) # doesn't work...}
+\CommentTok{# E.Y2.sign.ax <- colnames(E.Y2.red[,E.Y2.ax])}
+\NormalTok{E.Y2.sign.ax <-}\StringTok{ "annMean"} \CommentTok{# a manual cheat}
+
+\KeywordTok{anova}\NormalTok{(E.Y2.cs2, }\DataTypeTok{by =} \StringTok{"terms"}\NormalTok{, }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{) }\CommentTok{# ... yes!}
+
+\NormalTok{E.Y2.cs2.R2 <-}\StringTok{ }\KeywordTok{RsquareAdj}\NormalTok{(E.Y2.cs2)}\OperatorTok{$}\NormalTok{adj.r.squared}
+
+\KeywordTok{sum}\NormalTok{(E.Y2.cs2}\OperatorTok{$}\NormalTok{CCA}\OperatorTok{$}\NormalTok{eig) }\OperatorTok{/}\StringTok{ }\NormalTok{E.Y2.cs2}\OperatorTok{$}\NormalTok{tot.chi }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+
+\KeywordTok{scores}\NormalTok{(E.Y2.cs2, }\DataTypeTok{display =} \StringTok{"bp"}\NormalTok{, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Now I make the remaining panels of Fig. 3, these showing the spatial
+arrangement associated with the site scores of the environmental
+variables for \(Y1\) and \(Y2\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot the two significant canonical axes of the }
+\CommentTok{# db-RDA with the significant MEMs. This part of Fig. 3:}
+\NormalTok{E.Y1.axes <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(E.Y1.cs2, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{),}
+                   \DataTypeTok{display =} \StringTok{"lc"}\NormalTok{, }\DataTypeTok{scaling =} \DecValTok{1}\NormalTok{)}
+\NormalTok{E.Y1.plt.axis1 <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{y =}\NormalTok{ Latitude, }\DataTypeTok{size =}\NormalTok{ E.Y1.axes[, }\DecValTok{1}\NormalTok{]),}
+             \DataTypeTok{col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_size_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"CAP1 of thermal variables, "}\NormalTok{, beta[sim])))}
+
+\NormalTok{E.Y1.plt.axis2 <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{y =}\NormalTok{ Latitude, }\DataTypeTok{size =}\NormalTok{ E.Y1.axes[, }\DecValTok{2}\NormalTok{]),}
+             \DataTypeTok{col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_size_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"CAP2 of thermal variables, "}\NormalTok{, beta[sim])))}
+
+\NormalTok{E.Y2.axes <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(E.Y2.cs2, }\DataTypeTok{choices =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{),}
+                    \DataTypeTok{display =} \StringTok{"lc"}\NormalTok{, }\DataTypeTok{scaling =} \DecValTok{1}\NormalTok{)}
+
+\NormalTok{E.Y2.plt.axis1 <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{y =}\NormalTok{ Latitude, }\DataTypeTok{size =}\NormalTok{ E.Y2.axes[, }\DecValTok{1}\NormalTok{]),}
+             \DataTypeTok{col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_size_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"CAP1 of thermal variables, "}\NormalTok{, beta[sne])))}
+\end{Highlighting}
+\end{Shaded}
+
+And now I make the remaining panels of Fig. 2 for Y1 and Y2 and the
+environmental constraining vectors:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The ordiplots in Fig. 2:}
+\NormalTok{E.Y1.scrs <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(E.Y1.cs2, }\DataTypeTok{display =} \KeywordTok{c}\NormalTok{(}\StringTok{"sp"}\NormalTok{,}\StringTok{"wa"}\NormalTok{,}\StringTok{"lc"}\NormalTok{,}\StringTok{"bp"}\NormalTok{,}\StringTok{"cn"}\NormalTok{))}
+\NormalTok{E.Y1.df_sites <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(E.Y1.scrs}\OperatorTok{$}\NormalTok{constraints)}
+\NormalTok{E.Y1.df_sites}\OperatorTok{$}\NormalTok{bioreg <-}\StringTok{ }\NormalTok{bioreg}\OperatorTok{$}\NormalTok{bolton}
+\NormalTok{E.Y1.df_sites}\OperatorTok{$}\NormalTok{section <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(E.Y1.df_sites) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"Bioregion"}\NormalTok{, }\StringTok{"Section"}\NormalTok{)}
+
+\NormalTok{multiplier <-}\StringTok{ }\KeywordTok{ordiArrowMul}\NormalTok{(E.Y1.scrs}\OperatorTok{$}\NormalTok{biplot)}
+\NormalTok{E.Y1.bp <-}\StringTok{ }\NormalTok{E.Y1.scrs}\OperatorTok{$}\NormalTok{biplot }\OperatorTok{*}\StringTok{ }\NormalTok{multiplier}
+\NormalTok{E.Y1.bp <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(E.Y1.bp)}
+\NormalTok{E.Y1.bp}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(E.Y1.bp)}
+\KeywordTok{colnames}\NormalTok{(E.Y1.bp) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{E.Y1.bp.sign <-}\StringTok{ }\NormalTok{E.Y1.bp[E.Y1.bp}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{E.Y1.sign.ax,]}
+
+\NormalTok{E.Y1.text <-}\StringTok{ }\KeywordTok{text.mult}\NormalTok{(E.Y1.scrs}\OperatorTok{$}\NormalTok{biplot)}
+\NormalTok{E.Y1.text <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(E.Y1.text)}
+\NormalTok{E.Y1.text}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(E.Y1.text)}
+\KeywordTok{colnames}\NormalTok{(E.Y1.text) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{E.Y1.text.sign <-}\StringTok{ }\NormalTok{E.Y1.text[E.Y1.text}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{E.Y1.sign.ax,]}
+
+\NormalTok{E.Y1.p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ E.Y1.df_sites, }\KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{colour =}\NormalTok{ Bioregion)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \FloatTok{4.0}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ Section), }\DataTypeTok{size =} \FloatTok{3.0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ E.Y1.bp.sign, }
+               \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\NormalTok{, }\DataTypeTok{y =} \DecValTok{0}\NormalTok{, }\DataTypeTok{xend =}\NormalTok{ x, }\DataTypeTok{yend =}\NormalTok{ y),}
+               \DataTypeTok{arrow =} \KeywordTok{arrow}\NormalTok{(}\DataTypeTok{length =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\StringTok{"cm"}\NormalTok{)), }
+               \DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{alpha =} \DecValTok{1}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{as.data.frame}\NormalTok{(E.Y1.text.sign), }
+            \KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(E.Y1.text.sign)),}
+            \DataTypeTok{color =} \StringTok{"black"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"CAP1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"CAP2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Thermal variables and "}\NormalTok{, beta[sim]))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_grey}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{,}
+        \DataTypeTok{aspect.ratio =} \FloatTok{0.8}\NormalTok{)}
+
+\NormalTok{E.Y2.scrs <-}\StringTok{ }\KeywordTok{scores}\NormalTok{(E.Y2.cs2, }\DataTypeTok{display =} \KeywordTok{c}\NormalTok{(}\StringTok{"sp"}\NormalTok{,}\StringTok{"wa"}\NormalTok{,}\StringTok{"lc"}\NormalTok{,}\StringTok{"bp"}\NormalTok{,}\StringTok{"cn"}\NormalTok{))}
+\NormalTok{E.Y2.df_sites <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(E.Y2.scrs}\OperatorTok{$}\NormalTok{constraints)}
+\NormalTok{E.Y2.df_sites}\OperatorTok{$}\NormalTok{bioreg <-}\StringTok{ }\NormalTok{bioreg}\OperatorTok{$}\NormalTok{bolton}
+\NormalTok{E.Y2.df_sites}\OperatorTok{$}\NormalTok{section <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)}
+\KeywordTok{colnames}\NormalTok{(E.Y2.df_sites) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"Bioregion"}\NormalTok{, }\StringTok{"Section"}\NormalTok{)}
+
+\NormalTok{multiplier <-}\StringTok{ }\KeywordTok{ordiArrowMul}\NormalTok{(E.Y2.scrs}\OperatorTok{$}\NormalTok{biplot, }\DataTypeTok{fill =} \FloatTok{0.45}\NormalTok{)}
+\NormalTok{E.Y2.bp <-}\StringTok{ }\NormalTok{E.Y2.scrs}\OperatorTok{$}\NormalTok{biplot }\OperatorTok{*}\StringTok{ }\NormalTok{multiplier}
+\NormalTok{E.Y2.bp <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(E.Y2.bp)}
+\NormalTok{E.Y2.bp}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(E.Y2.bp)}
+\KeywordTok{colnames}\NormalTok{(E.Y2.bp) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{E.Y2.bp.sign <-}\StringTok{ }\NormalTok{E.Y2.bp[E.Y2.bp}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{E.Y2.sign.ax,]}
+
+\NormalTok{E.Y2.text <-}\StringTok{ }\KeywordTok{text.mult}\NormalTok{(E.Y2.scrs}\OperatorTok{$}\NormalTok{biplot, }\DataTypeTok{fill =} \FloatTok{0.45}\NormalTok{)}
+\NormalTok{E.Y2.text <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(E.Y2.text)}
+\NormalTok{E.Y2.text}\OperatorTok{$}\NormalTok{labels <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(E.Y2.text)}
+\KeywordTok{colnames}\NormalTok{(E.Y2.text) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"x"}\NormalTok{, }\StringTok{"y"}\NormalTok{, }\StringTok{"labels"}\NormalTok{)}
+\NormalTok{E.Y2.text.sign <-}\StringTok{ }\NormalTok{E.Y2.text[E.Y2.text}\OperatorTok{$}\NormalTok{labels }\OperatorTok{%in%}\StringTok{ }\NormalTok{E.Y2.sign.ax,]}
+
+\NormalTok{E.Y2.p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ E.Y2.df_sites, }\KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{colour =}\NormalTok{ Bioregion)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \FloatTok{4.0}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ Section), }\DataTypeTok{size =} \FloatTok{3.0}\NormalTok{, }\DataTypeTok{col =} \StringTok{"white"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_segment}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ E.Y2.bp.sign, }
+               \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\NormalTok{, }\DataTypeTok{y =} \DecValTok{0}\NormalTok{, }\DataTypeTok{xend =}\NormalTok{ x, }\DataTypeTok{yend =}\NormalTok{ y),}
+               \DataTypeTok{arrow =} \KeywordTok{arrow}\NormalTok{(}\DataTypeTok{length =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.2}\NormalTok{, }\StringTok{"cm"}\NormalTok{)), }
+               \DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{alpha =} \DecValTok{1}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.7}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{as.data.frame}\NormalTok{(E.Y2.text.sign), }
+            \KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{label =} \KeywordTok{rownames}\NormalTok{(E.Y2.text.sign)),}
+            \DataTypeTok{color =} \StringTok{"black"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"CAP1"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"CAP2"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Thermal variables and "}\NormalTok{, beta[sne]))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_grey}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{legend.position =} \KeywordTok{c}\NormalTok{(.}\DecValTok{80}\NormalTok{, .}\DecValTok{75}\NormalTok{),}
+        \DataTypeTok{aspect.ratio =} \FloatTok{0.8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Here I now assemble the various panels into what we see produced in Fig.
+2 in the paper:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig2.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{9}\NormalTok{, }\DataTypeTok{height =} \DecValTok{8}\NormalTok{)}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
+\KeywordTok{print}\NormalTok{(E.Y1.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(E.Y2.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(S.Y1.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(S.Y2.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+And I do the same with assembling the panels that form Fig. 3 in the
+paper:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig3.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{9}\NormalTok{, }\DataTypeTok{height =} \DecValTok{7}\NormalTok{)}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
+\KeywordTok{print}\NormalTok{(E.Y1.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(E.Y1.plt.axis2, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(E.Y2.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(S.Y1.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(S.Y2.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection*{Partitioning of variance}
+
+Lastly, using \textbf{vegan}'s \texttt{varpart()} function, I partition
+the variance between the MEM variables and the thermal variables
+(Peres-Neto and Legendre, 2010; Peres-Neto et al., 2006).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# These lines of code produce a few figures to visually understand}
+\CommentTok{# the variance partitioning on Y1:}
+\NormalTok{vp2.Y1 <-}\StringTok{ }\KeywordTok{varpart}\NormalTok{(Y1, E.Y1.red, S.Y1.red)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{showvarparts}\NormalTok{(}\DecValTok{2}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"Environ-}\CharTok{\textbackslash{}n}\StringTok{ment"}\NormalTok{,}\StringTok{""}\NormalTok{,}\StringTok{"Spatial"}\NormalTok{,}\StringTok{""}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(vp2.Y1, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\CommentTok{# Now I test the significant fractions [a], [b] and [c]...}
+\NormalTok{ES.Y1.red <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(E.Y1.red, S.Y1.red)}
+
+\CommentTok{# Fraction E | S; pure environmental, i.e. [a]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\StringTok{ }\NormalTok{augMean }\OperatorTok{+}\StringTok{ }\NormalTok{febRange }\OperatorTok{+}\StringTok{ }\NormalTok{febSD }\OperatorTok{+}\StringTok{ }\NormalTok{augSD }\OperatorTok{+}
+\StringTok{                  }\KeywordTok{Condition}\NormalTok{(MEM1 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM2 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM3 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM4 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM5 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM6 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM7 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM8 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM9 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM10 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM13 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM15 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM16 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM18 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM19 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM20),}
+                \DataTypeTok{data =}\NormalTok{ ES.Y1.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fraction S | E; pure spatial, i.e. [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\StringTok{ }\NormalTok{MEM1 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM2 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM3 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM4 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM5 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM6 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM7 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM8 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM9 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM10 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM13 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM15 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM16 }\OperatorTok{+}
+\StringTok{                              }\NormalTok{MEM18 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM19 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM20 }\OperatorTok{+}
+\StringTok{                  }\KeywordTok{Condition}\NormalTok{(augMean }\OperatorTok{+}\StringTok{ }\NormalTok{febRange }\OperatorTok{+}\StringTok{ }\NormalTok{febSD }\OperatorTok{+}\StringTok{ }\NormalTok{augSD),}
+                \DataTypeTok{data =}\NormalTok{ ES.Y1.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fraction E; environmental, i.e. [a] + [b]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., E.Y1.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fractions S; spatial, i.e. [b] + [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., S.Y1.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fractions E + S; spatial and environmental, i.e. [a] + [b] + [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y1 }\OperatorTok{~}\NormalTok{., }\KeywordTok{cbind}\NormalTok{(E.Y1.red, S.Y1.red)), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# And now the partitioning of the variance in Y2:}
+\NormalTok{(vp2.Y2 <-}\StringTok{ }\KeywordTok{varpart}\NormalTok{(Y2, E.Y2.red, S.Y2.red))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{showvarparts}\NormalTok{(}\DecValTok{2}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"Environ-}\CharTok{\textbackslash{}n}\StringTok{ment"}\NormalTok{,}\StringTok{""}\NormalTok{,}\StringTok{"Spatial"}\NormalTok{,}\StringTok{""}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(vp2.Y2, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\CommentTok{# Tests the significant fractions [a], [b] and [c]...}
+\NormalTok{ES.Y2.red <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(E.Y2.red, S.Y2.red)}
+
+\CommentTok{# Fraction E | S; pure environmental, i.e. [a]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\StringTok{ }\NormalTok{annMean }\OperatorTok{+}
+\StringTok{                  }\KeywordTok{Condition}\NormalTok{(MEM1 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM2 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM3 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM5),}
+                \DataTypeTok{data =}\NormalTok{ ES.Y2.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fraction S | E; pure spatial, i.e. [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\StringTok{ }\NormalTok{MEM1 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM2 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM3 }\OperatorTok{+}\StringTok{ }\NormalTok{MEM5 }\OperatorTok{+}
+\StringTok{                  }\KeywordTok{Condition}\NormalTok{(annMean),}
+                \DataTypeTok{data =}\NormalTok{ ES.Y2.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fraction E; environmental, i.e. [a] + [b]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., E.Y2.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fractions S; spatial, i.e. [b] + [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., S.Y2.red), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+
+\CommentTok{# Fractions E + S; spatial and environmental, i.e. [a] + [b] + [c]:}
+\KeywordTok{anova.cca}\NormalTok{(}\KeywordTok{capscale}\NormalTok{(Y2 }\OperatorTok{~}\NormalTok{., }\KeywordTok{cbind}\NormalTok{(E.Y2.red, S.Y2.red)), }\DataTypeTok{parallel =} \DecValTok{4}\NormalTok{, }\DataTypeTok{step =} \DecValTok{1000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\newpage
+
+\section*{Appendix C}
+
+\subsection*{Network graph of \textbeta-diversity}
+
+I delved deeper into the patterns of \textbeta-diversity by examining
+the properties of the full dissimilarity matrix, which gives regional
+\textbeta-diversity mentioned above. This matrix describes all pairwise
+combinations of sections (582 -- 1 = 3363), and as such gives us a
+regional perspective (Anderson et al., 2013). The usual visualisation
+approach is to plot the dissimilarity metric as a function of
+geographical distance along the gradient or with respect to the distance
+between corresponding pairs of sections (Davidar et al., 2007;
+\emph{e.g.} Nekola et al., 1999); these visualisations are provided
+here. The plots of dissimilarities were colour-coded according to the
+bioregion to which the section pairs belong (the Benguela Marine
+Province (BMP; \textbf{1}--\textbf{17}), the Benguela-Agulhas Transition
+Zone (B-ATZ; \textbf{18}--\textbf{22}), the Agulhas Marine Province
+(AMP; \textbf{19}--\textbf{43}/\textbf{44} --- the location of this
+transition is somewhat uncertain at this stage) and the East Coast
+Transition Zone (ECTZ; \textbf{44}/\textbf{45}--\textbf{58})
+(\emph{sensu} Bolton and Anderson, 2004) to distinguish bioregional
+properties of species distribution from the wider geographical scale
+structure along the whole coastline. In doing so, the change in
+\textbeta-diversity per unit of separating distance between sections
+(km\textsuperscript{-1}) could be calculated for each bioregion using
+linear regression. Since the connectivity between sections is
+constrained by their location along the shore, I calculated the
+distances between sections not as `as the crow ﬂies' distances
+(\emph{e.g.} Section \textbf{1} is not connected in a straight line to
+Section \textbf{58} because of the intervening land in-between), but as
+the great circle geodesic distances between each pair of sections along
+a network of connected sections (vertices on a network graph). In other
+words, travelling from Section \textbf{1} to Section \textbf{58}
+requires travelling first along the coast through Section \textbf{2},
+then Section \textbf{3}, and eventually all the way up to Section
+\textbf{58}. The total distance between a pair of arbitrary sections is
+therefore the cumulative sum of the great circle distances between each
+consecutive pair of intervening sections along the `route'. This
+information is encapsulated as a square geodesic distance matrix, and
+can supply the distance along the abscissa against which species
+dissimilarities are plotted along the ordinate. The plots showing the
+relationship between \textbeta-diversity with distance are limited
+because they do not provide a geographical context. To overcome this
+problem, I relied on a visualisation technique not commonly found in
+biogeographical studies to explicitly provide the geographical context.
+I structured the sections as vertices of a network graph and assigned to
+them their geographical coordinates to force a familiar layout of the
+graph --- when plotted on geographic coordinates, the sections form a
+map of South Africa. The species dissimilarities were assigned as edge
+weights (the lines connecting the \textbf{58} coastal sections) between
+pairs of sections, and added to the map. The weights are directly
+proportional to the thickness of the edges, and colours assigned to
+vertices (points, or the 58 coastal sections) cluster the sections into
+their bioregions. Initially I used the \textbf{igraph} package that many
+people rave about, but I found it bothersome. So I devised a cunning way
+to create network graphs from scratch with some \textbf{dplyr} and
+\textbf{ggplot2} magick. I suppose that if I really wanted to I could
+have made neat functions here (and elsewhere) to reduce some of the
+repetitive nature of my code, but I really coudn't be bother doing that.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Visualise the pairwise dissimilarities as network graphs where the }
+\CommentTok{# vertices are geographical coordinates and the edge lengths are the geodesic }
+\CommentTok{# distances. }
+\CommentTok{# These visualisations appear in the paper as Fig. 4.}
+\KeywordTok{colnames}\NormalTok{(sites) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"lat"}\NormalTok{, }\StringTok{"lon"}\NormalTok{)}
+\NormalTok{sites <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{site =} \KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)), sites)}
+
+\NormalTok{Y1.sl <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{expand.grid}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{), }\KeywordTok{seq}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{58}\NormalTok{)))}
+\KeywordTok{colnames}\NormalTok{(Y1.sl) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{, }\StringTok{"from"}\NormalTok{)}
+
+\NormalTok{Y2.sl <-}\StringTok{ }\NormalTok{Y1.sl}
+
+\CommentTok{# First Y1:}
+\NormalTok{Y1.sl}\OperatorTok{$}\NormalTok{Y1 <-}\StringTok{ }\KeywordTok{as.vector}\NormalTok{(Y1)}
+
+\NormalTok{Y1.sl.BMP <-}\StringTok{ }\NormalTok{Y1.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y1 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y1 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{16}\NormalTok{)}
+
+\NormalTok{Y1.sl.BATZ <-}\StringTok{ }\NormalTok{Y1.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y1 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y1 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{16} \OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{21}\NormalTok{)}
+
+\NormalTok{Y1.sl.AMP <-}\StringTok{ }\NormalTok{Y1.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y1 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y1 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{21} \OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{41}\NormalTok{)}
+
+\NormalTok{Y1.sl.ECTZ <-}\StringTok{ }\NormalTok{Y1.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y1 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y1 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{41}\NormalTok{)}
+
+\NormalTok{Y1.sl <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(Y1.sl.BMP, Y1.sl.BATZ, Y1.sl.AMP, Y1.sl.ECTZ)}
+
+\CommentTok{# and then Y2:}
+\NormalTok{Y2.sl}\OperatorTok{$}\NormalTok{Y2 <-}\StringTok{ }\KeywordTok{as.vector}\NormalTok{(Y2)}
+
+\NormalTok{Y2.sl.BMP <-}\StringTok{ }\NormalTok{Y2.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y2 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y2 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{16}\NormalTok{)}
+
+\NormalTok{Y2.sl.BATZ <-}\StringTok{ }\NormalTok{Y2.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y2 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y2 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{16} \OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{21}\NormalTok{)}
+
+\NormalTok{Y2.sl.AMP <-}\StringTok{ }\NormalTok{Y2.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y2 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y2 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{21} \OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{<=}\StringTok{ }\DecValTok{41}\NormalTok{)}
+
+\NormalTok{Y2.sl.ECTZ <-}\StringTok{ }\NormalTok{Y2.sl }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"to"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{left_join}\NormalTok{(., sites, }\DataTypeTok{by =} \KeywordTok{c}\NormalTok{(}\StringTok{"from"}\NormalTok{ =}\StringTok{ "site"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(Y2 }\OperatorTok{<=}\StringTok{ }\FloatTok{0.5} \OperatorTok{&}\StringTok{ }\NormalTok{Y2 }\OperatorTok{!=}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(from }\OperatorTok{!=}\StringTok{ }\NormalTok{to }\OperatorTok{&}\StringTok{ }\NormalTok{from }\OperatorTok{>}\StringTok{ }\DecValTok{41}\NormalTok{)}
+
+\CommentTok{# Load coastline}
+\KeywordTok{load}\NormalTok{(}\StringTok{"data/coast.RData"}\NormalTok{)}
+
+\NormalTok{sa_lats <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{38}\NormalTok{, }\OperatorTok{-}\DecValTok{26}\NormalTok{); sa_lons <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{, }\DecValTok{34}\NormalTok{)}
+
+\NormalTok{net.plot.Y1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{dissim =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{title =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{col.seq =} \OtherTok{NULL}\NormalTok{) \{}
+  \KeywordTok{ggplot}\NormalTok{(dissim, }\KeywordTok{aes}\NormalTok{(lon.x, lat.x)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_polygon}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ south_africa_coast, }
+                 \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ long, }\DataTypeTok{y =}\NormalTok{ lat, }\DataTypeTok{group =}\NormalTok{ group), }
+                 \DataTypeTok{show.legend =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{fill =} \StringTok{"#F9FAEC"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_curve}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{xend =}\NormalTok{ lon.y, }\DataTypeTok{yend =}\NormalTok{ lat.y, }\DataTypeTok{col =}\NormalTok{ Y1, }\DataTypeTok{alpha =}\NormalTok{ (}\DecValTok{1}\OperatorTok{-}\NormalTok{Y1)}\OperatorTok{-}\FloatTok{0.4}\NormalTok{),}
+               \DataTypeTok{curvature =} \FloatTok{0.3}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ sites, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ lon, }\DataTypeTok{y =}\NormalTok{ lat, }\DataTypeTok{fill =}\NormalTok{ bioreg}\OperatorTok{$}\NormalTok{bolton), }
+               \DataTypeTok{col =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{shape =} \DecValTok{21}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_fill_manual}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\StringTok{"AMP"}\NormalTok{, }\StringTok{"B-ATZ"}\NormalTok{, }\StringTok{"BMP"}\NormalTok{, }\StringTok{"ECTZ"}\NormalTok{),}
+                      \DataTypeTok{values =}\NormalTok{ col.seq, }\DataTypeTok{name =} \StringTok{"bioregion"}\NormalTok{, }\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_colour_gradient}\NormalTok{(}\DataTypeTok{name =} \KeywordTok{expression}\NormalTok{(}\KeywordTok{paste}\NormalTok{(beta[sim])), }
+                          \DataTypeTok{low =} \StringTok{"black"}\NormalTok{, }\DataTypeTok{high =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{coord_fixed}\NormalTok{(}\DataTypeTok{ratio =} \DecValTok{1}\NormalTok{, }\DataTypeTok{expand =} \OtherTok{TRUE}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{5}\NormalTok{),}
+                       \DataTypeTok{labels =}\NormalTok{ scales}\OperatorTok{::}\KeywordTok{unit_format}\NormalTok{(}\StringTok{"°E"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{35}\NormalTok{, }\OperatorTok{-}\DecValTok{25}\NormalTok{, }\DecValTok{5}\NormalTok{),}
+                       \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"35°S"}\NormalTok{, }\StringTok{"30°S"}\NormalTok{, }\StringTok{"25°S"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{scale_alpha_continuous}\NormalTok{(}\DataTypeTok{guide =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme_grey}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{xlab}\NormalTok{(}\OtherTok{NULL}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\OtherTok{NULL}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.minor =} \KeywordTok{element_blank}\NormalTok{()) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{ggtitle}\NormalTok{(title)\}}
+
+\NormalTok{a <-}\StringTok{ }\KeywordTok{net.plot.Y1}\NormalTok{(Y1.sl.BMP, }\StringTok{"Benguela Marine Province"}\NormalTok{, }
+                 \DataTypeTok{col.seq =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"white"}\NormalTok{, }\StringTok{"black"}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# alphabetical}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.direction =} \StringTok{"horizontal"}\NormalTok{,}
+        \DataTypeTok{legend.position =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{x =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{y =} \FloatTok{0.8}\NormalTok{),}
+        \DataTypeTok{legend.key.height =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\StringTok{"cm"}\NormalTok{)) }
+\NormalTok{b <-}\StringTok{ }\KeywordTok{net.plot.Y1}\NormalTok{(Y1.sl.BATZ, }\StringTok{"Benguela-Agulhas Transition Zone"}\NormalTok{, }
+                 \DataTypeTok{col.seq =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"white"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\NormalTok{c <-}\StringTok{ }\KeywordTok{net.plot.Y1}\NormalTok{(Y1.sl.AMP, }\StringTok{"Agulhas Marine Province"}\NormalTok{, }
+                 \DataTypeTok{col.seq =} \KeywordTok{c}\NormalTok{(}\StringTok{"white"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\NormalTok{d <-}\StringTok{ }\KeywordTok{net.plot.Y1}\NormalTok{(Y1.sl.ECTZ, }\StringTok{"East Coast Transition Zone"}\NormalTok{, }
+                 \DataTypeTok{col.seq =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"white"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+
+\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig4.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{7}\NormalTok{, }\DataTypeTok{height =} \FloatTok{3.8}\NormalTok{)}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
+\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
+\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
+\KeywordTok{print}\NormalTok{(a, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(b, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(c, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\KeywordTok{print}\NormalTok{(d, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{dev.off}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+And that's it, folks. You'll notice that I haven't reproduced Fig. 5
+here. I'll leave that up to you\ldots{} or ask me and I'll send the
+code. All of the matrices have (mostly) been calculated above and they
+can be used together with some \textbf{dplyr} and \textbf{ggplot2}
+know-how in the creation of that graph.
+
+Legalise seaweed!
+
+\section*{References}
+
+\hypertarget{refs}{}
+\hypertarget{ref-Anderson2013}{}
+Anderson, M. J., Tolimieri, N., and Millar, R. B. (2013). Beta diversity
+of demersal fish assemblages in the North-Eastern Pacific: interactions
+of latitude and depth. \emph{PLOS ONE} 8, e57918.
+
+\hypertarget{ref-Baselga2010}{}
+Baselga, A. (2010). Partitioning the turnover and nestedness components
+of beta diversity. \emph{Global Ecology and Biogeography} 19, 134--143.
+
+\hypertarget{ref-Baselga2013}{}
+Baselga, A., Orme, D., Villeger, S., Bortoli, J. D., and Leprieur, F.
+(2013). \emph{betapart: Partitioning beta diversity into turnover and
+nestedness components}. Available at:
+\url{http://CRAN.R-project.org/package=betapart}.
+
+\hypertarget{ref-Blanchet2008}{}
+Blanchet, F. G., Legendre, P., and Borcard, D. (2008). Forward selection
+of explanatory variables. \emph{Ecology} 89, 2623--2632.
+
+\hypertarget{ref-Bolton1986}{}
+Bolton, J. J. (1986). Marine phytogeography of the Benguela upwelling
+region on the west coast of southern Africa: A temperature dependent
+approach. \emph{Botanica Marina} 29, 251--256.
+
+\hypertarget{ref-Bolton2004}{}
+Bolton, J. J., and Anderson, R. J. (2004). ``Marine Vegetation,'' in
+\emph{Vegetation of southern africa}, eds. R. M. Cowling, D. M.
+Richardson, and S. M. Pierce (Cambridge University Press), 348--370.
+
+\hypertarget{ref-Bolton2002}{}
+Bolton, J. J., and Stegenga, H. (2002). Seaweed species diversity in
+South Africa. \emph{South African Journal of Marine Science} 24, 9--18.
+
+\hypertarget{ref-Borcard2011}{}
+Borcard, D., Gillet, F., and Legendre, P. (2011). \emph{Numerical
+Ecology with R}. Springer New York Available at:
+\url{https://books.google.co.za/books?id=dtQNxsH4Y2wC}.
+
+\hypertarget{ref-Davidar2007}{}
+Davidar, P., Rajagopal, B., Mohandass, D., Puyravaud, J.-P., Condit, R.,
+Wright, S., et al. (2007). The effect of climatic gradients, topographic
+variation and species traits on the beta diversity of rain forest trees.
+\emph{Global Ecology and Biogeography} 16, 510--518.
+
+\hypertarget{ref-DeClerck2005}{}
+De Clerck, O., Bolton, J. J., Anderson, R. J., and Coppejans, E. (2005).
+Guide to the seaweeds of KwaZulu-Natal. \emph{Scripta Botanica Belgica}
+33, 294 pp.
+
+\hypertarget{ref-Dray2006}{}
+Dray, S., Legendre, P., and Peres-Neto, P. R. (2006). Spatial modelling:
+a comprehensive framework for principal coordinate analysis of neighbour
+matrices (PCNM). \emph{Ecological Modelling} 196, 483--493.
+
+\hypertarget{ref-Dray2012a}{}
+Dray, S., Pélissier, R., Couteron, P., Fortin, M. J., Legendre, P.,
+Peres-Neto, P. R., et al. (2012). Community ecology in the age of
+multivariate multiscale spatial analysis. \emph{Ecological Monographs}
+82, 257--275.
+
+\hypertarget{ref-Nekola1999}{}
+Nekola, J. C., White, P. S., Carolina, N., Nekola, C., and Curriculum,
+P. S. W. (1999). The distance decay of similarity in biogeography and
+ecology. \emph{Journal of Biogeography} 26, 867--878.
+
+\hypertarget{ref-PeresNeto2010}{}
+Peres-Neto, P. R., and Legendre, P. (2010). Estimating and controlling
+for spatial structure in the study of ecological communities.
+\emph{Global Ecology and Biogeography} 19, 174--184.
+
+\hypertarget{ref-Peres-Neto2006}{}
+Peres-Neto, P. R., Legendre, P., Dray, S., and Borcard, D. (2006).
+Variation partitioning of species data matrices: estimation and
+comparison of fractions. \emph{Ecology} 87, 2614--2625.
+
+\hypertarget{ref-Sauer1988}{}
+Sauer, J. D. (1988). \emph{Plant migration: The dynamics of geographic
+patterning in seed plant species}. University of California Press.
+
+\hypertarget{ref-Smit2013}{}
+Smit, A. J., Roberts, M., Anderson, R. J., Dufois, F., Dudley, S. F. J.,
+Bornman, T. G., et al. (2013). A coastal seawater temperature dataset
+for biogeographical studies: large biases between \emph{in situ} and
+remotely-sensed data sets around the coast of South Africa. \emph{PLOS
+ONE} 8, e81944.
+
+\hypertarget{ref-Stegenga1997}{}
+Stegenga, H., Bolton, J. J., and Anderson, R. J. (1997). Seaweeds of the
+South African west coast. \emph{Contributions of the Bolus Herbarium}
+18, 3--637.
+
+\hypertarget{ref-Wernberg2013}{}
+Wernberg, T., Thomsen, M. S., Connell, S. D., Russell, B. D., Waters, J.
+M., Zuccarello, G. C., et al. (2013). The footprint of continental-scale
+ocean currents on the biogeography of seaweeds. \emph{PLOS ONE} 8,
+e80168.
+
+\end{document}
