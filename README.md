@@ -1,5 +1,6 @@
 # Seaweeds in two oceans: beta-diversity
-Supporting material for the paper with the same title.
+Supporting material for the paper Smit AJ, Bolton JJ, Anderson RJ (in review) 
+Seaweeds in two oceans: beta-diversity. Frontiers in Marine Science
 
 ## Abstract
 Several species assembly mechanisms have been proposed to structure
