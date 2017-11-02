@@ -4,44 +4,44 @@ The top-level auxiliary file: frontiers_two_oceans.aux
 The style file: frontiersinSCNS_ENG_HUMS.bst
 Database file #1: seaweed-bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 76 entries,
+You've used 77 entries,
             3027 wiz_defined-function locations,
-            1130 strings with 21590 characters,
-and the built_in function-call counts, 54618 in all, are:
-= -- 4563
-> -- 3159
+            1136 strings with 21790 characters,
+and the built_in function-call counts, 55426 in all, are:
+= -- 4634
+> -- 3193
 < -- 26
-+ -- 1562
-- -- 856
-* -- 3967
-:= -- 8069
-add.period$ -- 153
-call.type$ -- 76
-change.case$ -- 664
-chr.to.int$ -- 77
-cite$ -- 152
-duplicate$ -- 3407
-empty$ -- 3638
-format.name$ -- 1064
-if$ -- 11004
++ -- 1580
+- -- 865
+* -- 4022
+:= -- 8177
+add.period$ -- 156
+call.type$ -- 77
+change.case$ -- 674
+chr.to.int$ -- 78
+cite$ -- 154
+duplicate$ -- 3466
+empty$ -- 3702
+format.name$ -- 1076
+if$ -- 11179
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 809
-newline$ -- 470
-num.names$ -- 306
-pop$ -- 1611
+missing$ -- 820
+newline$ -- 476
+num.names$ -- 310
+pop$ -- 1642
 preamble$ -- 1
-purify$ -- 588
+purify$ -- 595
 quote$ -- 0
-skip$ -- 2072
+skip$ -- 2104
 stack$ -- 0
-substring$ -- 2502
-swap$ -- 1709
+substring$ -- 2539
+swap$ -- 1737
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 681
+type$ -- 690
 warning$ -- 0
-while$ -- 359
+while$ -- 365
 width$ -- 0
-write$ -- 1070
+write$ -- 1085

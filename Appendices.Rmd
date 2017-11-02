@@ -726,13 +726,13 @@ Here I now assemble the various panels into what we see produced in Fig. 2 in th
 
 ```{r make-fig-2a-d}
 # pdf("Fig2.pdf", width = 9, height = 8)
-grid::grid.newpage()
-grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))
-vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
-print(E.Y1.p, vp = vplayout(1,1))
-print(E.Y2.p, vp = vplayout(1,2))
-print(S.Y1.p, vp = vplayout(2,1))
-print(S.Y2.p, vp = vplayout(2,2))
+# grid::grid.newpage()
+# grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))
+# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
+# print(E.Y1.p, vp = vplayout(1,1))
+# print(E.Y2.p, vp = vplayout(1,2))
+# print(S.Y1.p, vp = vplayout(2,1))
+# print(S.Y2.p, vp = vplayout(2,2))
 # dev.off()
 ```
 
@@ -740,14 +740,14 @@ And I do the same with assembling the panels that form Fig. 3 in the paper:
 
 ```{r make-fig-3a-e}
 # pdf("Fig3.pdf", width = 9, height = 7)
-grid::grid.newpage()
-grid::pushViewport(grid::viewport(layout = grid::grid.layout(3,2)))
-vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
-print(E.Y1.plt.axis1, vp = vplayout(1,1))
-print(E.Y1.plt.axis2, vp = vplayout(1,2))
-print(E.Y2.plt.axis1, vp = vplayout(2,1))
-print(S.Y1.plt.axis1, vp = vplayout(3,1))
-print(S.Y2.plt.axis1, vp = vplayout(3,2))
+# grid::grid.newpage()
+# grid::pushViewport(grid::viewport(layout = grid::grid.layout(3,2)))
+# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
+# print(E.Y1.plt.axis1, vp = vplayout(1,1))
+# print(E.Y1.plt.axis2, vp = vplayout(1,2))
+# print(E.Y2.plt.axis1, vp = vplayout(2,1))
+# print(S.Y1.plt.axis1, vp = vplayout(3,1))
+# print(S.Y2.plt.axis1, vp = vplayout(3,2))
 # dev.off()
 ```
 
@@ -941,13 +941,13 @@ d <- net.plot.Y1(Y1.sl.ECTZ, "East Coast Transition Zone",
   theme(legend.position = "none")
 
 # pdf("Fig4.pdf", width = 7, height = 3.8)
-grid::grid.newpage()
-grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))
-vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
-print(a, vp = vplayout(1,1))
-print(b, vp = vplayout(1,2))
-print(c, vp = vplayout(2,1))
-print(d, vp = vplayout(2,2))
+# grid::grid.newpage()
+# grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))
+# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
+# print(a, vp = vplayout(1,1))
+# print(b, vp = vplayout(1,2))
+# print(c, vp = vplayout(2,1))
+# print(d, vp = vplayout(2,2))
 # dev.off()
 ```
 

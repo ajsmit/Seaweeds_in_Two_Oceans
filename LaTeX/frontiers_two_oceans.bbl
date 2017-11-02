@@ -1,4 +1,4 @@
-\begin{thebibliography}{76}
+\begin{thebibliography}{77}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -474,6 +474,13 @@ Stephenson, T.~A. (1948).
   Part 3}.
 \newblock \emph{Annals of the Natal Museum} 11, 207--324
 \bibAnnoteFile{Stephenson1948}
+
+\bibitem[{Straub et~al.(2016)Straub, Thomsen, and Wernberg}]{straub2016}
+Straub, S.~C., Thomsen, M.~S., and Wernberg, T. (2016).
+\newblock The dynamic biogeography of the anthropocene: The speed of recent
+  range shifts in seaweeds.
+\newblock In \emph{Seaweed Phylogeography} (Springer). 63--93
+\bibAnnoteFile{straub2016}
 
 \bibitem[{Stuart-Smith et~al.(2017)Stuart-Smith, Edgar, and
   Bates}]{StuartSmith2017b}

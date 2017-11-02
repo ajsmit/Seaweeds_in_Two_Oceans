@@ -498,7 +498,8 @@ emerging.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Now comes in the in situ temperatures for the 58 coastal sections (interpolated temperaures as per version 2 of the South African Coastal Temperature Network):}
+\CommentTok{# Now comes in the in situ temperatures for the 58 coastal sections }
+\CommentTok{# (interpolated temperaures as per version 2 of the South African Coastal Temperature Network):}
 \KeywordTok{load}\NormalTok{(}\StringTok{'data/E.RData'}\NormalTok{)}
 \NormalTok{env <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(interpOut)}
 
@@ -1172,15 +1173,15 @@ Here I now assemble the various panels into what we see produced in Fig.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig2.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{9}\NormalTok{, }\DataTypeTok{height =} \DecValTok{8}\NormalTok{)}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
-\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
-\KeywordTok{print}\NormalTok{(E.Y1.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(E.Y2.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(S.Y1.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(S.Y2.p, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{dev.off}\NormalTok{()}
+\CommentTok{# pdf("Fig2.pdf", width = 9, height = 8)}
+\CommentTok{# grid::grid.newpage()}
+\CommentTok{# grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))}
+\CommentTok{# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)}
+\CommentTok{# print(E.Y1.p, vp = vplayout(1,1))}
+\CommentTok{# print(E.Y2.p, vp = vplayout(1,2))}
+\CommentTok{# print(S.Y1.p, vp = vplayout(2,1))}
+\CommentTok{# print(S.Y2.p, vp = vplayout(2,2))}
+\CommentTok{# dev.off()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1189,16 +1190,16 @@ paper:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig3.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{9}\NormalTok{, }\DataTypeTok{height =} \DecValTok{7}\NormalTok{)}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
-\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
-\KeywordTok{print}\NormalTok{(E.Y1.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(E.Y1.plt.axis2, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(E.Y2.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(S.Y1.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(S.Y2.plt.axis1, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{dev.off}\NormalTok{()}
+\CommentTok{# pdf("Fig3.pdf", width = 9, height = 7)}
+\CommentTok{# grid::grid.newpage()}
+\CommentTok{# grid::pushViewport(grid::viewport(layout = grid::grid.layout(3,2)))}
+\CommentTok{# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)}
+\CommentTok{# print(E.Y1.plt.axis1, vp = vplayout(1,1))}
+\CommentTok{# print(E.Y1.plt.axis2, vp = vplayout(1,2))}
+\CommentTok{# print(E.Y2.plt.axis1, vp = vplayout(2,1))}
+\CommentTok{# print(S.Y1.plt.axis1, vp = vplayout(3,1))}
+\CommentTok{# print(S.Y2.plt.axis1, vp = vplayout(3,2))}
+\CommentTok{# dev.off()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1452,15 +1453,15 @@ repetitive nature of my code, but I really coudn't be bother doing that.
                  \DataTypeTok{col.seq =} \KeywordTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"black"}\NormalTok{, }\StringTok{"white"}\NormalTok{)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
 
-\KeywordTok{pdf}\NormalTok{(}\StringTok{"Fig4.pdf"}\NormalTok{, }\DataTypeTok{width =} \DecValTok{7}\NormalTok{, }\DataTypeTok{height =} \FloatTok{3.8}\NormalTok{)}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{grid.newpage}\NormalTok{()}
-\NormalTok{grid}\OperatorTok{::}\KeywordTok{pushViewport}\NormalTok{(grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout =}\NormalTok{ grid}\OperatorTok{::}\KeywordTok{grid.layout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)))}
-\NormalTok{vplayout <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) grid}\OperatorTok{::}\KeywordTok{viewport}\NormalTok{(}\DataTypeTok{layout.pos.row =}\NormalTok{ x, }\DataTypeTok{layout.pos.col =}\NormalTok{ y)}
-\KeywordTok{print}\NormalTok{(a, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(b, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(c, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
-\KeywordTok{print}\NormalTok{(d, }\DataTypeTok{vp =} \KeywordTok{vplayout}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
-\KeywordTok{dev.off}\NormalTok{()}
+\CommentTok{# pdf("Fig4.pdf", width = 7, height = 3.8)}
+\CommentTok{# grid::grid.newpage()}
+\CommentTok{# grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))}
+\CommentTok{# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)}
+\CommentTok{# print(a, vp = vplayout(1,1))}
+\CommentTok{# print(b, vp = vplayout(1,2))}
+\CommentTok{# print(c, vp = vplayout(2,1))}
+\CommentTok{# print(d, vp = vplayout(2,2))}
+\CommentTok{# dev.off()}
 \end{Highlighting}
 \end{Shaded}
 

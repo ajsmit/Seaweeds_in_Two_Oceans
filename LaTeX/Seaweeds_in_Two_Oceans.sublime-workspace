@@ -1,0 +1,201 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"last_filter": "inst",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 588.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ajsmit/Dropbox/repos/Seaweeds_in_Two_Oceans/LaTeX"
+	],
+	"file_history":
+	[
+		"/Users/ajsmit/Dropbox/repos/kelp_morphology/KelpSiteList.csv",
+		"/Users/ajsmit/Dropbox/repos/kelp_morphology/Morphology_Lamimaria.csv",
+		"/Users/ajsmit/Dropbox/repos/kelp_morphology/Morphology_Ecklonia.csv",
+		"/Users/ajsmit/Dropbox/repos/python/sandbox/test2.py",
+		"/Users/ajsmit/Dropbox/repos/python/sandbox/read_netCDF.py",
+		"/Users/ajsmit/Downloads/haakonbakka-haakonbakka.bitbucket.org-778c963a5fe3/btopic107.R",
+		"/Users/ajsmit/Dropbox/repos/python/sandbox/test.py",
+		"/Users/ajsmit/Dropbox/repos/python/sandbox/multi_slice_read_netCDF.py",
+		"/Users/ajsmit/Dropbox/repos/python/sandbox/test3.py",
+		"/Users/ajsmit/Downloads/Little Snitch 4/Little Snitch 4 Serial Number MacOSX - softasm.com/How To Install + Serial.rtf",
+		"/Users/ajsmit/Google Drive/UWC/BDC212_Plant_Ecophysiology/2017/Classlist/email_list_2017.txt",
+		"/Users/ajsmit/Google Drive/Postgrads/Robert_Schlegel/SOMs/feedback.md",
+		"/Users/ajsmit/Dropbox/repos/AHW/LaTeX/Schlegel_et_al.tex",
+		"/Users/ajsmit/Dropbox/repos/Seaweed/FMS/frontiers_two_oceans.tex",
+		"/Users/ajsmit/Downloads/box.plots (1).R",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/ajsmit/.bash_profile",
+		"/Users/ajsmit/.matplotlib/matplotlibrc",
+		"/Users/ajsmit/Dropbox/repos/python/AWH_SOMs/node_means.csv",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/User/SublimeREPL/config/Python/Main.sublime-menu",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/User/python3_ajs.sublime-build",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/Users/ajsmit/Library/Application Support/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/Users/ajsmit/Downloads/matplotlibrc"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 108.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python 3/Python3.sublime-build",
+	"project": "Seaweeds_in_Two_Oceans.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 187.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.25)  1 NOV 2017 15:06
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.25)  1 NOV 2017 18:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -926,7 +926,7 @@ LaTeX Info: Redefining \LaTeXe on input line 219.
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: <->"Minion
 . Pro/BI/OT:script=latn;language=DFLT;+smcp;mapping=tex-text;"
 .................................................
-LaTeX Info: Redefining \rmfamily on input line 28.
+LaTeX Info: Redefining \rmfamily on input line 10.
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -974,7 +974,7 @@ LaTeX Info: Redefining \rmfamily on input line 28.
 . Pro/BI/OT:script=latn;language=DFLT;mapping=tex-text;"
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
-LaTeX Info: Redefining \sffamily on input line 29.
+LaTeX Info: Redefining \sffamily on input line 11.
 .................................................
 . fontspec info: "set-scale"
 . 
@@ -1039,7 +1039,7 @@ cale=MatchLowercase].
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font
 . \hyphenchar \font =\c_minus_one 
 .................................................
-LaTeX Info: Redefining \ttfamily on input line 30.
+LaTeX Info: Redefining \ttfamily on input line 12.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/textgreek/textgreek.sty
 Package: textgreek 2011/10/09 v0.7 Greek symbols in text
@@ -1277,38 +1277,37 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 (./frontiers_two_oceans.aux)
 \openout1 = `frontiers_two_oceans.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 106.
-LaTeX Font Info:    Try loading font information for LGR+cmr on input line 106.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 88.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 88.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2016/03/04 v1.1 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 106.
-Package crop Info: using `pdftex' graphics driver on input line 106.
+LaTeX Font Info:    ... okay on input line 88.
+Package crop Info: using `pdftex' graphics driver on input line 88.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box65
-Package hyperref Info: Link coloring OFF on input line 106.
+Package hyperref Info: Link coloring OFF on input line 88.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1318,15 +1317,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count291
 )
-LaTeX Info: Redefining \ref on input line 106.
-LaTeX Info: Redefining \pageref on input line 106.
-LaTeX Info: Redefining \nameref on input line 106.
+LaTeX Info: Redefining \ref on input line 88.
+LaTeX Info: Redefining \pageref on input line 88.
+LaTeX Info: Redefining \nameref on input line 88.
 
 (./frontiers_two_oceans.out) (./frontiers_two_oceans.out)
 \@outlinefile=\write3
 \openout3 = `frontiers_two_oceans.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 106.
+LaTeX Info: Redefining \microtypecontext on input line 88.
 Package microtype Info: Character protrusion enabled (level 2),
 (microtype)             factor: 1500.
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1348,70 +1347,67 @@ Package microtype Info: Loading generic settings for font family
 .................................................
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 106.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 106.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 106.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 106.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 106.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 106.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 106.
-LaTeX Font Info:    Redeclaring math accent \check on input line 106.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 106.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 106.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 106.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 106.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 106.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 88.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 88.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 88.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 88.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 88.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 88.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 88.
+LaTeX Font Info:    Redeclaring math accent \check on input line 88.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 88.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 88.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 88.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 88.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 88.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 106.
-
+(Font)              `operators' in the math version `normal' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/MinionPro(0)/m/n on input line 106.
+(Font)                  OT1/cmr/m/n --> TU/MinionPro(0)/m/n on input line 88.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 106.
+(Font)              `operators' in the math version `bold' on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/m/n on input line 106.
-
+(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/m/n on input line 88.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/MinionPro(0)/m/n --> TU/MinionPro(0)/m/n on input li
-ne 106.
+ne 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/MinionPro(0)/m/it on input line 106
-.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/bx/n on input line 106
-.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/MyriadPro(0)/m/n on input line 106.
+(Font)                  OT1/cmr/m/it --> TU/MinionPro(0)/m/it on input line 88.
 
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/bx/n on input line 88.
+
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/MyriadPro(0)/m/n on input line 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/UbuntuMono(0)/m/n on input line 106
-.
+(Font)                  OT1/cmtt/m/n --> TU/UbuntuMono(0)/m/n on input line 88.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/MinionPro(0)/m/n --> TU/MinionPro(0)/bx/n on input l
-ine 106.
+ine 88.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/MinionPro(0)/bx/it on input line 1
-06.
+(Font)                  OT1/cmr/bx/it --> TU/MinionPro(0)/bx/it on input line 8
+8.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/MyriadPro(0)/bx/n on input line 10
-6.
+(Font)                  OT1/cmss/bx/n --> TU/MyriadPro(0)/bx/n on input line 88
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/UbuntuMono(0)/bx/n on input line 10
-6.
+(Font)                  OT1/cmtt/m/n --> TU/UbuntuMono(0)/bx/n on input line 88
+.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 106.
+LaTeX Info: Redefining \selectfont on input line 88.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
 r-basic-dictionary/translator-basic-dictionary-English.dict
@@ -1421,14 +1417,14 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2017/03/23 v2.7f siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count292
-LaTeX Font Info:    Try loading font information for U+msa on input line 106.
+LaTeX Font Info:    Try loading font information for U+msa on input line 88.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 106.
+LaTeX Font Info:    Try loading font information for U+msb on input line 88.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1441,32 +1437,32 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 10.85944pt on input line 106.
+(Font)              scaled to size 10.85944pt on input line 88.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `MyriadPro' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 8.14458pt on input line 106.
+(Font)              scaled to size 8.14458pt on input line 88.
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 6.33467pt on input line 106.
+(Font)              scaled to size 6.33467pt on input line 88.
 \c__siunitx_mathtt_int=\count293
 LaTeX Font Info:    Font shape `TU/UbuntuMono(0)/m/n' will be
-(Font)              scaled to size 10.1076pt on input line 106.
+(Font)              scaled to size 10.1076pt on input line 88.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `UbuntuMono' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `TU/UbuntuMono(0)/m/n' will be
-(Font)              scaled to size 7.5807pt on input line 106.
+(Font)              scaled to size 7.5807pt on input line 88.
 LaTeX Font Info:    Font shape `TU/UbuntuMono(0)/m/n' will be
-(Font)              scaled to size 5.8961pt on input line 106.
-LaTeX Font Info:    Try loading font information for TU+phv on input line 121.
-LaTeX Font Info:    No file TUphv.fd. on input line 121.
+(Font)              scaled to size 5.8961pt on input line 88.
+LaTeX Font Info:    Try loading font information for TU+phv on input line 103.
+LaTeX Font Info:    No file TUphv.fd. on input line 103.
 
 
 LaTeX Font Warning: Font shape `TU/phv/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 121.
+(Font)              using `TU/lmr/m/n' instead on input line 103.
 
 Package microtype Info: Loading generic settings for font family
 (microtype)             `lmr' (encoding: TU).
@@ -1474,53 +1470,53 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             See the microtype manual for details.
 File: ./logo1.jpg Graphic file (type QTm)
 <use  "./logo1.jpg" >
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 103
 []
  []
 
 
-Overfull \hbox (8.53581pt too wide) in paragraph at lines 121--121
+Overfull \hbox (8.53581pt too wide) in paragraph at lines 103--103
 [][] 
  []
 
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 9.04953pt on input line 121.
+(Font)              scaled to size 9.04953pt on input line 103.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `phv' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
 LaTeX Font Warning: Font shape `TU/phv/bx/n' undefined
-(Font)              using `TU/phv/m/n' instead on input line 121.
+(Font)              using `TU/phv/m/n' instead on input line 103.
 
 
 LaTeX Font Warning: Font shape `TU/phv/m/sl' undefined
-(Font)              using `TU/phv/m/n' instead on input line 121.
+(Font)              using `TU/phv/m/n' instead on input line 103.
 
 
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 103
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/MyriadPro(0)/b/n' undefined
-(Font)              using `TU/MyriadPro(0)/m/n' instead on input line 123.
+(Font)              using `TU/MyriadPro(0)/m/n' instead on input line 105.
 
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/bx/n' will be
-(Font)              scaled to size 10.85944pt on input line 126.
+(Font)              scaled to size 10.85944pt on input line 108.
 LaTeX Font Info:    Try loading font information for LGR+MyriadPro(0) on input 
-line 127.
-LaTeX Font Info:    No file LGRMyriadPro(0).fd. on input line 127.
+line 109.
+LaTeX Font Info:    No file LGRMyriadPro(0).fd. on input line 109.
 
 LaTeX Font Warning: Font shape `LGR/MyriadPro(0)/m/n' undefined
-(Font)              using `LGR/cmr/m/n' instead on input line 127.
+(Font)              using `LGR/cmr/m/n' instead on input line 109.
 
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/it' will be
-(Font)              scaled to size 10.85944pt on input line 127.
+(Font)              scaled to size 10.85944pt on input line 109.
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 13.5743pt on input line 133.
+(Font)              scaled to size 13.5743pt on input line 115.
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/bx/n' will be
-(Font)              scaled to size 13.5743pt on input line 133.
+(Font)              scaled to size 13.5743pt on input line 115.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
@@ -1531,31 +1527,31 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 ]
 LaTeX Font Info:    Try loading font information for LGR+MinionPro(0) on input 
-line 137.
-LaTeX Font Info:    No file LGRMinionPro(0).fd. on input line 137.
+line 119.
+LaTeX Font Info:    No file LGRMinionPro(0).fd. on input line 119.
 
 
 LaTeX Font Warning: Font shape `LGR/MinionPro(0)/m/n' undefined
-(Font)              using `LGR/cmr/m/n' instead on input line 137.
+(Font)              using `LGR/cmr/m/n' instead on input line 119.
 
 
 LaTeX Font Warning: Font shape `TU/phv/bx/it' undefined
-(Font)              using `TU/phv/bx/n' instead on input line 143.
+(Font)              using `TU/phv/bx/n' instead on input line 125.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [2]
-Underfull \hbox (badness 1701) in paragraph at lines 144--145
+Underfull \hbox (badness 1701) in paragraph at lines 126--127
 []\TU/MinionPro(0)/m/n/12 Understanding the processes influencing species turno
 ver and geographical range is of practical
  []
 
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/m/n' will be
-(Font)              scaled to size 12.66934pt on input line 150.
+(Font)              scaled to size 12.66934pt on input line 132.
 LaTeX Font Info:    Font shape `TU/MyriadPro(0)/bx/n' will be
-(Font)              scaled to size 12.66934pt on input line 150.
+(Font)              scaled to size 12.66934pt on input line 132.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1564,7 +1560,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [3]
-Underfull \hbox (badness 1082) in paragraph at lines 156--157
+Underfull \hbox (badness 1082) in paragraph at lines 138--139
 []\TU/MinionPro(0)/m/n/12 The third set of explanatory variables was generated 
 to represent the spatial connectivity among
  []
@@ -1578,7 +1574,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [5]
-Underfull \hbox (badness 1033) in paragraph at lines 188--189
+Underfull \hbox (badness 1033) in paragraph at lines 170--171
 []\TU/MinionPro(0)/m/n/12 The db-RDA analysis procedure retained 17 significant
  MEMs that fully encapsulated the spatial
  []
@@ -1596,7 +1592,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [8]
-Underfull \hbox (badness 1616) in paragraph at lines 223--224
+Underfull \hbox (badness 1616) in paragraph at lines 205--206
 []\TU/MinionPro(0)/m/n/12 The oceanographic features of the Benguela and Agulha
 s Currents set up gradients in seawater
  []
@@ -1618,7 +1614,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [12]
-Underfull \hbox (badness 1286) in paragraph at lines 253--255
+Underfull \hbox (badness 1286) in paragraph at lines 235--237
 \TU/MinionPro(0)/m/n/12 programme “Thermal characteristics of the South African
  nearshore: implications for biodiversity”
  []
@@ -1636,7 +1632,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [15]
-Underfull \hbox (badness 1221) in paragraph at lines 522--528
+Underfull \hbox (badness 1221) in paragraph at lines 529--535
 []\TU/MinionPro(0)/m/n/12 van den Hoek, C. (1982a).  Phytogeographic distributi
 on groups of benthic marine algae in the
  []
@@ -1646,7 +1642,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [16]
-Underfull \hbox (badness 1199) in paragraph at lines 582--587
+Underfull \hbox (badness 1199) in paragraph at lines 589--594
 []\TU/MinionPro(0)/m/n/12 Wieters, E. A., Broitman, B. R., and Branch, G. M. (2
 009).  Benthic community structure and
  []
@@ -1658,7 +1654,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 [17]
 
 LaTeX Font Warning: Font shape `LGR/MinionPro(0)/bx/n' undefined
-(Font)              using `LGR/MinionPro(0)/m/n' instead on input line 276.
+(Font)              using `LGR/MinionPro(0)/m/n' instead on input line 258.
 
 
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
@@ -1679,7 +1675,7 @@ File: ../figures/Fig1.jpg Graphic file (type QTm)
 File: ../figures/Fig2.jpg Graphic file (type QTm)
  <use  "../figures/Fig2.jpg" >
 LaTeX Font Info:    Font shape `TU/UbuntuMono(0)/bx/n' will be
-(Font)              scaled to size 10.1076pt on input line 380.
+(Font)              scaled to size 10.1076pt on input line 362.
 File: ../figures/Fig3.jpg Graphic file (type QTm)
 
 <use  "../figures/Fig3.jpg" >
@@ -1689,7 +1685,7 @@ File: ../figures/Fig5.jpg Graphic file (type QTm)
 
 <use  "../figures/Fig5.jpg" >
 
-Package caption Warning: Unused \captionsetup[sub] on input line 21.
+Package caption Warning: Unused \captionsetup[sub] on input line 3.
 See the caption package documentation for explanation.
 
 
@@ -1727,11 +1723,11 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 411.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 411.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 393.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 393.
  (./frontiers_two_oceans.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 411.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 411.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 393.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 393.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1739,12 +1735,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 27026 strings out of 493068
- 518544 string characters out of 6135636
- 631920 words of memory out of 5000000
- 30457 multiletter control sequences out of 15000+600000
+ 27030 strings out of 493068
+ 518608 string characters out of 6135636
+ 632035 words of memory out of 5000000
+ 30460 multiletter control sequences out of 15000+600000
  8816 words of font info for 80 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
- 60i,13n,117p,10420b,982s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,117p,10420b,978s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on frontiers_two_oceans.pdf (24 pages).
