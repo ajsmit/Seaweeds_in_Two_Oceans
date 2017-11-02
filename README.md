@@ -1,4 +1,4 @@
-# Seaweed in Two Oceans: beta-diversity
+# Seaweeds in two oceans: beta-diversity
 Supporting material for the paper with the same title.
 
 ## Abstract
