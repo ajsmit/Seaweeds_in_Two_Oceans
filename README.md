@@ -8,21 +8,21 @@ ecological communities. We assess the biogeography of seaweeds along
 produced by the Agulhas Current, and contrast this with the
 environmental structure created by the Benguela Current. We subdivided
 the coastline into ‘bioregions’ to examine the regional patterning. To
-investigate the assembly mechanisms, we decomposed Sørensen’s -diversity
-into ‘turnover’ ($_{\text{sim}}$) and ‘nestedness-resultant’
-($_{\text{sne}}$) dissimilarities, and used distance-based redundancy
+investigate the assembly mechanisms, we decomposed Sørensen’s β-diversity
+into ‘turnover’ (β<sup>sim</sup>) and ‘nestedness-resultant’
+(β<sup>sne</sup>) dissimilarities, and used distance-based redundancy
 analysis (db-RDA) to relate them to the Euclidian thermal difference,
-d$_{\text{E}}$, and geographical distance. Moran’s eigenvector maps
+d<sup>E</sup>, and geographical distance. Moran’s eigenvector maps
 (MEM) were used as an additional set of spatial constraints. Variation
 partitioning was then used to find the relative strengths of thermal and
 spatially-structured thermal drivers. Spatial and environmental
-predictors explained 97.9% of the total variation in $_{\text{sim}}$ and
+predictors explained 97.9% of the total variation in β<sup>sim</sup> and
 the thermal gradient accounted for 84.2% of this combined pool.
-$_{\text{sim}}$ was the major component of overall -diversity in the
+β<sup>sim</sup> was the major component of overall -diversity in the
 Agulhas Current region, suggesting niche influences (environmental
 sorting) as dominant assembly process there. The much weaker thermal
 gradient in the Benguela Current-influenced region resulted in a high
-amount of $_{\text{sne}}$ that could indicate neutral assembly
+amount of β<sup>sne</sup> that could indicate neutral assembly
 processes. The intensification of upwelling during the mid-Pliocene
 4.6–3.2 Ma (*i.e.* historical factors) were likely responsible for
 setting up the strong disjunction between the species-poor west coast
