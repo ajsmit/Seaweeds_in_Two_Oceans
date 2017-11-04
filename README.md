@@ -80,12 +80,7 @@ Now I get to the data. The first step involves the species table (*Y*). First I 
 # Y.pair <- beta.pair(Y.core, index.family = "sor")
 
 # Let Y1 be the turnover component (beta-sim):
-# Y1 <- as.matrix(Y.pair$beta.sim)
-# save(Y1, file = "data/Y1.Rdata")
-load("data/Y1.Rdata")
-
-# Let Y2 be the nestedness-resultant component (beta-sne):
-# Y2 <- as.matrix(Y.pair$beta.sne)
+# Y1 <- as.matrix(Y.pair<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/cba45b733617df1ac4c2a012b771e0b6.svg?invert_in_darkmode" align=middle width=582.057795pt height=47.64045000000003pt/>beta.sne)
 # save(Y2, file = "data/Y2.Rdata")
 load("data/Y2.Rdata")
 ```
@@ -147,185 +142,33 @@ S.auto <- PCNM(dist(sites), silent = TRUE)
 # summary(S.auto)
 
 # The truncation distance:
-S.dmin <- S.auto$thresh
-
-# The number of eigenvalues:
-S.len <- length(S.auto$values)
+S.dmin <- S.auto<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/485a8fafd9b477b4153f74faee24ef6d.svg?invert_in_darkmode" align=middle width=346.90474499999993pt height=47.64044999999998pt/>values)
 
 # Expected value of I, no spatial correlation:
-S.auto$expected_Moran
-
-# Select eigenfunction with positive spatial correlation:
-S.sel <- which(S.auto$Moran_I$Positive == TRUE)
-# length(S.sel)
-# there are 27 MEMs, i.e. 27 of the PCNM variables (eigenvalues) relate
-# significantly to Moran's I
-
-# Extract the eigenvectors associated with those MEMs:
-S.pos <- as.data.frame(S.auto$vectors)[, S.sel]
+S.auto<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/8265d71a0f23ca79144517ba8a094ae5.svg?invert_in_darkmode" align=middle width=525.0519449999999pt height=47.64044999999998pt/>Moran_I<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/c2f5f8a5bacd1481e04896e2e8dca34d.svg?invert_in_darkmode" align=middle width=920.7186449999999pt height=47.64044999999998pt/>vectors)[, S.sel]
 ```
 
 The code below lets us visualise the configuration of the 58 coastal sections as represented by the minimum spanning tree. Because the sites are constrained by the coast the MST network topology results in a string of coastal sections arranged along the shore between Section **1** and Section **58**. This spatial network therefore also captures the spatial connectivity in the seaweed's dispersal ability along the shore, although no directionality is associated with dispersal. In the paper I discuss the possible influence of ocean currents (*e.g.* Wernberg et al., 2013) and I pointed out that it is tempting to assume that seaweeds would disperse in the direction the major ocean currents. These kinds of networks could conceivably be configured to model dispersal due to currents, but here it is simply used for representing the spatial scale of the study region.
 
 ``` r
 # The spatial netwwork topology of the coastal sections can be seen by:
-plot(S.auto$spanning, sites)
-```
-
-#### 2.1.4 db-RDA on the MEMs
-The next step of the spatial analysis is to apply a db-RDA with the seaweed data (*Y*1 and *Y*2) coupled with the MEMs. I now run a full (global) db-RDA on the significant, positive MEMs selected above, and I then perform a permutation test to see if the fit is significant.
-
-``` r
-# Run the db-RDA on the Y1 data:
-S.Y1.cs <- capscale(Y1 ~., S.pos)
-
-# Permutation test to test for the significance of the global fit:
-anova(S.Y1.cs, parallel = 4) # ... yes, significant!
-
-# The global adjusted R2 --- the variance explained by the constrained axes:
-S.Y1.cs.R2 <- RsquareAdj(S.Y1.cs)$adj.r.squared
+plot(S.auto<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/8128718e75f5aea33886cdd54a54da26.svg?invert_in_darkmode" align=middle width=698.16285pt height=363.25707pt/>adj.r.squared
 
 # Variance explained by full model:
-sum(S.Y1.cs$CCA$eig) / S.Y1.cs$tot.chi * 100
-```
-
-``` r
-# And on the Y2 data (uncommented, but same as above):
-S.Y2.cs <- capscale(Y2 ~., S.pos)
-S.Y2.cs.R2 <- RsquareAdj(S.Y2.cs)$adj.r.squared
-sum(S.Y2.cs$CCA$eig) / S.Y2.cs$tot.chi * 100
-```
-
-Since the analysis is significant, I compute the adjusted *R*<sup>2</sup> and run forward selection of the MEMs. The forward selection procedure of Blanchet et al. (2008) is implemented in the **packfor** package for R, and I use it to reduce the number of MEM variables and retain only those that best fit the biotic data. Forward selection prevents the inflation of the overall type I error and reduces the number of explanatory variables used in the final model, which improves parsimony. I then run a new db-RDA analysis on the 'best' (reduced) set of MEM variables that was selected.
-
-``` r
-# Forward selection on Y1:
-S.Y1.fwd <- forward.sel(Y1, as.matrix(S.pos), adjR2thresh = S.Y1.cs.R2)
-
-# Forward selection on Y2:
-S.Y2.fwd <- forward.sel(Y2, as.matrix(S.pos), adjR2thresh = S.Y2.cs.R2)
-```
-
-``` r
-# Write the significant MEMs to a new object:
-S.Y1.no.sig <- nrow(S.Y1.fwd)
-S.Y1.sign <- sort(S.Y1.fwd[, 2])
-S.Y1.red <- S.pos[, c(S.Y1.sign)]
-colnames(S.Y1.red) <- paste(rep("MEM", S.Y1.no.sig),
-                            as.character(S.Y1.sign), sep = "")
-
-# Identity of significant MEMs:
-colnames(S.Y1.red)
-
-# Run a new db-RDA on the best MEM variables:
-S.Y1.s2 <- capscale(Y1 ~., data = S.Y1.red)
-# no need to check these for collinearity as the 
-# MEMs are completely orthogonal..
-
-# Permutation test to test for significance:
-anova(S.Y1.s2, parallel = 4)
-
-# Test by axis:
-anova(S.Y1.s2, by = "axis", parallel = 4)
-
-# The significant axes:
-S.Y1.axis.test <- anova(S.Y1.s2, by = "terms", parallel = 4)
-S.Y1.ax <- which(S.Y1.axis.test[, 4] < 0.05)
-S.Y1.sign.ax <- colnames(S.Y1.red[,S.Y1.ax])
-
-# Test by terms:
-anova(S.Y1.s2, by = "terms", parallel = 4)
-
-# The adjusted R2 --- the variance explained by the constrained axes:
-S.Y1.s2.R2 <- RsquareAdj(S.Y1.s2)$adj.r.squared
+sum(S.Y1.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / S.Y1.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/2fd123cea69aa41dcf6dbc816f65b0e1.svg?invert_in_darkmode" align=middle width=698.0968499999999pt height=87.09227999999999pt/>adj.r.squared
+sum(S.Y2.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / S.Y2.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/69b24062d2865995197f33a9cc6274be.svg?invert_in_darkmode" align=middle width=745.4271pt height=915.58599pt/>adj.r.squared
 
 # Variance explained by reduced model:
-sum(S.Y1.s2$CCA$eig) / S.Y1.s2$tot.chi * 100
+sum(S.Y1.s2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / S.Y1.s2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/31ff202a39c3cf48a2dc89bb2af0cc25.svg?invert_in_darkmode" align=middle width=784.2977999999999pt height=363.25838999999996pt/>adj.r.squared
 
-# Show only the first 6 rows:
-scores(S.Y1.s2, display = "bp", choices = c(1:4))[1:6, ]
-```
-
-``` r
-# As above, but now with Y2:
-S.Y2.no.sig <- nrow(S.Y2.fwd)
-S.Y2.sign <- sort(S.Y2.fwd[, 2])
-S.Y2.red <- S.pos[, c(S.Y2.sign)]
-colnames(S.Y2.red) <- paste(rep("MEM", S.Y2.no.sig),
-                            as.character(S.Y2.sign), sep = "")
-colnames(S.Y2.red)
-S.Y2.s2 <- capscale(Y2 ~., data = S.Y2.red)
-
-anova(S.Y2.s2, parallel = 4) # ... yes, significant!
-
-anova(S.Y2.s2, by = "axis", parallel = 4)
-
-S.Y2.axis.test <- anova(S.Y2.s2, by = "terms", parallel = 4)
-S.Y2.ax <- which(S.Y2.axis.test[, 4] < 0.05)
-S.Y2.sign.ax <- colnames(S.Y2.red[,S.Y2.ax])
-
-S.Y2.s2.R2 <- RsquareAdj(S.Y2.s2)$adj.r.squared
-
-sum(S.Y2.s2$CCA$eig) / S.Y2.s2$tot.chi * 100
-
-scores(S.Y2.s2, display = "bp", choices = c(1:4))
-```
-
-#### 2.1.5 A few visualisations
-Now I make a visualisation to reveal the spatial arrangement of the MEMs used in the final db-RDA involving the spatial variables (*i.e.* and ). The spatial configuration relates to broad scales as seen in Fig. 3 in the paper. Here are plots of the site scores for the MEMs and *Y*1 and *Y*2 (a few panels belonging with Fig. 3):
-
-``` r
-# Plot the first canonical axis of the db-RDA with the significant MEMs for Y1;
-# (see Fig. 3):
-S.Y1.axes <- scores(S.Y1.s2, choices = c(1:3), display = "lc", scaling = 1)
-S.Y1.plt.axis1 <- ggmap() +
-  geom_point(data = sites, aes(x = Longitude, y = Latitude,
-                               size = abs(S.Y1.axes[, 1]),
-                               col = ifelse(S.Y1.axes[, 1] < 0, "a", "b")), shape = 1) +
-  scale_size_continuous(guide = FALSE) +
-  scale_colour_manual(guide = FALSE, values = c("black", "grey60")) +
-  ggtitle(expression(paste("CAP1 of spatial variables, ", beta[sim])))
-
-# And the same for Y2 (see Fig. 3):
-S.Y2.axes <- scores(S.Y2.s2, choices = c(1:3), display = "lc", scaling = 1)
-S.Y2.plt.axis1 <- ggmap() +
-  geom_point(data = sites, aes(x = Longitude, y = Latitude,
-                               size = abs(S.Y2.axes[, 1]),
-                               col = ifelse(S.Y2.axes[, 1] < 0, "a", "b")), shape = 1) +
-  scale_size_continuous(guide = FALSE) +
-  scale_colour_manual(guide = FALSE, values = c("black", "grey60")) +
-  ggtitle(expression(paste("CAP1 of spatial variables, ", beta[sne])))
-```
-
-Now that I know that spatial structures are present in the seaweed data I check how these significant spatial patterns (two significant canonical axes, CAP1 and CAP2) are related to the environmental variables using linear regression. Checks for normality are also done but none of the output is printed here.
-
-Next I want to show the ordination biplots of the MEM variables with respect to the sites using scaling = 2 (species) and showing the LC scores. Now I can see the major directions of influence of the spatial variables with respect to the sites. The code below produces a few panels of Fig. 2:
-
-``` r
-# A few of the panels that go with Fig. 2;
-# first for Y1...:
-S.Y1.scrs <- scores(S.Y1.s2, display = c("sp","wa","lc","bp","cn"))
-S.Y1.df_sites <- data.frame(S.Y1.scrs$constraints)
-S.Y1.df_sites$bioreg <- bioreg$bolton
-S.Y1.df_sites$section <- seq(1:58)
-colnames(S.Y1.df_sites) <- c("x", "y", "Bioregion", "Section")
-
-multiplier <- ordiArrowMul(S.Y1.scrs$biplot)
-S.Y1.bp <- S.Y1.scrs$biplot * multiplier
-S.Y1.bp <- as.data.frame(S.Y1.bp)
-S.Y1.bp$labels <- rownames(S.Y1.bp)
+sum(S.Y2.s2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / S.Y2.s2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/49585c24a3c004e0aafafc03631af8ab.svg?invert_in_darkmode" align=middle width=842.80185pt height=955.0374899999999pt/>constraints)
+S.Y1.df_sites<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/1708cda66816858736a4bec1e591c942.svg?invert_in_darkmode" align=middle width=123.566685pt height=22.745910000000016pt/>bolton
+S.Y1.df_sites<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/988e7e72c7dc19c17209ba8257a0c445.svg?invert_in_darkmode" align=middle width=618.783495pt height=47.64045000000003pt/>biplot)
+S.Y1.bp <- S.Y1.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/e28007f90984ddfba4f3436a0147cc61.svg?invert_in_darkmode" align=middle width=450.74749499999996pt height=24.56552999999997pt/>labels <- rownames(S.Y1.bp)
 colnames(S.Y1.bp) <- c("x", "y", "labels")
-S.Y1.bp.sign <- S.Y1.bp[S.Y1.bp$labels %in% S.Y1.sign.ax,]
-
-# A modification of the vegan ordiArrowTextXY() function to prevent the 
-# "plot.new has not been called yet" from occuring
-source("functions/text_mult.R")
-
-S.Y1.text <- text.mult(S.Y1.scrs$biplot)
+S.Y1.bp.sign <- S.Y1.bp[S.Y1.bp<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/731465cc44cf4c2c76504e170a0b6eaf.svg?invert_in_darkmode" align=middle width=698.06385pt height=126.54443999999998pt/>biplot)
 S.Y1.text <- as.data.frame(S.Y1.text)
-S.Y1.text$labels <- rownames(S.Y1.text)
-colnames(S.Y1.text) <- c("x", "y", "labels")
-S.Y1.text.sign <- S.Y1.text[S.Y1.text$labels %in% S.Y1.sign.ax,]
+S.Y1.text<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/e8c128f8d461f559eea4d41b68fdd1ee.svg?invert_in_darkmode" align=middle width=717.80115pt height=47.64045000000003pt/>labels %in% S.Y1.sign.ax,]
 
 S.Y1.p <- ggplot(data = S.Y1.df_sites, aes(x, y, colour = Bioregion)) + 
   geom_point(size = 4.0) + 
@@ -346,208 +189,32 @@ S.Y1.p <- ggplot(data = S.Y1.df_sites, aes(x, y, colour = Bioregion)) +
 
 # ...then for Y2:
 S.Y2.scrs <- scores(S.Y2.s2, display = c("sp","wa","lc","bp","cn"))
-S.Y2.df_sites <- data.frame(S.Y2.scrs$constraints)
-S.Y2.df_sites$bioreg <- bioreg$bolton
-S.Y2.df_sites$section <- seq(1:58)
+S.Y2.df_sites <- data.frame(S.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/cc8ab4b25a89842e09440b65651973d5.svg?invert_in_darkmode" align=middle width=178.58989499999998pt height=24.56552999999997pt/>bioreg <- bioreg<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/eef6a122069e669bd107ed6468a63279.svg?invert_in_darkmode" align=middle width=132.069795pt height=22.745910000000016pt/>section <- seq(1:58)
 colnames(S.Y2.df_sites) <- c("x", "y", "Bioregion", "Section")
 
-multiplier <- ordiArrowMul(S.Y2.scrs$biplot, fill = 0.25)
-S.Y2.bp <- S.Y2.scrs$biplot * multiplier
+multiplier <- ordiArrowMul(S.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/c8d302c66b8ed21ed45371ed27d469f0.svg?invert_in_darkmode" align=middle width=291.67429500000003pt height=24.56552999999997pt/>biplot * multiplier
 S.Y2.bp <- as.data.frame(S.Y2.bp)
-S.Y2.bp$labels <- rownames(S.Y2.bp)
-colnames(S.Y2.bp) <- c("x", "y", "labels")
-S.Y2.bp.sign <- S.Y2.bp[S.Y2.bp$labels %in% S.Y2.sign.ax,]
+S.Y2.bp<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/b33fa3ceb5070a5c33b3c9c8a8cc5717.svg?invert_in_darkmode" align=middle width=697.9896pt height=47.64045000000003pt/>labels %in% S.Y2.sign.ax,]
 
-S.Y2.text <- text.mult(S.Y2.scrs$biplot, fill = 0.25)
-S.Y2.text <- as.data.frame(S.Y2.text)
-S.Y2.text$labels <- rownames(S.Y2.text)
+S.Y2.text <- text.mult(S.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/cede1dbca00ed3d10ff512244f768fad.svg?invert_in_darkmode" align=middle width=491.297895pt height=24.56552999999997pt/>labels <- rownames(S.Y2.text)
 colnames(S.Y2.text) <- c("x", "y", "labels")
-S.Y2.text.sign <- S.Y2.text[S.Y2.text$labels %in% S.Y2.sign.ax,]
-
-S.Y2.p <- ggplot(data = S.Y2.df_sites, aes(x, y, colour = Bioregion)) + 
-  geom_point(size = 4.0) + 
-  geom_text(aes(label = Section), size = 3.0, col = "white") + 
-  geom_segment(data = S.Y2.bp.sign, 
-               aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")), 
-               color = "red", alpha = 1, size = 0.7) +
-  geom_text(data = as.data.frame(S.Y2.text.sign), 
-            aes(x, y, label = rownames(S.Y2.text.sign)),
-            color = "black") +
-  xlab("CAP1") + ylab("CAP2") + 
-  ggtitle(expression(paste("Spatial variables and ", beta[sne]))) +
-  theme_grey() +
-  theme(panel.grid.minor = element_blank(),
-        legend.position = "none",
-        aspect.ratio = 0.8)
-```
-
-#### 2.1.6 Analysis of the thermal variables
-As before with the spatial variable, I now do a db-RDA involving all the thermal variables (*E*) followed by forward selection. There is less explanation provided here as the reader should now be familiar with db-RDA --- the procedure is the same as with the MEMs, just different explanatory variables are supplied. Another difference is that the thermal variables are not necessarily orthogonal, so I check for collinearity using variance inflation factors (VIF).
-
-I start with the full model and then run forward selection and repeat the db-RDA on the reduced set. Analyses shown for *Y*1 and *Y*2:
-
-``` r
-# First Y1:
-E.Y1.cs <- capscale(Y1 ~., E1)
-
-# Is the fit significant?
-anova(E.Y1.cs, parallel = 4) # ... yes!
-
-# The adjusted R2 --- the variance explained by the constrained axes:
-E.Y1.R2a <- RsquareAdj(E.Y1.cs)$adj.r.squared
+S.Y2.text.sign <- S.Y2.text[S.Y2.text<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/e9fea300d44c9353ad60ba286c3f6fee.svg?invert_in_darkmode" align=middle width=844.3825499999999pt height=718.32519pt/>adj.r.squared
 
 # Variance explained by full model:
-sum(E.Y1.cs$CCA$eig) / E.Y1.cs$tot.chi * 100
-```
-
-``` r
-# ...and now Y2:
-E.Y2.cs <- capscale(Y2 ~., E1)
-anova(E.Y2.cs, parallel = 4) # ... yes!
-E.Y2.R2a <- RsquareAdj(E.Y2.cs)$adj.r.squared
-sum(E.Y2.cs$CCA$eig) / E.Y2.cs$tot.chi * 100
-```
-
-``` r
-# Forward selection on Y1:
-E.Y1.fwd <- forward.sel(Y1, E1, adjR2thresh = E.Y1.R2a, nperm = 999)
-
-# Forward selection on Y1:
-E.Y2.fwd <- forward.sel(Y2, E1, adjR2thresh = E.Y2.R2a, nperm = 999)
-```
-
-``` r
-# Write the significant envs to a new object, and
-# identity of significant envs in increasing order;
-# first Y1:
-E.Y1.sign <- E.Y1.fwd %>% 
-  dplyr::select(variables) %>% 
-  as.vector()
-
-E.Y1.red <- E1[, E.Y1.sign[,1]]
-
-# Run a new env analysis on the best env variables:
-E.Y1.cs2 <- capscale(Y1 ~., E.Y1.red)
-
-# Check for collinearity:
-vif.cca(E.Y1.cs2)
-
-# If there are significant collinearity the collinear variables can be removed:
-# E.red <- dplyr::select(E.red, -augMean)
-# E.cs2 <- capscale(Y1 ~ ., E.red)
-#
-# check for collinearity again:
-# vif.cca(E.cs2) # much better
-
-# Test for significance:
-anova(E.Y1.cs2, parallel = 4) # ... yes!
-
-# Which axes are significant?
-anova(E.Y1.cs2, by = "axis", parallel = 4) # ... yes!
-
-# The significant axes:
-E.Y1.axis.test <- anova(E.Y1.cs2, by = "terms", parallel = 4)
-E.Y1.ax <- which(E.Y1.axis.test[, 4] < 0.05)
-E.Y1.sign.ax <- colnames(E.Y1.red[,E.Y1.ax])
-
-# The adjusted R2 --- the variance explained by the constrained axes:
-E.Y1.cs2.R2 <- RsquareAdj(E.Y1.cs2)$adj.r.squared
+sum(E.Y1.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / E.Y1.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/33ffe17bfc0c23ab37598e2cb4d91e87.svg?invert_in_darkmode" align=middle width=698.30145pt height=87.09227999999999pt/>adj.r.squared
+sum(E.Y2.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / E.Y2.cs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/522912787703bd81421dfb21519c834a.svg?invert_in_darkmode" align=middle width=764.0786999999999pt height=678.8736899999999pt/>adj.r.squared
 
 # Variance explained by reduced (final) model:
-sum(E.Y1.cs2$CCA$eig) / E.Y1.cs2$tot.chi * 100
+sum(E.Y1.cs2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / E.Y1.cs2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/69679b76c171387c44a09a8a7748ba61.svg?invert_in_darkmode" align=middle width=697.9665pt height=599.97069pt/>adj.r.squared
 
-# The biplot scores for constraining variables:
-scores(E.Y1.cs2, display = "bp", choices = c(1:2))
-```
-
-``` r
-# ...then Y2
-E.Y2.sign <- E.Y2.fwd %>% 
-  dplyr::select(variables) %>% 
-  as.vector()
-
-E.Y2.red <- E1[, E.Y2.sign[,1]]
-
-E.Y2.sign <- sort(E.Y2.fwd[, 1])
-E.Y2.red <- data.frame(E1[, c(E.Y2.sign)])
-colnames(E.Y2.red) <- E.Y2.sign
-
-E.Y2.cs2 <- capscale(Y2 ~., E.Y2.red)
-
-vif.cca(E.Y2.cs2)
-# E.red <- dplyr::select(E.red, -augMean)
-# E.cs2 <- capscale(Y2 ~ ., E.red)
-
-# vif.cca(E.cs2) # much better
-
-anova(E.Y2.cs2, parallel = 4) # ... yes!
-
-E.Y2.axis.test <- anova(E.Y2.cs2, by = "terms", parallel = 4)
-# E.Y2.ax <- which(E.Y2.axis.test[, 4] < 0.05) # doesn't work...
-# E.Y2.sign.ax <- colnames(E.Y2.red[,E.Y2.ax])
-E.Y2.sign.ax <- "annMean" # a manual cheat
-
-anova(E.Y2.cs2, by = "terms", parallel = 4) # ... yes!
-
-E.Y2.cs2.R2 <- RsquareAdj(E.Y2.cs2)$adj.r.squared
-
-sum(E.Y2.cs2$CCA$eig) / E.Y2.cs2$tot.chi * 100
-
-scores(E.Y2.cs2, display = "bp", choices = c(1:2))
-```
-
-Now I make the remaining panels of Fig. 3, these showing the spatial arrangement associated with the site scores of the environmental variables for *Y*1 and *Y*2:
-
-``` r
-# Plot the two significant canonical axes of the 
-# db-RDA with the significant MEMs. This part of Fig. 3:
-E.Y1.axes <- scores(E.Y1.cs2, choices = c(1:2),
-                   display = "lc", scaling = 1)
-E.Y1.plt.axis1 <- ggmap() +
-  geom_point(data = sites, aes(x = Longitude, y = Latitude, size = E.Y1.axes[, 1]),
-             col = "black", shape = 1) +
-  scale_size_continuous(guide = FALSE) +
-  ggtitle(expression(paste("CAP1 of thermal variables, ", beta[sim])))
-
-E.Y1.plt.axis2 <- ggmap() +
-  geom_point(data = sites, aes(x = Longitude, y = Latitude, size = E.Y1.axes[, 2]),
-             col = "black", shape = 1) +
-  scale_size_continuous(guide = FALSE) +
-  ggtitle(expression(paste("CAP2 of thermal variables, ", beta[sim])))
-
-E.Y2.axes <- scores(E.Y2.cs2, choices = c(1:3),
-                    display = "lc", scaling = 1)
-
-E.Y2.plt.axis1 <- ggmap() +
-  geom_point(data = sites, aes(x = Longitude, y = Latitude, size = E.Y2.axes[, 1]),
-             col = "black", shape = 1) +
-  scale_size_continuous(guide = FALSE) +
-  ggtitle(expression(paste("CAP1 of thermal variables, ", beta[sne])))
-```
-
-And now I make the remaining panels of Fig. 2 for Y1 and Y2 and the environmental constraining vectors:
-
-``` r
-# The ordiplots in Fig. 2:
-E.Y1.scrs <- scores(E.Y1.cs2, display = c("sp","wa","lc","bp","cn"))
-E.Y1.df_sites <- data.frame(E.Y1.scrs$constraints)
-E.Y1.df_sites$bioreg <- bioreg$bolton
-E.Y1.df_sites$section <- seq(1:58)
-colnames(E.Y1.df_sites) <- c("x", "y", "Bioregion", "Section")
-
-multiplier <- ordiArrowMul(E.Y1.scrs$biplot)
-E.Y1.bp <- E.Y1.scrs$biplot * multiplier
-E.Y1.bp <- as.data.frame(E.Y1.bp)
-E.Y1.bp$labels <- rownames(E.Y1.bp)
+sum(E.Y2.cs2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/987b5bdff7f72fc2ac32ee23c1aa6b8f.svg?invert_in_darkmode" align=middle width=38.044215pt height=22.381919999999983pt/>eig) / E.Y2.cs2<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/b4bbb0e4d311d5da576663f45f0a02b5.svg?invert_in_darkmode" align=middle width=1100.7711pt height=639.4221899999999pt/>constraints)
+E.Y1.df_sites<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/1708cda66816858736a4bec1e591c942.svg?invert_in_darkmode" align=middle width=123.566685pt height=22.745910000000016pt/>bolton
+E.Y1.df_sites<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/95b6b5f26c76761837cba61b6186e94e.svg?invert_in_darkmode" align=middle width=621.743595pt height=47.64045000000003pt/>biplot)
+E.Y1.bp <- E.Y1.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/bd2ed01b3d4bdc2e3e30a72b13573195.svg?invert_in_darkmode" align=middle width=459.62944500000003pt height=24.56552999999997pt/>labels <- rownames(E.Y1.bp)
 colnames(E.Y1.bp) <- c("x", "y", "labels")
-E.Y1.bp.sign <- E.Y1.bp[E.Y1.bp$labels %in% E.Y1.sign.ax,]
-
-E.Y1.text <- text.mult(E.Y1.scrs$biplot)
+E.Y1.bp.sign <- E.Y1.bp[E.Y1.bp<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/df6d4831f399828457f5ab0ba23551c9.svg?invert_in_darkmode" align=middle width=222.26539499999998pt height=47.64044999999998pt/>biplot)
 E.Y1.text <- as.data.frame(E.Y1.text)
-E.Y1.text$labels <- rownames(E.Y1.text)
-colnames(E.Y1.text) <- c("x", "y", "labels")
-E.Y1.text.sign <- E.Y1.text[E.Y1.text$labels %in% E.Y1.sign.ax,]
+E.Y1.text<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/c1d0bcd08a17a3e176857d250eff23c5.svg?invert_in_darkmode" align=middle width=726.6814499999999pt height=47.64045000000003pt/>labels %in% E.Y1.sign.ax,]
 
 E.Y1.p <- ggplot(data = E.Y1.df_sites, aes(x, y, colour = Bioregion)) + 
   geom_point(size = 4.0) + 
@@ -567,161 +234,16 @@ E.Y1.p <- ggplot(data = E.Y1.df_sites, aes(x, y, colour = Bioregion)) +
         aspect.ratio = 0.8)
 
 E.Y2.scrs <- scores(E.Y2.cs2, display = c("sp","wa","lc","bp","cn"))
-E.Y2.df_sites <- data.frame(E.Y2.scrs$constraints)
-E.Y2.df_sites$bioreg <- bioreg$bolton
-E.Y2.df_sites$section <- seq(1:58)
+E.Y2.df_sites <- data.frame(E.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/e78233f85b1724185526cf50297cd753.svg?invert_in_darkmode" align=middle width=181.549995pt height=24.56552999999997pt/>bioreg <- bioreg<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/53e11ab883482b3480101d2275f2e3b9.svg?invert_in_darkmode" align=middle width=135.03006pt height=22.745910000000016pt/>section <- seq(1:58)
 colnames(E.Y2.df_sites) <- c("x", "y", "Bioregion", "Section")
 
-multiplier <- ordiArrowMul(E.Y2.scrs$biplot, fill = 0.45)
-E.Y2.bp <- E.Y2.scrs$biplot * multiplier
+multiplier <- ordiArrowMul(E.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/dd25e1b68c528cf146d88992314a036c.svg?invert_in_darkmode" align=middle width=297.594495pt height=24.56552999999997pt/>biplot * multiplier
 E.Y2.bp <- as.data.frame(E.Y2.bp)
-E.Y2.bp$labels <- rownames(E.Y2.bp)
-colnames(E.Y2.bp) <- c("x", "y", "labels")
-E.Y2.bp.sign <- E.Y2.bp[E.Y2.bp$labels %in% E.Y2.sign.ax,]
+E.Y2.bp<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/d5c6e98e51d8e77acffd0a395a92beeb.svg?invert_in_darkmode" align=middle width=697.9665pt height=47.64045000000003pt/>labels %in% E.Y2.sign.ax,]
 
-E.Y2.text <- text.mult(E.Y2.scrs$biplot, fill = 0.45)
-E.Y2.text <- as.data.frame(E.Y2.text)
-E.Y2.text$labels <- rownames(E.Y2.text)
+E.Y2.text <- text.mult(E.Y2.scrs<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/bcfec39573c37379f646485952df2e4c.svg?invert_in_darkmode" align=middle width=500.17984499999994pt height=24.56552999999997pt/>labels <- rownames(E.Y2.text)
 colnames(E.Y2.text) <- c("x", "y", "labels")
-E.Y2.text.sign <- E.Y2.text[E.Y2.text$labels %in% E.Y2.sign.ax,]
-
-E.Y2.p <- ggplot(data = E.Y2.df_sites, aes(x, y, colour = Bioregion)) + 
-  geom_point(size = 4.0) + 
-  geom_text(aes(label = Section), size = 3.0, col = "white") + 
-  geom_segment(data = E.Y2.bp.sign, 
-               aes(x = 0, y = 0, xend = x, yend = y),
-               arrow = arrow(length = unit(0.2, "cm")), 
-               color = "red", alpha = 1, size = 0.7) +
-  geom_text(data = as.data.frame(E.Y2.text.sign), 
-            aes(x, y, label = rownames(E.Y2.text.sign)),
-            color = "black") +
-  xlab("CAP1") + ylab("CAP2") + 
-  ggtitle(expression(paste("Thermal variables and ", beta[sne]))) +
-  theme_grey() +
-  theme(panel.grid.minor = element_blank(),
-        legend.position = c(.80, .75),
-        aspect.ratio = 0.8)
-```
-
-Here I now assemble the various panels into what we see produced in Fig. 2 in the paper:
-
-``` r
-# pdf("Fig2.pdf", width = 9, height = 8)
-# grid::grid.newpage()
-# grid::pushViewport(grid::viewport(layout = grid::grid.layout(2,2)))
-# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
-# print(E.Y1.p, vp = vplayout(1,1))
-# print(E.Y2.p, vp = vplayout(1,2))
-# print(S.Y1.p, vp = vplayout(2,1))
-# print(S.Y2.p, vp = vplayout(2,2))
-# dev.off()
-```
-
-And I do the same with assembling the panels that form Fig. 3 in the paper:
-
-``` r
-# pdf("Fig3.pdf", width = 9, height = 7)
-# grid::grid.newpage()
-# grid::pushViewport(grid::viewport(layout = grid::grid.layout(3,2)))
-# vplayout <- function(x, y) grid::viewport(layout.pos.row = x, layout.pos.col = y)
-# print(E.Y1.plt.axis1, vp = vplayout(1,1))
-# print(E.Y1.plt.axis2, vp = vplayout(1,2))
-# print(E.Y2.plt.axis1, vp = vplayout(2,1))
-# print(S.Y1.plt.axis1, vp = vplayout(3,1))
-# print(S.Y2.plt.axis1, vp = vplayout(3,2))
-# dev.off()
-```
-
-### 2.2 Partitioning of variance
-Lastly, using **vegan**'s `varpart()` function, I partition the variance between the MEM variables and the thermal variables (Peres-Neto and Legendre, 2010; Peres-Neto et al., 2006).
-
-``` r
-# These lines of code produce a few figures to visually understand
-# the variance partitioning on Y1:
-vp2.Y1 <- varpart(Y1, E.Y1.red, S.Y1.red)
-par(mfrow = c(1, 2))
-showvarparts(2, c("Environ-\nment","","Spatial",""))
-plot(vp2.Y1, digits = 2)
-par(mfrow = c(1, 1))
-
-# Now I test the significant fractions [a], [b] and [c]...
-ES.Y1.red <- cbind(E.Y1.red, S.Y1.red)
-
-# Fraction E | S; pure environmental, i.e. [a]:
-anova.cca(capscale(Y1 ~ augMean + febRange + febSD + augSD +
-                  Condition(MEM1 + MEM2 + MEM3 + MEM4 + MEM5 +
-                              MEM6 + MEM7 + MEM8 + MEM9 + MEM10 +
-                              MEM13 + MEM15 + MEM16 +
-                              MEM18 + MEM19 + MEM20),
-                data = ES.Y1.red), parallel = 4, step = 1000)
-
-# Fraction S | E; pure spatial, i.e. [c]:
-anova.cca(capscale(Y1 ~ MEM1 + MEM2 + MEM3 + MEM4 + MEM5 +
-                              MEM6 + MEM7 + MEM8 + MEM9 + MEM10 +
-                              MEM13 + MEM15 + MEM16 +
-                              MEM18 + MEM19 + MEM20 +
-                  Condition(augMean + febRange + febSD + augSD),
-                data = ES.Y1.red), parallel = 4, step = 1000)
-
-# Fraction E; environmental, i.e. [a] + [b]:
-anova.cca(capscale(Y1 ~., E.Y1.red), parallel = 4, step = 1000)
-
-# Fractions S; spatial, i.e. [b] + [c]:
-anova.cca(capscale(Y1 ~., S.Y1.red), parallel = 4, step = 1000)
-
-# Fractions E + S; spatial and environmental, i.e. [a] + [b] + [c]:
-anova.cca(capscale(Y1 ~., cbind(E.Y1.red, S.Y1.red)), parallel = 4, step = 1000)
-
-# And now the partitioning of the variance in Y2:
-(vp2.Y2 <- varpart(Y2, E.Y2.red, S.Y2.red))
-par(mfrow = c(1, 2))
-showvarparts(2, c("Environ-\nment","","Spatial",""))
-plot(vp2.Y2, digits = 2)
-par(mfrow = c(1, 1))
-
-# Tests the significant fractions [a], [b] and [c]...
-ES.Y2.red <- cbind(E.Y2.red, S.Y2.red)
-
-# Fraction E | S; pure environmental, i.e. [a]:
-anova.cca(capscale(Y2 ~ annMean +
-                  Condition(MEM1 + MEM2 + MEM3 + MEM5),
-                data = ES.Y2.red), parallel = 4, step = 1000)
-
-# Fraction S | E; pure spatial, i.e. [c]:
-anova.cca(capscale(Y2 ~ MEM1 + MEM2 + MEM3 + MEM5 +
-                  Condition(annMean),
-                data = ES.Y2.red), parallel = 4, step = 1000)
-
-# Fraction E; environmental, i.e. [a] + [b]:
-anova.cca(capscale(Y2 ~., E.Y2.red), parallel = 4, step = 1000)
-
-# Fractions S; spatial, i.e. [b] + [c]:
-anova.cca(capscale(Y2 ~., S.Y2.red), parallel = 4, step = 1000)
-
-# Fractions E + S; spatial and environmental, i.e. [a] + [b] + [c]:
-anova.cca(capscale(Y2 ~., cbind(E.Y2.red, S.Y2.red)), parallel = 4, step = 1000)
-```
-
-## 3 Appendix C
-
-### 3.1 Network graphs of β-diversity
-I delved deeper into the patterns of -diversity by examining the properties of the full dissimilarity matrix, which gives regional -diversity mentioned above. This matrix describes all pairwise combinations of sections (582 – 1 = 3363), and as such gives us a regional perspective (Anderson et al., 2013). The usual visualisation approach is to plot the dissimilarity metric as a function of geographical distance along the gradient or with respect to the distance between corresponding pairs of sections (Davidar et al., 2007; *e.g.* Nekola et al., 1999); these visualisations are provided here. The plots of dissimilarities were colour-coded according to the bioregion to which the section pairs belong (the Benguela Marine Province (BMP; **1**–**17**), the Benguela-Agulhas Transition Zone (B-ATZ; **18**–**22**), the Agulhas Marine Province (AMP; **19**–**43**/**44** --- the location of this transition is somewhat uncertain at this stage) and the East Coast Transition Zone (ECTZ; **44**/**45**–**58**) (*sensu* Bolton and Anderson, 2004) to distinguish bioregional properties of species distribution from the wider geographical scale structure along the whole coastline. In doing so, the change in -diversity per unit of separating distance between sections (km<sup>-1</sup>) could be calculated for each bioregion using linear regression. Since the connectivity between sections is constrained by their location along the shore, I calculated the distances between sections not as ‘as the crow ﬂies’ distances (*e.g.* Section **1** is not connected in a straight line to Section **58** because of the intervening land in-between), but as the great circle geodesic distances between each pair of sections along a network of connected sections (vertices on a network graph). In other words, travelling from Section **1** to Section **58** requires travelling first along the coast through Section **2**, then Section **3**, and eventually all the way up to Section **58**. The total distance between a pair of arbitrary sections is therefore the cumulative sum of the great circle distances between each consecutive pair of intervening sections along the ‘route’. This information is encapsulated as a square geodesic distance matrix, and can supply the distance along the abscissa against which species dissimilarities are plotted along the ordinate. The plots showing the relationship between -diversity with distance are limited because they do not provide a geographical context. To overcome this problem, I relied on a visualisation technique not commonly found in biogeographical studies to explicitly provide the geographical context. I structured the sections as vertices of a network graph and assigned to them their geographical coordinates to force a familiar layout of the graph --- when plotted on geographic coordinates, the sections form a map of South Africa. The species dissimilarities were assigned as edge weights (the lines connecting the **58** coastal sections) between pairs of sections, and added to the map. The weights are directly proportional to the thickness of the edges, and colours assigned to vertices (points, or the 58 coastal sections) cluster the sections into their bioregions. Initially I used the **igraph** package that many people rave about, but I found it bothersome. So I devised a cunning way to create network graphs from scratch with some **dplyr** and **ggplot2** magick. I suppose that if I really wanted to I could have made neat functions here (and elsewhere) to reduce some of the repetitive nature of my code, but I really coudn't be bother doing that.
-
-``` r
-# Visualise the pairwise dissimilarities as network graphs where the 
-# vertices are geographical coordinates and the edge lengths are the geodesic 
-# distances. 
-# These visualisations appear in the paper as Fig. 4.
-colnames(sites) <- c("lat", "lon")
-sites <- cbind(data.frame(site = seq(1:58)), sites)
-
-Y1.sl <- as.data.frame(expand.grid(seq(1:58), seq(1:58)))
-colnames(Y1.sl) <- c("to", "from")
-
-Y2.sl <- Y1.sl
-
-# First Y1:
-Y1.sl$Y1 <- as.vector(Y1)
+E.Y2.text.sign <- E.Y2.text[E.Y2.text<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/c4fd1629893e1912c0c1ef2ec06d48ff.svg?invert_in_darkmode" align=middle width=850.3027500000001pt height=3866.3040899999996pt/>Y1 <- as.vector(Y1)
 
 Y1.sl.BMP <- Y1.sl %>%
   dplyr::left_join(., sites, by = c("to" = "site")) %>% 
@@ -750,45 +272,7 @@ Y1.sl.ECTZ <- Y1.sl %>%
 Y1.sl <- rbind(Y1.sl.BMP, Y1.sl.BATZ, Y1.sl.AMP, Y1.sl.ECTZ)
 
 # and then Y2:
-Y2.sl$Y2 <- as.vector(Y2)
-
-Y2.sl.BMP <- Y2.sl %>%
-  dplyr::left_join(., sites, by = c("to" = "site")) %>% 
-  dplyr::left_join(., sites, by = c("from" = "site")) %>% 
-  dplyr::filter(Y2 <= 0.5 & Y2 != 0) %>% 
-  dplyr::filter(from != to & from <= 16)
-
-Y2.sl.BATZ <- Y2.sl %>%
-  dplyr::left_join(., sites, by = c("to" = "site")) %>% 
-  dplyr::left_join(., sites, by = c("from" = "site")) %>% 
-  dplyr::filter(Y2 <= 0.5 & Y2 != 0) %>% 
-  dplyr::filter(from != to & from > 16 & from <= 21)
-
-Y2.sl.AMP <- Y2.sl %>%
-  dplyr::left_join(., sites, by = c("to" = "site")) %>% 
-  dplyr::left_join(., sites, by = c("from" = "site")) %>% 
-  dplyr::filter(Y2 <= 0.5 & Y2 != 0) %>% 
-  dplyr::filter(from != to & from > 21 & from <= 41)
-
-Y2.sl.ECTZ <- Y2.sl %>%
-  dplyr::left_join(., sites, by = c("to" = "site")) %>% 
-  dplyr::left_join(., sites, by = c("from" = "site")) %>% 
-  dplyr::filter(Y2 <= 0.5 & Y2 != 0) %>% 
-  dplyr::filter(from != to & from > 41)
-
-# Load coastline
-load("data/coast.RData")
-
-sa_lats <- c(-38, -26); sa_lons <- c(14, 34)
-
-net.plot.Y1 <- function(dissim = NULL, title = NULL, col.seq = NULL) {
-  ggplot(dissim, aes(lon.x, lat.x)) +
-    geom_polygon(data = south_africa_coast, 
-                 aes(x = long, y = lat, group = group), 
-                 show.legend = FALSE, fill = "#F9FAEC") +
-    geom_curve(aes(xend = lon.y, yend = lat.y, col = Y1, alpha = (1-Y1)-0.4),
-               curvature = 0.3) + 
-    geom_point(data = sites, aes(x = lon, y = lat, fill = bioreg$bolton), 
+Y2.sl<img src="https://rawgit.com/ajsmit/Seaweeds_in_Two_Oceans/master/svgs/b20c789550be056ba9a06bf00b5b0e9c.svg?invert_in_darkmode" align=middle width=732.5868pt height=640.62207pt/>bolton), 
                col = "black", shape = 21) +
     scale_fill_manual(breaks = c("AMP", "B-ATZ", "BMP", "ECTZ"),
                       values = col.seq, name = "bioregion", guide = FALSE) +
