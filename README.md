@@ -123,7 +123,9 @@ Obtaining the MEMs to use in the analysis is based on the procedure introduced b
 1.  Set up a geographic or Euclidian distance matrix representing the pairwise distances between the *n* sites (*D* = \[*d*<sub>*i**j*</sub>\]). I already did this when I applied the `decostand` function earlier.
 
 2.  Construct a truncated distance matrix by calculating a Minimum Spanning Tree (*S*<sup>⋆</sup>) and noting the following rules:
-    $$S^{\\star} =\\left\\{ \\begin{array}{rl} 0 & \\mbox{if}~i = j \\\\ d\_{ij} & \\mbox{if}~d\_{ij} \\leq t \\\\ 4t & \\mbox{if}~d\_{ij} &gt; t \\end{array} \\right.$$
+    $$S
+    ^{\\star} =\\left\\{ \\begin{array}{rl} 0 & \\mbox{if}~i = j \\\\ d\_{ij} & \\mbox{if}~d\_{ij} \\leq t \\\\ 4t & \\mbox{if}~d\_{ij} &gt; t \\end{array} \\right.
+    $$
      Weighting may be applied if desired, resulting in *S*<sub>*w*</sub><sup>⋆</sup>. It is not done here.
 
 3.  Do a Principal Coordinates Analysis (PCoA) of the truncated distance matrix *S*<sup>⋆</sup>.
