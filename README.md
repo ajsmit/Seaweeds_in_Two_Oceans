@@ -19,7 +19,7 @@ partitioning was then used to find the relative strengths of thermal and
 spatially-structured thermal drivers. Spatial and environmental
 predictors explained 97.9% of the total variation in β<sub>sim</sub> and
 the thermal gradient accounted for 84.2% of this combined pool.
-β<sub>sim</sub> was the major component of overall -diversity in the
+β<sub>sim</sub> was the major component of overall β-diversity in the
 Agulhas Current region, suggesting niche influences (environmental
 sorting) as dominant assembly process there. The much weaker thermal
 gradient in the Benguela Current-influenced region resulted in a high
