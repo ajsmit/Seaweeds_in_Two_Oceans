@@ -125,7 +125,7 @@ The basic approach to a spatial analysis structured around a biological response
 
 Obtaining the MEMs to use in the analysis is based on the procedure introduced by Borcard and Legendre (2002), which was later modified by Dray et al. (2006). The basic approach involves:
 
-*(Apologies, the equations are not rendring well here due to difficulties getting LaTeX to work with github-flavoured markdown...)*
+*(Apologies, the equations are not rendering well here due to difficulties getting LaTeX to work with github-flavoured markdown...)*
 
 1.  Set up a geographic or Euclidian distance matrix representing the pairwise distances between the *n* sites (*D* = \[*d*<sub>*i**j*</sub>\]). I already did this when I applied the `decostand` function earlier.
 
