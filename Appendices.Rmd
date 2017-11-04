@@ -10,16 +10,6 @@ author:
   name: RJ Anderson
 date: "19 March 2017"
 output:
-  md_document:
-    variant: markdown_github
-  html_document:
-    fig_caption: yes
-    fig_height: 7
-    fig_retina: 2
-    fig_width: 7
-    highlight: espresso
-    theme: cerulean
-    toc_float: no
   pdf_document:
     fig_caption: yes
     fig_height: 6.5
@@ -28,6 +18,16 @@ output:
     keep_tex: yes
     latex_engine: xelatex
     template: LaTeX/template-article_ajs.tex
+  html_document:
+    fig_caption: yes
+    fig_height: 7
+    fig_retina: 2
+    fig_width: 7
+    highlight: espresso
+    theme: cerulean
+    toc_float: no
+  md_document:
+    variant: markdown_github
   word_document:
     fig_caption: yes
     fig_height: 7
@@ -827,7 +827,7 @@ anova.cca(capscale(Y2 ~., cbind(E.Y2.red, S.Y2.red)), parallel = 4, step = 1000)
 
 \section*{Appendix C}
 
-\subsection*{Network graph of \textbeta-diversity}
+\subsection*{Network graphs of \textbeta-diversity}
 I delved deeper into the patterns of \textbeta-diversity by examining the properties of the full dissimilarity matrix, which gives regional \textbeta-diversity mentioned above. This matrix describes all pairwise combinations of sections (582 – 1 = 3363), and as such gives us a regional perspective [@Anderson2013]. The usual visualisation approach is to plot the dissimilarity metric as a function of geographical distance along the gradient or with respect to the distance between corresponding pairs of sections [*e.g.* @Nekola1999; @Davidar2007]; these visualisations are provided here. The plots of dissimilarities were colour-coded according to the bioregion to which the section pairs belong (the Benguela Marine Province (BMP; **1**–**17**), the Benguela-Agulhas Transition Zone (B-ATZ; **18**–**22**), the Agulhas Marine Province (AMP; **19**–**43**/**44** --- the location of this transition is somewhat uncertain at this stage) and the East Coast Transition Zone (ECTZ; **44**/**45**–**58**) [*sensu* @Bolton2004] to distinguish bioregional properties of species distribution from the wider geographical scale structure along the whole coastline. In doing so, the change in \textbeta-diversity per unit of separating distance between sections (km^-1^) could be calculated for each bioregion using linear regression. Since the connectivity between sections is constrained by their location along the shore, I calculated the distances between sections not as ‘as the crow ﬂies’ distances (*e.g.* Section **1** is not connected in a straight line to Section **58** because of the intervening land in-between), but as the great circle geodesic distances between each pair of sections along a network of connected sections (vertices on a network graph). In other words, travelling from Section **1** to Section **58** requires travelling first along the coast through Section **2**, then Section **3**, and eventually all the way up to Section **58**. The total distance between a pair of arbitrary sections is therefore the cumulative sum of the great circle distances between each consecutive pair of intervening sections along the ‘route’. This information is encapsulated as a square geodesic distance matrix, and can supply the distance along the abscissa against which species dissimilarities are plotted along the ordinate. The plots showing the relationship between \textbeta-diversity with distance are limited because they do not provide a geographical context. To overcome this problem, I relied on a visualisation technique not commonly found in biogeographical studies to explicitly provide the geographical context. I structured the sections as vertices of a network graph and assigned to them their geographical coordinates to force a familiar layout of the graph --- when plotted on geographic coordinates, the sections form a map of South Africa. The species dissimilarities were assigned as edge weights (the lines connecting the **58** coastal sections) between pairs of sections, and added to the map. The weights are directly proportional to the thickness of the edges, and colours assigned to vertices (points, or the 58 coastal sections) cluster the sections into their bioregions. Initially I used the **igraph** package that many people rave about, but I found it bothersome. So I devised a cunning way to create network graphs from scratch with some **dplyr** and **ggplot2** magick. I suppose that if I really wanted to I could have made neat functions here (and elsewhere) to reduce some of the repetitive nature of my code, but I really coudn't be bother doing that.
 
 ```{r network-graphs}

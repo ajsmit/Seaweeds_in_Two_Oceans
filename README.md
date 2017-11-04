@@ -2,7 +2,7 @@
 Supporting material for the paper: Smit AJ, Bolton JJ, Anderson RJ (in review) 
 Seaweeds in two oceans: beta-diversity. Frontiers in Marine Science
 
-## Abstract
+## 1. Abstract
 Several species assembly mechanisms have been proposed to structure
 ecological communities. We assess the biogeography of seaweeds along
 2,900 km of South Africa’s coastline in relation to a thermal gradient
@@ -31,15 +31,19 @@ and species-rich south and east coast floras, and this separation
 continues to maintain two systems of community structuring mechanisms in
 the Atlantic and Indian Ocean influenced sides of South Africa.
 
-## Spatial analysis background and code
+**The text below correspond to Appendices B and C of the paper.**
+
+## 2. Appendix B
+
+### 2.1 Spatial analysis background and code
 The intention of this section is to show the approach and **R** scripts used to pull apart the spatial scales at which seaweed assemblages are structured around the coast of South Africa. Specifically, I wish to determine if these scales match those expressed by the coastal thermal provinces and the ocean regime underpinned by the Agulhas and Benguela Currents.
 
-### The data
+#### 2.1.1 The data
 I use two data sets. The first, *Y*, comprises distribution records of 846 macroalgal species within each of 58 × 50 km-long sections (Appendix A) of the South African coast (updated from Bolton and Stegenga, 2002). This represents *ca*. 90% of the known seaweed flora of South Africa, but excludes some very small and/or very rare species for which data are insufficient. The data are from verifiable literature sources and John Bolton and Rob Anderson's own collections, assembled from information collected by teams of phycologists over three decades (Bolton, 1986; Bolton and Stegenga, 2002; De Clerck et al., 2005; Stegenga et al., 1997). The second, *E*, is a dataset of *in situ* coastal seawater temperatures (Smit et al., 2013) derived from daily measurements over up to 40 years.
 
 A third data set of explanatory variables --- the spatial variables (*S*) --- is constructed as per the instructions in section *Preparation of spatial variables*, later on.
 
-### Setting up the analysis environment
+#### 2.1.2 Setting up the analysis environment
 This is **R**, so first I need to find, install and load various packages. Some of the packages will be available on CRAN and can be accessed and installed in the usual way, but others will have to be downloaded from [R Forge](https://r-forge.r-project.org/R/?group_id=195).
 
 ``` r
@@ -114,7 +118,7 @@ sites <- sites[, c(2, 1)]
 bioreg <- read.csv('data/bioregions.csv', header = TRUE)
 ```
 
-### Preparation of spatial variables
+#### 2.1.3 Preparation of spatial variables
 I test the niche difference mechanism as the primary species compositional assembly process operating along South African shores. I suggest that the thermal gradient along the coast provides a suite of abiotic (thermal) conditions from which species can select based on their physiological tolerances, and hence this will structure -diversity. For this mechanism to function one would assume that all species have equal access to all sections along this stretch of coast, thus following Beijerinck’s 'Law' that everything is everywhere but the environment selects (Sauer, 1988) (but see main text!).
 
 The basic approach to a spatial analysis structured around a biological response (*e.g.* community structure and composition; *Y*), environmental variables (*E*) and their spatial representation (*S*) involves an analysis of Moran's eigenvector maps (MEM), followed by db-RDA and variance partitioning. Various literature sources discuss principle behind Moran's eigenvector maps (Dray et al., 2006, 2012). Worked examples are also presented in the excellent book *Numerical Ecology with R* (Borcard et al., 2011) in Section 7.4. The method followed here has been adapted from these and other sources.
@@ -168,7 +172,7 @@ The code below lets us visualise the configuration of the 58 coastal sections as
 plot(S.auto$spanning, sites)
 ```
 
-### db-RDA on the MEMs
+#### 2.1.4 db-RDA on the MEMs
 The next step of the spatial analysis is to apply a db-RDA with the seaweed data (*Y*1 and *Y*2) coupled with the MEMs. I now run a full (global) db-RDA on the significant, positive MEMs selected above, and I then perform a permutation test to see if the fit is significant.
 
 ``` r
@@ -267,7 +271,7 @@ sum(S.Y2.s2$CCA$eig) / S.Y2.s2$tot.chi * 100
 scores(S.Y2.s2, display = "bp", choices = c(1:4))
 ```
 
-### A few visualisations
+#### 2.1.5 A few visualisations
 Now I make a visualisation to reveal the spatial arrangement of the MEMs used in the final db-RDA involving the spatial variables (*i.e.* and ). The spatial configuration relates to broad scales as seen in Fig. 3 in the paper. Here are plots of the site scores for the MEMs and *Y*1 and *Y*2 (a few panels belonging with Fig. 3):
 
 ``` r
@@ -378,7 +382,7 @@ S.Y2.p <- ggplot(data = S.Y2.df_sites, aes(x, y, colour = Bioregion)) +
         aspect.ratio = 0.8)
 ```
 
-### Analysis of the thermal variables
+#### 2.1.6 Analysis of the thermal variables
 As before with the spatial variable, I now do a db-RDA involving all the thermal variables (*E*) followed by forward selection. There is less explanation provided here as the reader should now be familiar with db-RDA --- the procedure is the same as with the MEMs, just different explanatory variables are supplied. Another difference is that the thermal variables are not necessarily orthogonal, so I check for collinearity using variance inflation factors (VIF).
 
 I start with the full model and then run forward selection and repeat the db-RDA on the reduced set. Analyses shown for *Y*1 and *Y*2:
@@ -628,7 +632,7 @@ And I do the same with assembling the panels that form Fig. 3 in the paper:
 # dev.off()
 ```
 
-### Partitioning of variance
+### 2.2 Partitioning of variance
 Lastly, using **vegan**'s `varpart()` function, I partition the variance between the MEM variables and the thermal variables (Peres-Neto and Legendre, 2010; Peres-Neto et al., 2006).
 
 ``` r
@@ -698,7 +702,9 @@ anova.cca(capscale(Y2 ~., S.Y2.red), parallel = 4, step = 1000)
 anova.cca(capscale(Y2 ~., cbind(E.Y2.red, S.Y2.red)), parallel = 4, step = 1000)
 ```
 
-### Network graph of β-diversity
+## 3 Appendix C
+
+### 3.1 Network graphs of β-diversity
 I delved deeper into the patterns of -diversity by examining the properties of the full dissimilarity matrix, which gives regional -diversity mentioned above. This matrix describes all pairwise combinations of sections (582 – 1 = 3363), and as such gives us a regional perspective (Anderson et al., 2013). The usual visualisation approach is to plot the dissimilarity metric as a function of geographical distance along the gradient or with respect to the distance between corresponding pairs of sections (Davidar et al., 2007; *e.g.* Nekola et al., 1999); these visualisations are provided here. The plots of dissimilarities were colour-coded according to the bioregion to which the section pairs belong (the Benguela Marine Province (BMP; **1**–**17**), the Benguela-Agulhas Transition Zone (B-ATZ; **18**–**22**), the Agulhas Marine Province (AMP; **19**–**43**/**44** --- the location of this transition is somewhat uncertain at this stage) and the East Coast Transition Zone (ECTZ; **44**/**45**–**58**) (*sensu* Bolton and Anderson, 2004) to distinguish bioregional properties of species distribution from the wider geographical scale structure along the whole coastline. In doing so, the change in -diversity per unit of separating distance between sections (km<sup>-1</sup>) could be calculated for each bioregion using linear regression. Since the connectivity between sections is constrained by their location along the shore, I calculated the distances between sections not as ‘as the crow ﬂies’ distances (*e.g.* Section **1** is not connected in a straight line to Section **58** because of the intervening land in-between), but as the great circle geodesic distances between each pair of sections along a network of connected sections (vertices on a network graph). In other words, travelling from Section **1** to Section **58** requires travelling first along the coast through Section **2**, then Section **3**, and eventually all the way up to Section **58**. The total distance between a pair of arbitrary sections is therefore the cumulative sum of the great circle distances between each consecutive pair of intervening sections along the ‘route’. This information is encapsulated as a square geodesic distance matrix, and can supply the distance along the abscissa against which species dissimilarities are plotted along the ordinate. The plots showing the relationship between -diversity with distance are limited because they do not provide a geographical context. To overcome this problem, I relied on a visualisation technique not commonly found in biogeographical studies to explicitly provide the geographical context. I structured the sections as vertices of a network graph and assigned to them their geographical coordinates to force a familiar layout of the graph --- when plotted on geographic coordinates, the sections form a map of South Africa. The species dissimilarities were assigned as edge weights (the lines connecting the **58** coastal sections) between pairs of sections, and added to the map. The weights are directly proportional to the thickness of the edges, and colours assigned to vertices (points, or the 58 coastal sections) cluster the sections into their bioregions. Initially I used the **igraph** package that many people rave about, but I found it bothersome. So I devised a cunning way to create network graphs from scratch with some **dplyr** and **ggplot2** magick. I suppose that if I really wanted to I could have made neat functions here (and elsewhere) to reduce some of the repetitive nature of my code, but I really coudn't be bother doing that.
 
 ``` r
@@ -828,7 +834,7 @@ And that's it, folks. You'll notice that I haven't reproduced Fig. 5 here. I'll 
 
 Legalise seaweed!
 
-## References
+## 4. References
 Anderson, M. J., Tolimieri, N., and Millar, R. B. (2013). Beta diversity of demersal fish assemblages in the North-Eastern Pacific: interactions of latitude and depth. *PLOS ONE* 8, e57918.
 
 Baselga, A. (2010). Partitioning the turnover and nestedness components of beta diversity. *Global Ecology and Biogeography* 19, 134–143.
