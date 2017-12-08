@@ -8,19 +8,28 @@
 	"buffers":
 	[
 		{
-			"file": "frontiers_two_oceans.tex",
+			"file": "seaweed-bibliography.bib",
 			"settings":
 			{
-				"buffer_size": 66259,
+				"buffer_size": 41070,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "seaweed-bibliography.bib",
+			"contents": "We are not convinced we understand how the wave action can affect these data. To say again, each 50km coastal section has relatively sheltered and relatively wave exposed bits of coastline (as has been demonstrated by Emanuel et al, 1992 for several coastal stretches in South Africa), and these seaweed data are combined presence and absence data in the whole sections. We deliberately went out to collect species from all wave action levels (to make up as long a species list from each area as possible). If the west coast is more sheltered overall than the south coast etc., the wave action data may correlate somewhat with the seaweed data, but it would be spurious - correlation not causation.\n\nWe can think of seaweed aspects that might be affected by wave action patterns (obviously community data, and also small scale presence/absence), but these 50km presence/absence data would not show it, because of the way the data were compiled. In fact, the study by Bustamante and Branch (1996) in South Africa found that \"At a local scale, the community biomass on exposed shores was an order of magnitude greater than on sheltered shores, within all biogeographic provinces.\" It went on to say that \"Within all biogeographic provinces semi-exposed and sheltered shores were more diverse than exposed shores\". Their study found no effect on the identity of species within species lists representative of different sites classified w.r.t. exposure (similar findings by Bustamante et al, 1997); rather, the effect of waviness was strongly visible in biomass of various taxa. A difference between their study and our is that they looked at individual sites (i.e. a places with a set of geographic coordinates), some of which represented wave exposed conditions, other representing semi-exposed and sheltered areas. We have no doubt that if we could classify our collection sites (some of which are exposed and some of which are sheltered) to specific localities nested within the 58 coastal sections that we could detect differences in species richness and/or abundance between them. But currently we cannot do that.\n\nAs far as alpha diversity is concerned: That is a viable and good idea. We have made a bit more of it by stating these facts in the text. In fact, alpha-diversity is already displayed in Fig. 1, and we have added the corss-ref (Fig. 1, inset) to the text on line 211 to draw attention to this fact, but we added the following paragraph at the start of the Discussion section starting at line 296:\n\n\"In this paper, we considered the drivers of seaweed β-diversity at the scale of bioregions (marine provinces) nested within a ~2,900 km stretch of coastline. We examined β-diversity using a numerical ecological approach that permits assessing its spatial pattern independently of the influence of α-diversity \\citep{Baselga2013}, which in our study displays major regional differences. There are fewer species of macroalgae on the Benguela Current dominated west coast, as is also shown by studies on invertebrates and fishes \\citep{Thandar1989,Turpie2000}. There is a similar species richness per coastal section on the south coast and the east coast. This was not the case up until the early 2000s \\citep{Bolton2002}, when a more restricted data set showed more species per section on the south than east coast. This difference disappeared during the mid-2000s, when major collections on the south coast filled out the species lists available for the region \\citep{DeClerck2005}. Continuous sampling of over three decades has now resulted in a robust α-diversity data set, and it is still different from the animal data: fish and invertebrates become more abundant per section on the east coast (towards the tropics) but the seaweeds do not. This matches previously published global seaweed diversity patterns, which suggested that biogeographical seaweed diversity does not peak in the tropics. Globally, seaweed species diversity at a biogeographical scale is highest in warm temperate regions \\citep{Bolton1994,Santelices2009chapter}. Examining spatial trends in α-diversity on its own offers an incomplete understanding of the structuring of biodiversity at regional scales, and more insight may be obtained by looking at species richness (i.e. lists of species, such as which we use in this study) across two scales, sensu \\citet{Whittaker1972} --- i.e. α-diversity (species richness at the local scale, such as per coastal section) and γ-diversity (total species richness in all coastal sections). In this broad sense, the two scales of species richness are not independent, and the loss or gain in species from section to section will be seen in β-diversity. In this work, we employ \\citet{Baselga2010}'s framework to represent overall β-diversity as two components, one of which excludes the effect of regional differences in α-diversity.\"\"\n\n\nI have no problem with the seaweed data matrix being online.\n\nReferences\nBustamante, R., & Branch, G. (1996). Large scale patterns and trophic structure of southern African rocky shores: the roles of geographic variation and wave exposure. Journal of Biogeography, 23(3), 339-351.\n\nBustamante, R. H., Branch, G. M., & Eekhout, S. (1997). The influences of physical factors on the distribution and zonation patterns of South African rocky-shore communities. African Journal of Marine Science, 18.\n\nEmanuel, B. P., Bustamante, R. H., Branch, G. M., Eekhout, S., & Odendaal, F. J. (1992). A zoogeographic and functional approach to the selection of marine reserves on the west coast of South Africa. South African Journal of Marine Science, 12(1), 341-354.",
 			"settings":
 			{
-				"buffer_size": 40247,
+				"buffer_size": 5622,
+				"line_ending": "Unix",
+				"name": "We are not convinced we understand how the wave ac"
+			}
+		},
+		{
+			"file": "two_oceans.tex",
+			"settings":
+			{
+				"buffer_size": 68322,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -66,6 +75,7 @@
 	],
 	"file_history":
 	[
+		"/Users/ajsmit/Dropbox/repos/Seaweeds_in_Two_Oceans/LaTeX/frontiers_two_oceans.tex",
 		"/Users/ajsmit/Dropbox/repos/kelp_morphology/KelpSiteList.csv",
 		"/Users/ajsmit/Dropbox/repos/kelp_morphology/Morphology_Lamimaria.csv",
 		"/Users/ajsmit/Dropbox/repos/kelp_morphology/Morphology_Ecklonia.csv",
@@ -94,7 +104,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -108,6 +118,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\\textalpha",
+			"\\textbeta",
+			"β",
+			"Santelices",
+			"Bolton1994",
+			"Baselga",
+			"betapart",
+			"baselga",
+			"bolton",
+			"baselga",
+			"peres-neto"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -115,6 +136,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"α",
+			"β",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -125,147 +149,32 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "frontiers_two_oceans.tex",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 66259,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								55013,
-								55013
-							]
-						],
-						"settings":
-						{
-							"WordCount":
-							{
-								"changes": 868,
-								"count": 7717,
-								"modified": false,
-								"selection": false,
-								"status": -1,
-								"syntax": "plain text"
-							},
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
-							],
-							"git_gutter_is_enabled": true,
-							"side_bar_folders_auto_load_folder": 1,
-							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 15315.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "seaweed-bibliography.bib",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 40247,
+						"buffer_size": 41070,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								39971,
-								39971
+								16628,
+								16628
 							]
 						],
 						"settings":
 						{
 							"WordCount":
 							{
-								"changes": 10,
-								"count": 4930,
+								"changes": 59,
+								"count": 4977,
 								"modified": false,
 								"selection": false,
 								"status": -1,
@@ -276,27 +185,12 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										40246,
-										40247
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										39960,
-										39961
-									]
 								},
 								"unmatched":
 								{
@@ -304,16 +198,46 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -324,41 +248,11 @@
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
+								"bh_unmatched_content"
 							],
 							"git_gutter_is_enabled": true,
 							"side_bar_folders_auto_load_folder": 1,
@@ -366,10 +260,255 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 22012.0,
+						"translation.y": 8371.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5622,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5622,
+								0
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 1639,
+								"count": 875,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"auto_name": "We are not convinced we understand how the wave ac",
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"default_dir": "/Users/ajsmit/Dropbox/repos/Seaweeds_in_Two_Oceans/LaTeX",
+							"git_gutter_is_enabled": false,
+							"spell_check": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "two_oceans.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68322,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36129,
+								36149
+							]
+						],
+						"settings":
+						{
+							"WordCount":
+							{
+								"changes": 2412,
+								"count": 8008,
+								"modified": false,
+								"selection": false,
+								"status": -1,
+								"syntax": "plain text"
+							},
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										36148,
+										36149
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										36135,
+										36136
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"git_gutter_is_enabled": true,
+							"side_bar_folders_auto_load_folder": 1,
+							"spell_check": true,
+							"syntax": "Packages/LaTeXing/support/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 9819.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -377,7 +516,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 25.0
 	},
 	"input":
 	{
@@ -418,7 +557,7 @@
 	"project": "Seaweeds_in_Two_Oceans.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":

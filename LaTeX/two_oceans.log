@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.25)  1 NOV 2017 18:50
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.25)  26 NOV 2017 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**frontiers_two_oceans
-(./frontiers_two_oceans.tex
+**two_oceans
+(./two_oceans.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (./frontiersSCNS.cls
@@ -1274,8 +1274,8 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen259
 \titlewidthfirst=\dimen260
 )
-(./frontiers_two_oceans.aux)
-\openout1 = `frontiers_two_oceans.aux'.
+(./two_oceans.aux)
+\openout1 = `two_oceans.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
@@ -1321,9 +1321,9 @@ LaTeX Info: Redefining \ref on input line 88.
 LaTeX Info: Redefining \pageref on input line 88.
 LaTeX Info: Redefining \nameref on input line 88.
 
-(./frontiers_two_oceans.out) (./frontiers_two_oceans.out)
+(./two_oceans.out) (./two_oceans.out)
 \@outlinefile=\write3
-\openout3 = `frontiers_two_oceans.out'.
+\openout3 = `two_oceans.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 88.
 Package microtype Info: Character protrusion enabled (level 2),
@@ -1588,38 +1588,32 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [7]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+! Misplaced alignment tab character &.
+l.199 ...e case up until the early 2000s (Bolton &
+                                                   Stegenga 2002), when a mo...
 
+? 
+! Emergency stop.
+l.199 ...e case up until the early 2000s (Bolton &
+                                                   Stegenga 2002), when a mo...
+End of file on the terminal!
 
-[8]
-Underfull \hbox (badness 1616) in paragraph at lines 205--206
-[]\TU/MinionPro(0)/m/n/12 The oceanographic features of the Benguela and Agulha
-s Currents set up gradients in seawater
- []
-
-
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
-
-[9]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
-
-[10]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
-
-[11]
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
-
-[12]
-Underfull \hbox (badness 1286) in paragraph at lines 235--237
+ 
+Here is how much of TeX's memory you used:
+ 26759 strings out of 493068
+ 513292 string characters out of 6135636
+ 614953 words of memory out of 5000000
+ 30282 multiletter control sequences out of 15000+600000
+ 8784 words of font info for 76 fonts, out of 8000000 for 9000
+ 1351 hyphenation exceptions out of 8191
+ 60i,8n,117p,10410b,823s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on two_oceans.pdf (7 pages).
+at lines 235--237
 \TU/MinionPro(0)/m/n/12 programme “Thermal characteristics of the South African
  nearshore: implications for biodiversity”
  []
 
-(./frontiers_two_oceans.bbl
+(./two_oceans.bbl
 Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
@@ -1632,17 +1626,17 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 
 
 [15]
-Underfull \hbox (badness 1221) in paragraph at lines 529--535
+Overfull \vbox (3.49998pt too high) has occurred while \output is active []
+
+
+[16]
+Underfull \hbox (badness 1221) in paragraph at lines 543--549
 []\TU/MinionPro(0)/m/n/12 van den Hoek, C. (1982a).  Phytogeographic distributi
 on groups of benthic marine algae in the
  []
 
 
-Overfull \vbox (3.49998pt too high) has occurred while \output is active []
-
-
-[16]
-Underfull \hbox (badness 1199) in paragraph at lines 589--594
+Underfull \hbox (badness 1199) in paragraph at lines 603--608
 []\TU/MinionPro(0)/m/n/12 Wieters, E. A., Broitman, B. R., and Branch, G. M. (2
 009).  Benthic community structure and
  []
@@ -1725,7 +1719,7 @@ Overfull \vbox (3.49998pt too high) has occurred while \output is active []
 [24]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 393.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 393.
- (./frontiers_two_oceans.aux)
+ (./two_oceans.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 393.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 393.
 
@@ -1735,12 +1729,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 27030 strings out of 493068
- 518608 string characters out of 6135636
- 632035 words of memory out of 5000000
- 30460 multiletter control sequences out of 15000+600000
+ 27038 strings out of 493068
+ 518618 string characters out of 6135636
+ 632071 words of memory out of 5000000
+ 30466 multiletter control sequences out of 15000+600000
  8816 words of font info for 80 fonts, out of 8000000 for 9000
  1351 hyphenation exceptions out of 8191
- 60i,13n,117p,10420b,978s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,117p,10410b,960s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on frontiers_two_oceans.pdf (24 pages).
+Output written on two_oceans.pdf (24 pages).

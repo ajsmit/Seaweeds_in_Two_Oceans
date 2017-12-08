@@ -1,4 +1,4 @@
-\begin{thebibliography}{77}
+\begin{thebibliography}{79}
 \providecommand{\natexlab}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
@@ -386,11 +386,12 @@ Qian, H. and Ricklefs, R.~E. (2007).
 \bibAnnoteFile{R2017}
 
 \bibitem[{Santelices et~al.(2009)Santelices, Bolton, and
-  Meneses}]{Santelices2009}
-Santelices, B., Bolton, J., and Meneses, I. (2009).
-\newblock Chapter 6. marine algal communities.
-\newblock \emph{Marine macroecology} , 153
-\bibAnnoteFile{Santelices2009}
+  Meneses}]{Santelices2009chapter}
+Santelices, B., Bolton, J.~J., and Meneses, I. (2009).
+\newblock Marine algal communities.
+\newblock In \emph{Marine macroecology}, eds. J.~D. Witman and K.~Roy
+  (University of Chicago Press), chap.~10. 153--192
+\bibAnnoteFile{Santelices2009chapter}
 
 \bibitem[{Schils and Wilson(2006)}]{Schils2006}
 Schils, T. and Wilson, S.~C. (2006).
@@ -490,6 +491,12 @@ Stuart-Smith, R.~D., Edgar, G.~J., and Bates, A.~E. (2017).
 \newblock \emph{Nature Ecology {\&} Evolution} , 1--9
 \bibAnnoteFile{StuartSmith2017b}
 
+\bibitem[{Thandar(1989)}]{Thandar1989}
+Thandar, A. (1989).
+\newblock Zoogeography of the southern african echinoderm fauna.
+\newblock \emph{African Zoology} 24, 311--318
+\bibAnnoteFile{Thandar1989}
+
 \bibitem[{Tittensor et~al.(2010)Tittensor, Mora, Jetz, Lotze, Ricard, Berghe
   et~al.}]{Tittensor2010}
 Tittensor, D.~P., Mora, C., Jetz, W., Lotze, H.~K., Ricard, D., Berghe, E.~V.,
@@ -506,6 +513,13 @@ Tonial, M., Silva, H., Tonial, I., Costa, M., {Silva J\'{u}nior}, N.~J., and
   components of beta-diversity in faunas from Tocantins river valley}.
 \newblock \emph{Brazilian Journal of Biology} 72, 497--504
 \bibAnnoteFile{Tonial2012}
+
+\bibitem[{Turpie et~al.(2000)Turpie, Beckley, and Katua}]{Turpie2000}
+Turpie, J.~K., Beckley, L.~E., and Katua, S.~M. (2000).
+\newblock Biogeography and the selection of priority areas for conservation of
+  south african coastal fishes.
+\newblock \emph{Biological Conservation} 92, 59--72
+\bibAnnoteFile{Turpie2000}
 
 \bibitem[{Tuya et~al.(2012)Tuya, Cacabelos, Duarte, Jacinto, Castro, Silva
   et~al.}]{Tuya2012}

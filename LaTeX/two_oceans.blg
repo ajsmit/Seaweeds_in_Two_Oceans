@@ -1,47 +1,47 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: frontiers_two_oceans.aux
+The top-level auxiliary file: two_oceans.aux
 The style file: frontiersinSCNS_ENG_HUMS.bst
 Database file #1: seaweed-bibliography.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 77 entries,
+You've used 79 entries,
             3027 wiz_defined-function locations,
-            1136 strings with 21790 characters,
-and the built_in function-call counts, 55426 in all, are:
-= -- 4634
-> -- 3193
-< -- 26
-+ -- 1580
-- -- 865
-* -- 4022
-:= -- 8177
-add.period$ -- 156
-call.type$ -- 77
-change.case$ -- 674
-chr.to.int$ -- 78
-cite$ -- 154
-duplicate$ -- 3466
-empty$ -- 3702
-format.name$ -- 1076
-if$ -- 11179
+            1152 strings with 22142 characters,
+and the built_in function-call counts, 56910 in all, are:
+= -- 4767
+> -- 3245
+< -- 28
++ -- 1602
+- -- 879
+* -- 4125
+:= -- 8387
+add.period$ -- 161
+call.type$ -- 79
+change.case$ -- 690
+chr.to.int$ -- 80
+cite$ -- 158
+duplicate$ -- 3575
+empty$ -- 3822
+format.name$ -- 1095
+if$ -- 11493
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 820
-newline$ -- 476
-num.names$ -- 310
-pop$ -- 1642
+missing$ -- 843
+newline$ -- 488
+num.names$ -- 320
+pop$ -- 1684
 preamble$ -- 1
-purify$ -- 595
+purify$ -- 607
 quote$ -- 0
-skip$ -- 2104
+skip$ -- 2151
 stack$ -- 0
-substring$ -- 2539
-swap$ -- 1737
-text.length$ -- 0
+substring$ -- 2628
+swap$ -- 1796
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 690
+type$ -- 708
 warning$ -- 0
-while$ -- 365
+while$ -- 378
 width$ -- 0
-write$ -- 1085
+write$ -- 1116
